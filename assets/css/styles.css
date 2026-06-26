@@ -132,10 +132,39 @@ html[data-theme="light"] .chip{background:rgba(7,17,31,.04)}
 .profile-info{padding:8px 4px 4px}
 .profile-info h2{font-size:22px;line-height:1.2;margin:0 0 8px;letter-spacing:-.03em}
 .profile-info p{margin:0;color:var(--muted);font-size:14px}
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
-.stat{padding:13px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--line)}
-.stat strong{display:block;font-size:20px;line-height:1;color:var(--text)}
-.stat span{display:block;font-size:12px;color:var(--muted);margin-top:5px}
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.stat {
+  padding: 24px 26px;
+  min-height: 150px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat strong {
+  display: block;
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #071225;
+  white-space: nowrap;
+  margin-bottom: 14px;
+}
+
+.stat span {
+  display: block;
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  line-height: 1.55;
+  color: #40546d;
+}
 .affiliation{display:grid;gap:8px;margin-top:4px}
 .affiliation div{display:flex;gap:9px;align-items:flex-start;color:var(--muted);font-size:13px}
 .affiliation svg{width:18px;height:18px;color:var(--accent);flex:0 0 auto;margin-top:2px}
