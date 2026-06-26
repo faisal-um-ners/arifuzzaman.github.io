@@ -111,7 +111,7 @@ html[data-theme="light"] .navlinks a:hover,html[data-theme="light"] .navlinks a.
 .hero-copy::after,.panel-glow::after{content:"";position:absolute;inset:auto -20% -45% -20%;height:220px;background:radial-gradient(circle,rgba(0,180,216,.19),transparent 66%);pointer-events:none}
 .kicker{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-4);font-weight:750;margin:0 0 16px}
 .kicker::before{content:"";width:34px;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-3));border-radius:99px}
-h1{font-size:clamp(38px,6vw,76px);line-height:.96;letter-spacing:-.06em;margin:0 0 18px;max-width:780px}
+h1{font-size:clamp(38px,5vw,76px);line-height:.96;letter-spacing:-.04em;margin:0 0 18px;max-width:780px}
 .lede{font-size:clamp(17px,2vw,21px);color:var(--muted);margin:0 0 24px;max-width:760px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:24px 0 20px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:11px;border:1px solid var(--line);padding:12px 16px;background:rgba(255,255,255,.05);color:var(--text);font-weight:800;text-decoration:none}
