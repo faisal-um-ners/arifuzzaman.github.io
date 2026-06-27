@@ -83,7 +83,7 @@ img{max-width:100%;display:block}
 .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent-3));z-index:999}
 
 .container{width:min(var(--max),calc(100% - 40px));margin:0 auto}
-.section{scroll-margin-top:calc(var(--nav) + 24px);padding:54px 0 0}
+.section{scroll-margin-top:calc(var(--nav) + 24px);padding:34px 0 0}
 
 .nav{
   position:sticky;top:0;z-index:80;
