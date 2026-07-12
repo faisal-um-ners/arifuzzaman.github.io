@@ -1257,3 +1257,209 @@ svg{display:block}
 @media (prefers-reduced-motion:reduce){
   .plasma-atmosphere *{animation:none!important}
 }
+
+/* =========================================================
+   Enhanced ion-electron coupling across the hero domain
+   Adds an ambipolar mixing region, interaction channel,
+   paired charge clusters, and subtle collective drift.
+========================================================= */
+
+/* Keep the new interaction field below the existing particles. */
+.plasma-atmosphere::before,
+.plasma-atmosphere::after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:0;
+}
+.plasma-atmosphere > span{
+  z-index:1;
+}
+
+/* Ambipolar mixing region: blue ions and soft rose electrons overlap. */
+.plasma-atmosphere::before{
+  left:10%;
+  top:10%;
+  width:82%;
+  height:76%;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 28% 53%,
+      rgba(232,119,139,.105) 0,
+      rgba(232,119,139,.060) 17%,
+      rgba(232,119,139,.018) 34%,
+      transparent 55%),
+    radial-gradient(circle at 72% 47%,
+      rgba(53,148,227,.125) 0,
+      rgba(53,148,227,.068) 18%,
+      rgba(53,148,227,.020) 36%,
+      transparent 57%),
+    radial-gradient(ellipse at 50% 51%,
+      rgba(255,203,5,.070) 0,
+      rgba(255,203,5,.025) 23%,
+      transparent 48%);
+  filter:blur(10px);
+  opacity:.94;
+}
+
+/* A long, faint interaction channel through the plasma domain. */
+.plasma-atmosphere::after{
+  left:12%;
+  top:26%;
+  width:76%;
+  height:42%;
+  border-radius:50%;
+  transform:rotate(-4deg);
+  border-top:1px solid rgba(65,151,224,.085);
+  border-bottom:1px solid rgba(226,119,137,.065);
+  background:
+    radial-gradient(circle,rgba(61,151,228,.42) 0 1.7px,transparent 2.8px) 0 0/86px 58px,
+    radial-gradient(circle,rgba(226,119,137,.34) 0 1.5px,transparent 2.6px) 40px 24px/96px 62px,
+    radial-gradient(circle,rgba(235,183,8,.28) 0 1.4px,transparent 2.5px) 18px 42px/130px 78px,
+    repeating-radial-gradient(ellipse at 50% 50%,
+      transparent 0 42px,
+      rgba(66,151,224,.045) 43px 44px,
+      transparent 45px 70px,
+      rgba(226,119,137,.034) 71px 72px,
+      transparent 73px 98px);
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 0 57%,rgba(0,0,0,.75) 68%,transparent 86%);
+  mask-image:radial-gradient(ellipse at center,#000 0 57%,rgba(0,0,0,.75) 68%,transparent 86%);
+  opacity:.66;
+}
+
+/* Bring the visible ion and electron markers into the shared domain. */
+.plasma-ion-core{
+  right:11%;
+  top:42%;
+  opacity:.48;
+  box-shadow:
+    0 0 0 8px rgba(44,131,204,.032),
+    0 0 30px rgba(44,131,204,.14),
+    -56px 10px 48px rgba(44,131,204,.045);
+}
+.plasma-electron-core{
+  left:10%;
+  top:46%;
+  opacity:.47;
+  box-shadow:
+    0 0 0 8px rgba(221,112,131,.028),
+    0 0 30px rgba(221,112,131,.12),
+    56px -8px 48px rgba(221,112,131,.040);
+}
+
+/* Arrange the small particles as several ion-electron neighborhoods. */
+.particle-01{left:18%;top:31%;width:6px;height:6px}
+.particle-02{left:21%;top:34%;width:5px;height:5px}
+.particle-03{left:24%;top:29%;width:4px;height:4px}
+
+.particle-04{left:37%;top:57%;width:7px;height:7px}
+.particle-05{left:40%;top:54%;width:5px;height:5px}
+.particle-06{left:43%;top:59%;width:5px;height:5px}
+
+.particle-07{left:55%;top:39%;width:5px;height:5px}
+.particle-08{left:58%;top:43%;width:6px;height:6px}
+.particle-12{left:61%;top:40%;width:4px;height:4px}
+
+.particle-09{left:73%;top:56%;width:6px;height:6px}
+.particle-10{left:76%;top:53%;width:5px;height:5px}
+.particle-11{left:79%;top:58%;width:5px;height:5px}
+
+/* Slightly larger mutual halos make nearby opposite charges read as coupled. */
+.plasma-ion,
+.plasma-electron{
+  opacity:.55;
+}
+.plasma-ion::after,
+.plasma-electron::after{
+  inset:-7px;
+  opacity:.62;
+}
+
+/* Slow collective drift, intentionally subtle and non-distracting. */
+@keyframes ionCouplingDrift{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(5px,2px,0)}
+}
+@keyframes electronCouplingDrift{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(-5px,-2px,0)}
+}
+@keyframes plasmaCollectivePulse{
+  0%,100%{opacity:.44}
+  50%{opacity:.62}
+}
+
+.plasma-ion{
+  animation:ionCouplingDrift 8.5s ease-in-out infinite;
+}
+.plasma-electron{
+  animation:electronCouplingDrift 7.8s ease-in-out infinite;
+}
+.plasma-maize{
+  animation:plasmaCollectivePulse 6.8s ease-in-out infinite;
+}
+.particle-04,.particle-08,.particle-09{animation-delay:-2.2s}
+.particle-02,.particle-05,.particle-12{animation-delay:-3.4s}
+
+/* Slightly strengthen the field lines where the two populations overlap. */
+.plasma-filament-one{
+  border-top-color:rgba(71,151,220,.125);
+  box-shadow:0 -8px 28px rgba(71,151,220,.025);
+}
+.plasma-filament-three{
+  border-top-color:rgba(228,122,139,.105);
+  box-shadow:0 -8px 28px rgba(228,122,139,.022);
+}
+
+@media (max-width:900px){
+  .plasma-atmosphere::before{
+    left:2%;
+    top:12%;
+    width:96%;
+    height:78%;
+    opacity:.72;
+  }
+  .plasma-atmosphere::after{
+    left:3%;
+    top:31%;
+    width:94%;
+    height:38%;
+    opacity:.46;
+  }
+  .plasma-electron-core{left:4%;top:47%}
+  .plasma-ion-core{right:4%;top:55%}
+}
+
+@media (max-width:680px){
+  .plasma-atmosphere::before{
+    top:24%;
+    height:62%;
+    opacity:.48;
+    filter:blur(14px);
+  }
+  .plasma-atmosphere::after{
+    top:42%;
+    height:27%;
+    opacity:.27;
+    background:
+      radial-gradient(circle,rgba(61,151,228,.34) 0 1.5px,transparent 2.5px) 0 0/94px 66px,
+      radial-gradient(circle,rgba(226,119,137,.28) 0 1.4px,transparent 2.4px) 46px 28px/104px 70px,
+      repeating-radial-gradient(ellipse at 50% 50%,transparent 0 48px,rgba(66,151,224,.035) 49px 50px,transparent 51px 80px);
+  }
+  .plasma-ion-core,
+  .plasma-electron-core{
+    opacity:.30;
+  }
+  .plasma-ion,
+  .plasma-electron{
+    animation-duration:10s;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .plasma-ion,
+  .plasma-electron,
+  .plasma-maize{
+    animation:none!important;
+  }
+}
