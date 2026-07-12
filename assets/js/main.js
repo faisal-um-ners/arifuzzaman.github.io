@@ -1,3 +1,27 @@
+// Three-second vacuum-diode preloader.
+(() => {
+  const preloader = document.getElementById('sitePreloader');
+  if (!preloader) return;
+
+  const duration = 2000;
+  const startedAt = Number(window.__preloaderStartedAt) || performance.now();
+  const elapsed = Math.max(0, performance.now() - startedAt);
+  const remaining = Math.max(0, duration - elapsed);
+
+  const revealWebsite = () => {
+    preloader.classList.add('is-hiding');
+    document.body.classList.remove('is-loading');
+    document.body.setAttribute('aria-busy', 'false');
+
+    window.setTimeout(() => {
+      preloader.hidden = true;
+      preloader.remove();
+    }, 650);
+  };
+
+  window.setTimeout(revealWebsite, remaining);
+})();
+
 (() => {
   const body = document.body;
   const header = document.getElementById('siteHeader');
