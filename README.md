@@ -34,3 +34,7 @@ The hero background now uses a light plasma-science visual system while preservi
 6. Save and wait for deployment.
 
 No build step or external framework is required.
+
+## Plasma background update
+
+The hero now has stronger visual coupling between the ion and electron populations through an ambipolar mixing region, a faint interaction channel, grouped opposite-charge particles, overlapping halos, and slow collective drift. The treatment remains light so the text stays readable.
