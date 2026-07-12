@@ -38,3 +38,18 @@ No build step or external framework is required.
 ## Plasma background update
 
 The hero now has stronger visual coupling between the ion and electron populations through an ambipolar mixing region, a faint interaction channel, grouped opposite-charge particles, overlapping halos, and slow collective drift. The treatment remains light so the text stays readable.
+
+## Three-second vacuum-diode preloader
+
+The site now opens with a full-screen, lightweight CSS animation showing electrons emitted from a negative cathode, accelerated through a vacuum gap, and collected by a positive anode.
+
+- Duration: 3 seconds
+- Implementation: HTML + CSS + JavaScript only
+- No video, GIF, or external animation library is required
+- The page remains behind the overlay and is revealed with a short fade
+- Mobile and reduced-motion layouts are included
+
+To change the duration, edit both of these values:
+
+1. `const duration = 3000;` near the top of `assets/js/main.js`
+2. `animation: preloaderProgress 3s linear forwards;` in `assets/css/styles.css`
