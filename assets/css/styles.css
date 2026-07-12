@@ -1463,3 +1463,444 @@ svg{display:block}
     animation:none!important;
   }
 }
+
+/* =========================================================
+   Three-second vacuum-diode preloader
+   Cathode emission -> accelerated electron transport -> anode
+========================================================= */
+body.is-loading{
+  overflow:hidden;
+}
+
+.site-preloader{
+  position:fixed;
+  inset:0;
+  z-index:30000;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  overflow:hidden;
+  color:var(--navy);
+  background:
+    radial-gradient(circle at 18% 52%,rgba(230,116,136,.105),transparent 31%),
+    radial-gradient(circle at 82% 48%,rgba(53,148,227,.135),transparent 34%),
+    radial-gradient(circle at 50% 86%,rgba(255,203,5,.075),transparent 32%),
+    linear-gradient(90deg,rgba(7,41,77,.035) 1px,transparent 1px),
+    linear-gradient(rgba(7,41,77,.035) 1px,transparent 1px),
+    linear-gradient(180deg,#fcfeff 0%,#f2f7fb 100%);
+  background-size:auto,auto,auto,52px 52px,52px 52px,auto;
+  opacity:1;
+  visibility:visible;
+  transition:opacity .55s ease,visibility .55s ease;
+}
+
+.site-preloader::before,
+.site-preloader::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
+.site-preloader::before{
+  width:min(72vw,920px);
+  height:min(31vw,380px);
+  border:1px solid rgba(44,131,204,.10);
+  transform:rotate(-8deg);
+  box-shadow:
+    0 0 0 52px rgba(44,131,204,.018),
+    0 0 0 104px rgba(226,119,137,.012);
+}
+.site-preloader::after{
+  width:430px;
+  height:430px;
+  left:-220px;
+  bottom:-250px;
+  background:radial-gradient(circle,rgba(255,203,5,.12),transparent 68%);
+  filter:blur(3px);
+}
+
+.site-preloader.is-hiding{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.preloader-shell{
+  position:relative;
+  z-index:1;
+  width:min(720px,100%);
+  text-align:center;
+}
+
+.preloader-kicker{
+  display:none;
+
+  margin:0 0 14px;
+  color:var(--blue);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.diode-loader{
+  position:relative;
+  height:250px;
+  overflow:hidden;
+  border:1px solid rgba(185,203,219,.9);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 14% 50%,rgba(229,116,135,.10),transparent 27%),
+    radial-gradient(circle at 86% 50%,rgba(49,143,221,.12),transparent 29%),
+    linear-gradient(90deg,rgba(7,41,77,.028) 1px,transparent 1px),
+    linear-gradient(rgba(7,41,77,.028) 1px,transparent 1px),
+    rgba(255,255,255,.92);
+  background-size:auto,auto,34px 34px,34px 34px,auto;
+  box-shadow:
+    0 24px 70px rgba(7,41,77,.12),
+    inset 0 1px 0 rgba(255,255,255,.96);
+}
+
+.diode-loader::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:18px;
+  transform:translateX(-50%);
+  color:#74869a;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+.diode-loader::after{
+  content:"";
+  position:absolute;
+  left:14%;
+  right:14%;
+  top:50%;
+  height:1px;
+  background:linear-gradient(90deg,
+    rgba(226,119,137,.12),
+    rgba(255,203,5,.13) 48%,
+    rgba(49,143,221,.17));
+  box-shadow:0 0 24px rgba(61,151,228,.08);
+}
+
+.diode-electrode{
+  position:absolute;
+  top:50%;
+  z-index:4;
+  width:84px;
+  height:176px;
+  transform:translateY(-50%);
+}
+
+.diode-cathode{left:58px}
+.diode-anode{right:58px}
+
+.diode-plate{
+  position:absolute;
+  top:24px;
+  bottom:24px;
+  width:24px;
+  border-radius:8px;
+  border:1px solid rgba(7,41,77,.22);
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.50),transparent 34%),
+    linear-gradient(180deg,#103c66,#07294d);
+  box-shadow:
+    0 12px 26px rgba(7,41,77,.20),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.diode-cathode .diode-plate{
+  left:12px;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.22),transparent 36%),
+    linear-gradient(180deg,#2c2f34,#080a0d);
+  box-shadow:
+    0 12px 26px rgba(15,18,22,.22),
+    14px 0 34px rgba(15,18,22,.10),
+    inset 0 0 0 1px rgba(255,255,255,.06);
+}
+
+.diode-anode .diode-plate{
+  right:12px;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.30),transparent 34%),
+    linear-gradient(180deg,#df667f,#b53a56);
+  box-shadow:
+    0 12px 26px rgba(181,58,86,.20),
+    -14px 0 34px rgba(224,117,135,.09),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.diode-anode .diode-plate::before{
+  content:none;
+  display:none;
+}
+
+.diode-polarity{
+  position:absolute;
+  top:0;
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#fff;
+  font-size:20px;
+  font-weight:700;
+  line-height:1;
+  box-shadow:0 7px 18px rgba(7,41,77,.09);
+}
+.diode-cathode .diode-polarity{
+  left:9px;
+  color:#222831;
+  border:1px solid rgba(34,40,49,.18);
+}
+.diode-anode .diode-polarity{
+  right:9px;
+  color:#c94862;
+  border:1px solid rgba(201,72,98,.24);
+}
+
+.diode-label{
+  display:none;
+  position:absolute;
+  bottom:0;
+  color:#53677c;
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.diode-cathode .diode-label{left:0}
+.diode-anode .diode-label{right:0}
+
+.diode-vacuum-gap{
+  position:absolute;
+  left:96px;
+  right:96px;
+  top:34px;
+  bottom:34px;
+  overflow:hidden;
+}
+
+.diode-field-line{
+  position:absolute;
+  left:5%;
+  right:5%;
+  height:1px;
+  background:linear-gradient(90deg,
+    rgba(225,118,137,.06),
+    rgba(87,155,214,.15));
+}
+.diode-field-line::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:7px;
+  height:7px;
+  border-top:1px solid rgba(44,131,204,.23);
+  border-right:1px solid rgba(44,131,204,.23);
+  transform:translateY(-50%) rotate(45deg);
+}
+.field-line-1{top:28%;opacity:.55}
+.field-line-2{top:50%;opacity:.8}
+.field-line-3{top:72%;opacity:.55}
+
+.emission-cloud{
+  position:absolute;
+  left:0;
+  top:50%;
+  width:92px;
+  height:126px;
+  transform:translateY(-50%);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 15% 50%,
+      rgba(226,119,137,.16),
+      rgba(226,119,137,.07) 34%,
+      transparent 70%);
+  filter:blur(2px);
+  animation:emissionCloudPulse 1.15s ease-in-out infinite;
+}
+
+.electron-beam-glow{
+  position:absolute;
+  left:2%;
+  right:3%;
+  top:50%;
+  height:58px;
+  transform:translateY(-50%);
+  border-radius:50%;
+  background:linear-gradient(90deg,
+    rgba(226,119,137,.08),
+    rgba(255,203,5,.045) 44%,
+    rgba(44,131,204,.055));
+  filter:blur(10px);
+}
+
+.loader-electron{
+  position:absolute;
+  left:2%;
+  top:50%;
+  z-index:3;
+  display:grid;
+  place-items:center;
+  width:15px;
+  height:15px;
+  border-radius:50%;
+  color:#fff;
+  background:#d86f84;
+  font-size:10px;
+  font-weight:900;
+  line-height:1;
+  box-shadow:
+    0 0 0 5px rgba(224,117,135,.07),
+    0 0 16px rgba(224,117,135,.25);
+  opacity:0;
+  animation:electronTransit 1.35s cubic-bezier(.38,.04,.69,.98) infinite;
+}
+.loader-electron::before{
+  content:"";
+  position:absolute;
+  right:9px;
+  top:50%;
+  width:28px;
+  height:2px;
+  transform:translateY(-50%);
+  border-radius:999px;
+  background:linear-gradient(90deg,transparent,rgba(224,117,135,.20));
+}
+
+.electron-1{--electron-y:-42px;animation-delay:-.05s}
+.electron-2{--electron-y:-23px;animation-delay:-.23s}
+.electron-3{--electron-y:-5px;animation-delay:-.42s}
+.electron-4{--electron-y:18px;animation-delay:-.61s}
+.electron-5{--electron-y:39px;animation-delay:-.80s}
+.electron-6{--electron-y:-31px;animation-delay:-.98s}
+.electron-7{--electron-y:29px;animation-delay:-1.14s}
+.electron-8{--electron-y:7px;animation-delay:-1.29s}
+.electron-9{--electron-y:-14px;animation-delay:-.70s}
+
+.preloader-copy{
+  display:grid;
+  gap:0;
+  margin-top:22px;
+}
+.preloader-copy strong{
+  color:var(--navy);
+  font-size:17px;
+  line-height:1.35;
+}
+.preloader-copy span{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+
+.preloader-progress{
+  width:min(360px,72%);
+  height:4px;
+  margin:18px auto 0;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(7,41,77,.08);
+}
+.preloader-progress span{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#d96e84,var(--maize),var(--blue-bright));
+  transform:scaleX(0);
+  transform-origin:left;
+  animation:preloaderProgress 3s linear forwards;
+}
+
+@keyframes electronTransit{
+  0%{
+    left:1%;
+    opacity:0;
+    transform:translate3d(0,var(--electron-y),0) scale(.68);
+  }
+  9%{opacity:.92}
+  42%{
+    transform:translate3d(0,var(--electron-y),0) scale(.82);
+  }
+  78%{opacity:1}
+  100%{
+    left:96%;
+    opacity:0;
+    transform:translate3d(0,var(--electron-y),0) scale(1.06);
+  }
+}
+
+@keyframes emissionCloudPulse{
+  0%,100%{opacity:.60;transform:translateY(-50%) scale(.94)}
+  50%{opacity:.92;transform:translateY(-50%) scale(1.05)}
+}
+
+@keyframes preloaderProgress{
+  0%{transform:scaleX(0)}
+  100%{transform:scaleX(1)}
+}
+
+@media (max-width:680px){
+  .site-preloader{padding:14px}
+  .preloader-shell{width:min(520px,100%)}
+  .diode-loader{height:220px;border-radius:19px}
+  .diode-electrode{width:66px;height:158px}
+  .diode-cathode{left:34px}
+  .diode-anode{right:34px}
+  .diode-vacuum-gap{left:70px;right:70px;top:30px;bottom:30px}
+  .diode-plate{width:20px}
+  .diode-cathode .diode-plate{left:9px}
+  .diode-anode .diode-plate{right:9px}
+  .diode-polarity{width:27px;height:27px;font-size:18px}
+  .diode-cathode .diode-polarity{left:6px}
+  .diode-anode .diode-polarity{right:6px}
+  .diode-label{font-size:9px}
+  .loader-electron{width:13px;height:13px;font-size:9px}
+  .preloader-copy{margin-top:18px}
+  .preloader-copy strong{font-size:15px}
+  .preloader-progress{width:78%;margin-top:15px}
+}
+
+@media (max-width:420px){
+  .diode-loader{height:196px}
+  .diode-loader::before{top:12px;font-size:9px}
+  .diode-electrode{height:142px}
+  .diode-vacuum-gap{left:62px;right:62px;top:27px;bottom:27px}
+  .diode-cathode{left:28px}
+  .diode-anode{right:28px}
+  .electron-1{--electron-y:-34px}
+  .electron-5{--electron-y:32px}
+  .electron-6{--electron-y:-27px}
+  .electron-7{--electron-y:25px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .loader-electron,
+  .emission-cloud{
+    animation:none!important;
+  }
+  .loader-electron{
+    opacity:.72;
+  }
+  .electron-1{left:16%}
+  .electron-2{left:27%}
+  .electron-3{left:38%}
+  .electron-4{left:49%}
+  .electron-5{left:60%}
+  .electron-6{left:69%}
+  .electron-7{left:78%}
+  .electron-8{left:86%}
+  .electron-9{left:92%}
+}
