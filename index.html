@@ -24,6 +24,7 @@
 <link href="apple-touch-icon.png" rel="apple-touch-icon"/>
 <link as="image" href="assets/img/profile.png" rel="preload"/>
 <link href="assets/css/styles.css" rel="stylesheet"/>
+<script>window.__preloaderStartedAt = performance.now();</script>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -62,7 +63,50 @@
   }
   </script>
 </head>
-<body>
+<body class="is-loading" aria-busy="true">
+<div class="site-preloader" id="sitePreloader" role="status" aria-live="polite" aria-label="Loading the academic website">
+  <div class="preloader-shell">
+    
+    <div class="diode-loader" aria-hidden="true">
+      <div class="diode-electrode diode-cathode">
+        <span class="diode-polarity">−</span>
+        <span class="diode-plate"></span>
+        
+      </div>
+
+      <div class="diode-vacuum-gap">
+        <span class="diode-field-line field-line-1"></span>
+        <span class="diode-field-line field-line-2"></span>
+        <span class="diode-field-line field-line-3"></span>
+        <span class="emission-cloud"></span>
+        <span class="electron-beam-glow"></span>
+
+        <span class="loader-electron electron-1">−</span>
+        <span class="loader-electron electron-2">−</span>
+        <span class="loader-electron electron-3">−</span>
+        <span class="loader-electron electron-4">−</span>
+        <span class="loader-electron electron-5">−</span>
+        <span class="loader-electron electron-6">−</span>
+        <span class="loader-electron electron-7">−</span>
+        <span class="loader-electron electron-8">−</span>
+        <span class="loader-electron electron-9">−</span>
+      </div>
+
+      <div class="diode-electrode diode-anode">
+        <span class="diode-polarity">+</span>
+        <span class="diode-plate"></span>
+        
+      </div>
+    </div>
+
+    <div class="preloader-copy">
+      <span>Loading Md Arifuzzaman Faisal&#39;s Portfolio</span>
+    </div>
+
+    <div class="preloader-progress" aria-hidden="true"><span></span></div>
+    <span class="sr-only">The website will appear after the three-second electron-emission animation.</span>
+  </div>
+</div>
 <svg aria-hidden="true" class="svg-sprite" focusable="false">
 <symbol id="icon-arrow" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></symbol>
 <symbol id="icon-external" viewbox="0 0 24 24"><path d="M14 5h5v5M19 5l-9 9M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></symbol>
@@ -139,7 +183,6 @@
 </div>
 <div class="profile-card-body">
 <h2>Md Arifuzzaman Faisal</h2>
-<p></p>
 <p class="profile-label">Ph.D. Student</p>
 <p>Nuclear Engineering and Radiological Sciences</p>
 <ul class="profile-meta">
