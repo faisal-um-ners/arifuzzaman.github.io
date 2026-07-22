@@ -1896,7 +1896,7 @@ body.is-loading{
   .diode-electrode{width:66px;height:158px}
   .diode-cathode{left:34px}
   .diode-anode{right:34px}
-  .diode-vacuum-gap{left:70px;right:70px;top:30px;bottom:30px}
+  .diode-vacuum-gap{left:43px;right:43px;top:55px;bottom:55px;}
   .diode-plate{width:20px}
   .diode-cathode .diode-plate{left:9px}
   .diode-anode .diode-plate{right:9px}
@@ -1914,7 +1914,7 @@ body.is-loading{
   .diode-loader{height:196px}
   .diode-loader::before{top:12px;font-size:9px}
   .diode-electrode{height:142px}
-  .diode-vacuum-gap{left:62px;right:62px;top:27px;bottom:27px}
+  .diode-vacuum-gap{left:37px;right:37px;top:51px;bottom:51px;}
   .diode-cathode{left:28px}
   .diode-anode{right:28px}
   .electron-1{--electron-y:-34px}
