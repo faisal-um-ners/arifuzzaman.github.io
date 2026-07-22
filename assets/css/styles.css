@@ -1560,6 +1560,12 @@ body.is-loading{
     0 24px 70px rgba(7,41,77,.12),
     inset 0 1px 0 rgba(255,255,255,.96);
 }
+.diode-loader{
+  border:none;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
 
 .diode-loader::before{
   content:"";
