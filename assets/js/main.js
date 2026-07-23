@@ -3,7 +3,7 @@
   const preloader = document.getElementById('sitePreloader');
   if (!preloader) return;
 
-  const duration = 2000;
+  const duration = 2500;
   const startedAt = Number(window.__preloaderStartedAt) || performance.now();
   const elapsed = Math.max(0, performance.now() - startedAt);
   const remaining = Math.max(0, duration - elapsed);
