@@ -712,3 +712,42 @@
   .archive-tools { width:100%; min-width:0; }
   .article-source-panel { grid-template-columns:1fr; }
 }
+
+
+/* Card metadata also used by the homepage article feed */
+.hub-card-media { position:relative; }
+.hub-card-badge {
+  position:absolute;
+  left:.85rem;
+  top:.85rem;
+  padding:.4rem .62rem;
+  border-radius:999px;
+  background:rgba(255,255,255,.92);
+  color:#234560;
+  font-size:.66rem;
+  font-weight:900;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+.hub-card-source {
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  color:#78899a;
+  font-size:.7rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-weight:800;
+}
+.hub-card-footer {
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  margin-top:auto;
+  padding-top:.85rem;
+  border-top:1px solid #edf1f4;
+  color:#748696;
+  font-size:.74rem;
+  font-weight:750;
+}
