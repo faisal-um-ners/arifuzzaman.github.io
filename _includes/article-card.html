@@ -2,19 +2,23 @@
   <a class="hub-card-link" href="{{ include.article.url | relative_url }}">
     <div class="hub-card-media">
       {% if include.article.image %}
-      <img src="{{ include.article.image | relative_url }}" alt="" loading="lazy">
+      <img src="{{ include.article.image | relative_url }}" alt="{{ include.article.image_alt | default: include.article.title }}" loading="lazy">
       {% else %}
       <div class="hub-card-placeholder" aria-hidden="true"></div>
       {% endif %}
+      <span class="hub-card-badge">{{ include.article.category }}</span>
     </div>
     <div class="hub-card-body">
-      <div class="hub-card-meta">
-        <span>{{ include.article.category }}</span>
-        <time datetime="{{ include.article.date | date_to_xmlschema }}">{{ include.article.date | date: "%b %-d, %Y" }}</time>
+      <div class="hub-card-source">
+        <span>{{ include.article.journal }}</span>
+        <span>{{ include.article.source_year }}</span>
       </div>
       <h3>{{ include.article.title }}</h3>
       <p>{{ include.article.summary }}</p>
-      <span class="hub-card-read">Read article <span aria-hidden="true">→</span></span>
+      <div class="hub-card-footer">
+        <span>From my publications</span>
+        <span class="hub-card-read">Read →</span>
+      </div>
     </div>
   </a>
 </article>
