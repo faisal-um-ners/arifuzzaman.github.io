@@ -23,11 +23,25 @@ permalink: /articles/
   <meta name="twitter:title" content="Research Articles | {{ site.title | escape }}">
   <meta name="twitter:description" content="Publication-based science explainers by Md Arifuzzaman Faisal.">
   <meta name="twitter:image" content="{{ site.seo_image | absolute_url }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Research Articles",
+    "url": "{{ '/articles/' | absolute_url }}",
+    "description": "Publication-based research explainers by Md Arifuzzaman Faisal.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "{{ site.title }}",
+      "url": "{{ '/' | absolute_url }}"
+    }
+  }
+  </script>
   <link href="{{ '/favicon.ico' | relative_url }}" rel="icon" sizes="any">
   <link href="{{ '/assets/css/styles.css' | relative_url }}" rel="stylesheet">
   <link href="{{ '/assets/css/articles.css' | relative_url }}" rel="stylesheet">
 </head>
-<body class="hub-page magazine-page magazine-v3">
+<body class="hub-page magazine-page">
 <div aria-hidden="true" class="scroll-progress" id="scrollProgress"></div>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" id="siteHeader">
@@ -58,147 +72,105 @@ permalink: /articles/
 {% assign lead = sorted_articles | first %}
 {% assign categories = site.articles | map: "category" | uniq | sort %}
 {% assign featured_articles = site.articles | where: "featured", true | sort: "featured_order" %}
-{% assign ted_articles = site.articles | where: "doi", "10.1109/TED.2022.3208846" %}
-{% assign tps_articles = site.articles | where: "doi", "10.1109/TPS.2025.3567163" %}
-{% assign acs_articles = site.articles | where: "doi", "10.1021/acsaelm.5c02130" %}
-{% assign cpc_articles = site.articles | where: "doi", "10.1016/j.cpc.2026.110404" %}
 
 <main id="main" class="magazine-main">
-  <section class="v3-masthead">
+  <section class="magazine-masthead">
     <div class="container">
-      <div class="v3-spectrum" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-      <div class="v3-masthead-grid">
+      <div class="magazine-rule"></div>
+      <div class="magazine-title-row">
         <div>
-          <p class="v3-overline">Research writing · from my peer-reviewed publications</p>
-          <h1>Research<br><em>Articles</em></h1>
+          <p class="magazine-eyebrow">Research writing · based on my peer-reviewed publications</p>
+          <h1>Research Articles</h1>
         </div>
-        <div class="v3-masthead-side">
-          <p>Visual explainers that unpack the physics, modeling, and design ideas behind my published work.</p>
-          <div class="v3-counts">
-            <div><strong>{{ site.articles.size }}</strong><span>articles</span></div>
-            <div><strong>4</strong><span>source papers</span></div>
-            <div><strong>{{ categories.size }}</strong><span>themes</span></div>
-          </div>
+        <p class="magazine-intro">A visual collection of research explainers, derivations, and technical perspectives from my published work in vacuum electronics, plasma physics, computational physics, and electronic materials.</p>
+      </div>
+      <div class="magazine-rule thin"></div>
+    </div>
+  </section>
+
+  <section class="magazine-lead">
+    <div class="container">
+      <a class="lead-story" href="{{ lead.url | relative_url }}">
+        <div class="lead-story-media">
+          <img src="{{ lead.image | relative_url }}" alt="{{ lead.image_alt | default: lead.title }}">
+          <span class="lead-chip">Featured Research</span>
         </div>
+        <div class="lead-story-copy">
+          <div class="story-source"><span>{{ lead.category }}</span><span>{{ lead.journal }} · {{ lead.source_year }}</span></div>
+          <h2>{{ lead.title }}</h2>
+          <p>{{ lead.summary }}</p>
+          <div class="story-actions"><span>Read the research story</span><span aria-hidden="true">↗</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="magazine-section">
+    <div class="container">
+      <header class="magazine-section-head">
+        <div><p class="magazine-eyebrow">New on the site</p><h2>Latest research</h2></div>
+        <a href="#all-articles">View all 16 articles ↓</a>
+      </header>
+      <div class="latest-grid">
+        {% for article in sorted_articles offset:1 limit:3 %}
+        {% include article-card.html article=article %}
+        {% endfor %}
       </div>
     </div>
   </section>
 
-  <section class="v3-feature-zone">
+  <section class="magazine-section topics-section">
     <div class="container">
-      <div class="v3-feature-grid">
-        <a class="v3-lead" href="{{ lead.url | relative_url }}">
-          <div class="v3-lead-image">
-            <img src="{{ lead.image | relative_url }}" alt="{{ lead.image_alt | default: lead.title }}">
-            <span class="v3-pill">Featured Research</span>
-          </div>
-          <div class="v3-lead-copy">
-            <div class="v3-meta"><span>{{ lead.category }}</span><span>{{ lead.journal }} · {{ lead.source_year }}</span></div>
-            <h2>{{ lead.title }}</h2>
-            <p>{{ lead.summary }}</p>
-            <span class="v3-read">Read the story <b>↗</b></span>
-          </div>
-        </a>
-
-        <div class="v3-side-stack">
-          {% for article in sorted_articles offset:1 limit:2 %}
-          <a class="v3-side-story" href="{{ article.url | relative_url }}">
-            <div class="v3-side-image"><img src="{{ article.image | relative_url }}" alt="{{ article.image_alt | default: article.title }}"></div>
-            <div class="v3-side-copy">
-              <span>{{ article.category }}</span>
-              <h3>{{ article.title }}</h3>
-              <small>{{ article.journal }} · {{ article.source_year }}</small>
-            </div>
-          </a>
-          {% endfor %}
-          <a class="v3-browse-tile" href="#archive">
-            <span class="v3-browse-orb" aria-hidden="true"></span>
-            <small>Explore the full collection</small>
-            <strong>Browse all {{ site.articles.size }} articles</strong>
-            <b>↓</b>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="v3-topic-strip">
-    <div class="container">
-      <div class="v3-section-title">
-        <div><span>Explore</span><h2>Research themes</h2></div>
-        <p>Move from beam-wave interaction to plasma computation and current transport across layered materials.</p>
-      </div>
-      <div class="v3-topic-grid">
+      <header class="magazine-section-head">
+        <div><p class="magazine-eyebrow">Explore the ideas</p><h2>Research themes</h2></div>
+        <p class="section-note">Browse the article collection by the scientific questions behind the work.</p>
+      </header>
+      <div class="topic-magazine-grid">
         {% for category in categories %}
-        {% assign count = site.articles | where: "category", category | size %}
-        <button class="v3-topic-card topic-tone-{{ forloop.index }}" data-topic-filter="{{ category | slugify }}">
-          <span class="v3-topic-num">0{{ forloop.index }}</span>
+        {% assign category_articles = site.articles | where: "category", category %}
+        <button class="topic-magazine-card" data-topic-filter="{{ category | slugify }}">
+          <span class="topic-index">0{{ forloop.index }}</span>
           <strong>{{ category }}</strong>
-          <small>{{ count }} article{% if count != 1 %}s{% endif %}</small>
-          <b>↘</b>
+          <span>{{ category_articles.size }} article{% if category_articles.size != 1 %}s{% endif %}</span>
+          <span class="topic-arrow">→</span>
         </button>
         {% endfor %}
       </div>
     </div>
   </section>
 
-  <section class="v3-paper-section">
+  <section class="magazine-section selected-section">
     <div class="container">
-      <div class="v3-section-title">
-        <div><span>From my publications</span><h2>Four papers, explored in depth</h2></div>
-        <p>Each publication becomes a small visual collection, with individual articles focused on one result, method, or physical insight.</p>
-      </div>
-      <div class="v3-paper-grid">
-        {% assign groups = ted_articles | concat: tps_articles | concat: acs_articles | concat: cpc_articles %}
-        {% assign seen_dois = "" %}
-        {% for article in groups %}
-          {% unless seen_dois contains article.doi %}
-            {% capture seen_dois %}{{ seen_dois }}|{{ article.doi }}{% endcapture %}
-            {% assign group_count = site.articles | where: "doi", article.doi | size %}
-            <a class="v3-paper-card paper-tone-{{ forloop.index }}" href="#archive" data-paper-doi="{{ article.doi }}">
-              <span>{{ article.journal }} · {{ article.source_year }}</span>
-              <h3>{{ article.source_paper }}</h3>
-              <div><small>{{ group_count }} explainers</small><b>Explore →</b></div>
-            </a>
-          {% endunless %}
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-
-  <section class="v3-selected">
-    <div class="container">
-      <div class="v3-section-title">
-        <div><span>Selected reads</span><h2>Good places to start</h2></div>
-        <p>A few representative pieces spanning the main scientific themes of the collection.</p>
-      </div>
-      <div class="v3-selected-list">
+      <header class="magazine-section-head">
+        <div><p class="magazine-eyebrow">From my publications</p><h2>Selected reads</h2></div>
+        <p class="section-note">A few entry points into the main research themes represented here.</p>
+      </header>
+      <div class="selected-list">
         {% for article in featured_articles limit:5 %}
-        <a href="{{ article.url | relative_url }}" class="v3-selected-row">
-          <span class="v3-selected-index">0{{ forloop.index }}</span>
-          <div>
-            <small>{{ article.category }} · {{ article.journal }} {{ article.source_year }}</small>
+        <a class="selected-story" href="{{ article.url | relative_url }}">
+          <span class="selected-number">0{{ forloop.index }}</span>
+          <div class="selected-copy">
+            <span>{{ article.category }} · {{ article.journal }} {{ article.source_year }}</span>
             <h3>{{ article.title }}</h3>
           </div>
-          <b>↗</b>
+          <span class="selected-arrow">↗</span>
         </a>
         {% endfor %}
       </div>
     </div>
   </section>
 
-  <section class="v3-archive" id="archive">
+  <section class="magazine-section archive-section" id="all-articles">
     <div class="container">
-      <div class="v3-archive-head">
-        <div>
-          <span>Complete collection</span>
-          <h2>All research articles</h2>
+      <header class="magazine-section-head archive-head">
+        <div><p class="magazine-eyebrow">Complete collection</p><h2>All research articles</h2></div>
+        <div class="archive-tools">
+          <label class="article-search">
+            <span class="sr-only">Search articles</span>
+            <input id="articleSearch" type="search" placeholder="Search topics, titles, journals…" autocomplete="off">
+          </label>
         </div>
-        <label class="v3-search">
-          <span class="sr-only">Search articles</span>
-          <input id="articleSearch" type="search" placeholder="Search titles, topics, journals…" autocomplete="off">
-        </label>
-      </div>
+      </header>
 
       <div class="hub-filters" aria-label="Filter articles by topic">
         <button class="active" data-filter="all">All</button>
@@ -207,11 +179,10 @@ permalink: /articles/
         {% endfor %}
       </div>
 
-      <div class="v3-archive-grid" id="articleGrid">
+      <div class="hub-grid archive-grid" id="articleGrid">
         {% for article in sorted_articles %}
         <div class="hub-filter-item"
              data-category="{{ article.category | slugify }}"
-             data-doi="{{ article.doi }}"
              data-search="{{ article.title | downcase }} {{ article.summary | downcase }} {{ article.category | downcase }} {{ article.journal | downcase }} {{ article.tags | join: ' ' | downcase }}">
           {% include article-card.html article=article %}
         </div>
@@ -221,14 +192,13 @@ permalink: /articles/
     </div>
   </section>
 
-  <section class="v3-about">
+  <section class="magazine-note">
     <div class="container">
-      <div class="v3-about-card">
-        <div class="v3-about-accent" aria-hidden="true"></div>
-        <p class="v3-overline">About this collection</p>
-        <h2>Published research,<br>explained more visually.</h2>
-        <p>These pages are personal research explainers based on my peer-reviewed publications. Each article links directly to the journal source and DOI so readers can move from an accessible overview to the full technical paper.</p>
-        <a href="{{ '/#publications' | relative_url }}">View my publication list <span>→</span></a>
+      <div class="magazine-note-card">
+        <p class="magazine-eyebrow">About this collection</p>
+        <h2>Published research, explained more visually.</h2>
+        <p>These are personal research explainers based on my published papers. They are not substitutes for the peer-reviewed articles; each page links back to the original journal publication and DOI.</p>
+        <a href="{{ '/#publications' | relative_url }}">See the publication list →</a>
       </div>
     </div>
   </section>
@@ -247,21 +217,18 @@ permalink: /articles/
 (() => {
   const filterButtons = [...document.querySelectorAll('.hub-filters button')];
   const topicButtons = [...document.querySelectorAll('[data-topic-filter]')];
-  const paperButtons = [...document.querySelectorAll('[data-paper-doi]')];
   const items = [...document.querySelectorAll('.hub-filter-item')];
   const search = document.getElementById('articleSearch');
   const empty = document.getElementById('archiveEmpty');
   let activeFilter = 'all';
-  let activeDoi = '';
 
   function applyFilters() {
     const q = (search?.value || '').trim().toLowerCase();
     let visible = 0;
     items.forEach((item) => {
       const categoryMatch = activeFilter === 'all' || item.dataset.category === activeFilter;
-      const doiMatch = !activeDoi || item.dataset.doi === activeDoi;
       const textMatch = !q || item.dataset.search.includes(q);
-      item.hidden = !(categoryMatch && doiMatch && textMatch);
+      item.hidden = !(categoryMatch && textMatch);
       if (!item.hidden) visible++;
     });
     if (empty) empty.hidden = visible !== 0;
@@ -270,7 +237,6 @@ permalink: /articles/
   filterButtons.forEach((button) => {
     button.addEventListener('click', () => {
       activeFilter = button.dataset.filter;
-      activeDoi = '';
       filterButtons.forEach((b) => b.classList.toggle('active', b === button));
       applyFilters();
     });
@@ -279,21 +245,9 @@ permalink: /articles/
   topicButtons.forEach((button) => {
     button.addEventListener('click', () => {
       activeFilter = button.dataset.topicFilter;
-      activeDoi = '';
       filterButtons.forEach((b) => b.classList.toggle('active', b.dataset.filter === activeFilter));
       applyFilters();
-      document.getElementById('archive')?.scrollIntoView({behavior:'smooth'});
-    });
-  });
-
-  paperButtons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-      event.preventDefault();
-      activeFilter = 'all';
-      activeDoi = button.dataset.paperDoi;
-      filterButtons.forEach((b) => b.classList.toggle('active', b.dataset.filter === 'all'));
-      applyFilters();
-      document.getElementById('archive')?.scrollIntoView({behavior:'smooth'});
+      document.getElementById('all-articles')?.scrollIntoView({behavior:'smooth'});
     });
   });
 
