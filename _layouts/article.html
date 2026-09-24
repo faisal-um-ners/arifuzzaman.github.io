@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} | Md Arifuzzaman Faisal</title>
+  <meta name="description" content="{{ page.summary | escape }}">
+  <link href="{{ '/favicon.ico' | relative_url }}" rel="icon" sizes="any">
+  <link href="{{ '/icon.svg' | relative_url }}" rel="icon" type="image/svg+xml">
+  <link href="{{ '/assets/css/styles.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/css/articles.css' | relative_url }}" rel="stylesheet">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]'], ['$$','$$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body class="article-page">
+<header class="site-header scrolled">
+  <div class="container header-inner">
+    <a aria-label="Md Arifuzzaman Faisal, home" class="brand" href="{{ '/' | relative_url }}">
+      <span aria-hidden="true" class="brand-mark">AF</span>
+      <span class="brand-copy"><strong>Md Arifuzzaman Faisal</strong><small>Plasma Physics · Vacuum Electronics</small></span>
+    </a>
+    <nav aria-label="Article navigation" class="article-nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/articles/' | relative_url }}">Articles</a>
+      <a href="{{ '/#publications' | relative_url }}">Publications</a>
+      <a href="{{ '/cv/' | relative_url }}">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="article-main">
+  <article class="article-shell">
+    <header class="article-hero">
+      <p class="article-kicker">{{ page.category }}{% if page.type %} · {{ page.type }}{% endif %}</p>
+      <h1>{{ page.title }}</h1>
+      <p class="article-deck">{{ page.summary }}</p>
+      <div class="article-byline">
+        <span>{{ page.author | default: site.author.name }}</span>
+        <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+        {% if page.tags %}<span>{{ page.tags | join: " · " }}</span>{% endif %}
+      </div>
+      {% if page.image %}
+      <figure class="article-cover"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}" loading="eager"></figure>
+      {% endif %}
+    </header>
+
+    <div class="article-content">
+      {{ content }}
+    </div>
+
+    <footer class="article-footer">
+      <a href="{{ '/articles/' | relative_url }}">← All research articles</a>
+      <a href="{{ '/' | relative_url }}">Home</a>
+    </footer>
+  </article>
+</main>
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
