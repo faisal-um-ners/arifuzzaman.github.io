@@ -96,9 +96,37 @@
       {% endif %}
     </header>
 
+    {% if page.publication_based %}
+    <aside class="article-source-panel" aria-label="Source publication">
+      <div>
+        <small>Based on the peer-reviewed publication</small>
+        <strong>{{ page.source_paper }}</strong>
+        <p>{{ page.source_authors }} · <em>{{ page.journal }}</em> · {{ page.source_year }}</p>
+      </div>
+      <a href="{{ page.source_url }}" target="_blank" rel="noopener">DOI {{ page.doi }} ↗</a>
+    </aside>
+    {% endif %}
+
     <div class="article-content">
       {{ content }}
     </div>
+
+    {% assign related = site.articles | where: "category", page.category %}
+    <section class="article-related">
+      <h2>Related research articles</h2>
+      <div class="article-related-grid">
+        {% assign shown = 0 %}
+        {% for item in related %}
+          {% if item.url != page.url and shown < 3 %}
+          <a class="article-related-card" href="{{ item.url | relative_url }}">
+            <span>{{ item.journal }} · {{ item.source_year }}</span>
+            <strong>{{ item.title }}</strong>
+          </a>
+          {% assign shown = shown | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
 
     <footer class="article-footer">
       <a href="{{ '/articles/' | relative_url }}">← All research articles</a>
