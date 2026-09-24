@@ -9,19 +9,19 @@ permalink: /articles/
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research Articles | Md Arifuzzaman Faisal</title>
-  <meta name="description" content="Research notes, derivations, simulations, and computational studies in plasma physics, vacuum electronics, electron emission, electronic materials, and scientific computing.">
+  <meta name="description" content="Publication-based research explainers by Md Arifuzzaman Faisal on vacuum electronics, plasma physics, computational physics, and electronic materials.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="{{ '/articles/' | absolute_url }}">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Research Articles" href="{{ '/feed.xml' | absolute_url }}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ site.title | escape }}">
   <meta property="og:title" content="Research Articles | {{ site.title | escape }}">
-  <meta property="og:description" content="Research notes, derivations, simulations, tutorials, and computational studies in plasma physics, vacuum electronics, electron emission, electronic materials, and scientific computing.">
+  <meta property="og:description" content="A visual research magazine built from my peer-reviewed publications in vacuum electronics, plasma physics, computational physics, and electronic materials.">
   <meta property="og:url" content="{{ '/articles/' | absolute_url }}">
   <meta property="og:image" content="{{ site.seo_image | absolute_url }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Research Articles | {{ site.title | escape }}">
-  <meta name="twitter:description" content="Research notes, derivations, simulations, tutorials, and computational studies by Md Arifuzzaman Faisal.">
+  <meta name="twitter:description" content="Publication-based science explainers by Md Arifuzzaman Faisal.">
   <meta name="twitter:image" content="{{ site.seo_image | absolute_url }}">
   <script type="application/ld+json">
   {
@@ -29,33 +29,26 @@ permalink: /articles/
     "@type": "CollectionPage",
     "name": "Research Articles",
     "url": "{{ '/articles/' | absolute_url }}",
-    "description": "Research notes, derivations, simulations, tutorials, and computational studies by Md Arifuzzaman Faisal.",
+    "description": "Publication-based research explainers by Md Arifuzzaman Faisal.",
     "isPartOf": {
       "@type": "WebSite",
       "name": "{{ site.title }}",
       "url": "{{ '/' | absolute_url }}"
-    },
-    "about": [
-      "Plasma Physics",
-      "Vacuum Electronics",
-      "Electron Emission",
-      "Electronic Materials",
-      "Scientific Computing"
-    ]
+    }
   }
   </script>
   <link href="{{ '/favicon.ico' | relative_url }}" rel="icon" sizes="any">
   <link href="{{ '/assets/css/styles.css' | relative_url }}" rel="stylesheet">
   <link href="{{ '/assets/css/articles.css' | relative_url }}" rel="stylesheet">
 </head>
-<body class="hub-page">
+<body class="hub-page magazine-page">
 <header class="site-header scrolled">
   <div class="container header-inner">
     <a aria-label="Md Arifuzzaman Faisal, home" class="brand" href="{{ '/' | relative_url }}">
       <span aria-hidden="true" class="brand-mark">AF</span>
       <span class="brand-copy"><strong>Md Arifuzzaman Faisal</strong><small>Plasma Physics · Vacuum Electronics</small></span>
     </a>
-    <nav aria-label="Research hub navigation" class="article-nav">
+    <nav aria-label="Research articles navigation" class="article-nav">
       <a href="{{ '/' | relative_url }}">Home</a>
       <a class="active" href="{{ '/articles/' | relative_url }}">Articles</a>
       <a href="{{ '/#publications' | relative_url }}">Publications</a>
@@ -64,31 +57,137 @@ permalink: /articles/
   </div>
 </header>
 
-<main class="hub-main">
-  <section class="hub-hero">
+{% assign sorted_articles = site.articles | sort: "date" | reverse %}
+{% assign lead = sorted_articles | first %}
+{% assign categories = site.articles | map: "category" | uniq | sort %}
+{% assign featured_articles = site.articles | where: "featured", true | sort: "featured_order" %}
+
+<main class="magazine-main">
+  <section class="magazine-masthead">
     <div class="container">
-      <p class="section-kicker">Research hub</p>
-      <h1>Research Articles</h1>
-      <p>Notes, derivations, simulations, tutorials, and computational studies connected to my research.</p>
-      <div class="hub-filters" aria-label="Filter articles">
-        <button class="active" data-filter="all">All</button>
-        {% assign categories = site.articles | map: "category" | uniq | sort %}
-        {% for category in categories %}
-        <button data-filter="{{ category | slugify }}">{{ category }}</button>
+      <div class="magazine-rule"></div>
+      <div class="magazine-title-row">
+        <div>
+          <p class="magazine-eyebrow">Research writing · based on my peer-reviewed publications</p>
+          <h1>Research Articles</h1>
+        </div>
+        <p class="magazine-intro">A visual collection of research explainers, derivations, and technical perspectives from my published work in vacuum electronics, plasma physics, computational physics, and electronic materials.</p>
+      </div>
+      <div class="magazine-rule thin"></div>
+    </div>
+  </section>
+
+  <section class="magazine-lead">
+    <div class="container">
+      <a class="lead-story" href="{{ lead.url | relative_url }}">
+        <div class="lead-story-media">
+          <img src="{{ lead.image | relative_url }}" alt="{{ lead.image_alt | default: lead.title }}">
+          <span class="lead-chip">Featured Research</span>
+        </div>
+        <div class="lead-story-copy">
+          <div class="story-source"><span>{{ lead.category }}</span><span>{{ lead.journal }} · {{ lead.source_year }}</span></div>
+          <h2>{{ lead.title }}</h2>
+          <p>{{ lead.summary }}</p>
+          <div class="story-actions"><span>Read the research story</span><span aria-hidden="true">↗</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="magazine-section">
+    <div class="container">
+      <header class="magazine-section-head">
+        <div><p class="magazine-eyebrow">New on the site</p><h2>Latest research</h2></div>
+        <a href="#all-articles">View all 16 articles ↓</a>
+      </header>
+      <div class="latest-grid">
+        {% for article in sorted_articles offset:1 limit:3 %}
+        {% include article-card.html article=article %}
         {% endfor %}
       </div>
     </div>
   </section>
 
-  <section class="section section-white">
+  <section class="magazine-section topics-section">
     <div class="container">
-      <div class="hub-grid" id="articleGrid">
-        {% assign sorted_articles = site.articles | sort: "date" | reverse %}
+      <header class="magazine-section-head">
+        <div><p class="magazine-eyebrow">Explore the ideas</p><h2>Research themes</h2></div>
+        <p class="section-note">Browse the article collection by the scientific questions behind the work.</p>
+      </header>
+      <div class="topic-magazine-grid">
+        {% for category in categories %}
+        {% assign category_articles = site.articles | where: "category", category %}
+        <button class="topic-magazine-card" data-topic-filter="{{ category | slugify }}">
+          <span class="topic-index">0{{ forloop.index }}</span>
+          <strong>{{ category }}</strong>
+          <span>{{ category_articles.size }} article{% if category_articles.size != 1 %}s{% endif %}</span>
+          <span class="topic-arrow">→</span>
+        </button>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="magazine-section selected-section">
+    <div class="container">
+      <header class="magazine-section-head">
+        <div><p class="magazine-eyebrow">From my publications</p><h2>Selected reads</h2></div>
+        <p class="section-note">A few entry points into the main research themes represented here.</p>
+      </header>
+      <div class="selected-list">
+        {% for article in featured_articles limit:5 %}
+        <a class="selected-story" href="{{ article.url | relative_url }}">
+          <span class="selected-number">0{{ forloop.index }}</span>
+          <div class="selected-copy">
+            <span>{{ article.category }} · {{ article.journal }} {{ article.source_year }}</span>
+            <h3>{{ article.title }}</h3>
+          </div>
+          <span class="selected-arrow">↗</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="magazine-section archive-section" id="all-articles">
+    <div class="container">
+      <header class="magazine-section-head archive-head">
+        <div><p class="magazine-eyebrow">Complete collection</p><h2>All research articles</h2></div>
+        <div class="archive-tools">
+          <label class="article-search">
+            <span class="sr-only">Search articles</span>
+            <input id="articleSearch" type="search" placeholder="Search topics, titles, journals…" autocomplete="off">
+          </label>
+        </div>
+      </header>
+
+      <div class="hub-filters" aria-label="Filter articles by topic">
+        <button class="active" data-filter="all">All</button>
+        {% for category in categories %}
+        <button data-filter="{{ category | slugify }}">{{ category }}</button>
+        {% endfor %}
+      </div>
+
+      <div class="hub-grid archive-grid" id="articleGrid">
         {% for article in sorted_articles %}
-        <div class="hub-filter-item" data-category="{{ article.category | slugify }}">
+        <div class="hub-filter-item"
+             data-category="{{ article.category | slugify }}"
+             data-search="{{ article.title | downcase }} {{ article.summary | downcase }} {{ article.category | downcase }} {{ article.journal | downcase }} {{ article.tags | join: ' ' | downcase }}">
           {% include article-card.html article=article %}
         </div>
         {% endfor %}
+      </div>
+      <p class="archive-empty" id="archiveEmpty" hidden>No articles match that search yet.</p>
+    </div>
+  </section>
+
+  <section class="magazine-note">
+    <div class="container">
+      <div class="magazine-note-card">
+        <p class="magazine-eyebrow">About this collection</p>
+        <h2>Published research, explained more visually.</h2>
+        <p>These are personal research explainers based on my published papers. They are not substitutes for the peer-reviewed articles; each page links back to the original journal publication and DOI.</p>
+        <a href="{{ '/#publications' | relative_url }}">See the publication list →</a>
       </div>
     </div>
   </section>
@@ -101,17 +200,48 @@ permalink: /articles/
     <a href="{{ '/' | relative_url }}">Home ↑</a>
   </div>
 </footer>
+
 <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 <script>
-document.querySelectorAll('.hub-filters button').forEach((button) => {
-  button.addEventListener('click', () => {
-    const filter = button.dataset.filter;
-    document.querySelectorAll('.hub-filters button').forEach((b) => b.classList.toggle('active', b === button));
-    document.querySelectorAll('.hub-filter-item').forEach((item) => {
-      item.hidden = filter !== 'all' && item.dataset.category !== filter;
+(() => {
+  const filterButtons = [...document.querySelectorAll('.hub-filters button')];
+  const topicButtons = [...document.querySelectorAll('[data-topic-filter]')];
+  const items = [...document.querySelectorAll('.hub-filter-item')];
+  const search = document.getElementById('articleSearch');
+  const empty = document.getElementById('archiveEmpty');
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    const q = (search?.value || '').trim().toLowerCase();
+    let visible = 0;
+    items.forEach((item) => {
+      const categoryMatch = activeFilter === 'all' || item.dataset.category === activeFilter;
+      const textMatch = !q || item.dataset.search.includes(q);
+      item.hidden = !(categoryMatch && textMatch);
+      if (!item.hidden) visible++;
+    });
+    if (empty) empty.hidden = visible !== 0;
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      activeFilter = button.dataset.filter;
+      filterButtons.forEach((b) => b.classList.toggle('active', b === button));
+      applyFilters();
     });
   });
-});
+
+  topicButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      activeFilter = button.dataset.topicFilter;
+      filterButtons.forEach((b) => b.classList.toggle('active', b.dataset.filter === activeFilter));
+      applyFilters();
+      document.getElementById('all-articles')?.scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  search?.addEventListener('input', applyFilters);
+})();
 </script>
 </body>
 </html>
