@@ -64,63 +64,124 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
-<body class="article-page">
-<header class="site-header scrolled">
+<body class="article-page article-v3">
+<div aria-hidden="true" class="scroll-progress" id="scrollProgress"></div>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" id="siteHeader">
   <div class="container header-inner">
     <a aria-label="Md Arifuzzaman Faisal, home" class="brand" href="{{ '/' | relative_url }}">
       <span aria-hidden="true" class="brand-mark">AF</span>
       <span class="brand-copy"><strong>Md Arifuzzaman Faisal</strong><small>Plasma Physics · Vacuum Electronics</small></span>
     </a>
-    <nav aria-label="Article navigation" class="article-nav">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/articles/' | relative_url }}">Articles</a>
+    <button aria-controls="siteNav" aria-expanded="false" class="menu-toggle" id="menuToggle" type="button">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Open navigation</span>
+    </button>
+    <nav aria-label="Primary navigation" class="site-nav" id="siteNav">
+      <a href="{{ '/#about' | relative_url }}">About</a>
+      <a href="{{ '/#research' | relative_url }}">Research</a>
       <a href="{{ '/#publications' | relative_url }}">Publications</a>
+      <a class="active" href="{{ '/articles/' | relative_url }}">Articles</a>
+      <a href="{{ '/#achievements' | relative_url }}">Achievements</a>
+      <a href="{{ '/#service' | relative_url }}">Service</a>
       <a href="{{ '/cv/' | relative_url }}">CV</a>
+      <a class="nav-contact" href="{{ '/#contact' | relative_url }}">Contact</a>
     </nav>
   </div>
 </header>
+<div aria-hidden="true" class="menu-backdrop" id="menuBackdrop"></div>
 
-<main class="article-main">
-  <article class="article-shell">
-    <header class="article-hero">
-      <p class="article-kicker">{{ page.category }}{% if page.type %} · {{ page.type }}{% endif %}</p>
-      <h1>{{ page.title }}</h1>
-      <p class="article-deck">{{ page.summary }}</p>
-      <div class="article-byline">
-        <span>{{ page.author | default: site.author.name }}</span>
-        <span>{{ page.date | date: "%B %-d, %Y" }}</span>
-        {% if page.tags %}<span>{{ page.tags | join: " · " }}</span>{% endif %}
+<main id="main" class="article-feature-main">
+  <article class="article-feature-shell">
+    <header class="article-feature-hero">
+      <div class="article-feature-copy">
+        <a class="article-backlink" href="{{ '/articles/' | relative_url }}">← Research Articles</a>
+        <div class="article-feature-meta">
+          <span>{{ page.category }}</span>
+          <span>{{ page.journal }} · {{ page.source_year }}</span>
+        </div>
+        <h1>{{ page.title }}</h1>
+        <p class="article-feature-deck">{{ page.summary }}</p>
+        <div class="article-feature-byline">
+          <div>
+            <small>Written by</small>
+            <strong>{{ page.author | default: site.author.name }}</strong>
+          </div>
+          <div>
+            <small>Published on site</small>
+            <strong>{{ page.date | date: "%B %-d, %Y" }}</strong>
+          </div>
+          <div>
+            <small>Research area</small>
+            <strong>{{ page.category }}</strong>
+          </div>
+        </div>
       </div>
       {% if page.image %}
-      <figure class="article-cover"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}" loading="eager"></figure>
+      <figure class="article-feature-art">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}" loading="eager">
+        <figcaption>Original editorial illustration for this research explainer.</figcaption>
+      </figure>
       {% endif %}
     </header>
 
     {% if page.publication_based %}
-    <aside class="article-source-panel" aria-label="Source publication">
-      <div>
+    <section class="article-paper-glance">
+      <div class="paper-glance-label">Paper at a glance</div>
+      <div class="paper-glance-main">
         <small>Based on the peer-reviewed publication</small>
         <strong>{{ page.source_paper }}</strong>
-        <p>{{ page.source_authors }} · <em>{{ page.journal }}</em> · {{ page.source_year }}</p>
+        <p>{{ page.source_authors }}</p>
       </div>
-      <a href="{{ page.source_url }}" target="_blank" rel="noopener">DOI {{ page.doi }} ↗</a>
-    </aside>
+      <div class="paper-glance-journal">
+        <small>Journal</small>
+        <strong>{{ page.journal }}</strong>
+        <span>{{ page.source_year }}</span>
+      </div>
+      <a class="paper-glance-doi" href="{{ page.source_url }}" target="_blank" rel="noopener">
+        <small>Original paper</small>
+        <strong>DOI {{ page.doi }}</strong>
+        <span>Open ↗</span>
+      </a>
+    </section>
     {% endif %}
 
-    <div class="article-content">
-      {{ content }}
+    <div class="article-reading-grid">
+      <aside class="article-reading-rail">
+        <div class="reading-rail-sticky">
+          <p>On this page</p>
+          <nav id="articleToc" aria-label="On this page"></nav>
+          {% if page.tags %}
+          <div class="article-tag-stack">
+            {% for tag in page.tags %}<span>{{ tag }}</span>{% endfor %}
+          </div>
+          {% endif %}
+          <a class="rail-paper-link" href="{{ page.source_url }}" target="_blank" rel="noopener">Read source paper ↗</a>
+        </div>
+      </aside>
+
+      <div class="article-prose">
+        {{ content }}
+      </div>
     </div>
 
     {% assign related = site.articles | where: "category", page.category %}
-    <section class="article-related">
-      <h2>Related research articles</h2>
-      <div class="article-related-grid">
+    <section class="article-related-v3">
+      <div class="article-related-heading">
+        <div><small>Continue exploring</small><h2>Related research articles</h2></div>
+        <a href="{{ '/articles/' | relative_url }}">View all articles →</a>
+      </div>
+      <div class="article-related-grid-v3">
         {% assign shown = 0 %}
         {% for item in related %}
           {% if item.url != page.url and shown < 3 %}
-          <a class="article-related-card" href="{{ item.url | relative_url }}">
-            <span>{{ item.journal }} · {{ item.source_year }}</span>
-            <strong>{{ item.title }}</strong>
+          <a class="article-related-card-v3" href="{{ item.url | relative_url }}">
+            {% if item.image %}<img src="{{ item.image | relative_url }}" alt="" loading="lazy">{% endif %}
+            <div>
+              <span>{{ item.journal }} · {{ item.source_year }}</span>
+              <strong>{{ item.title }}</strong>
+              <small>Read article →</small>
+            </div>
           </a>
           {% assign shown = shown | plus: 1 %}
           {% endif %}
@@ -128,12 +189,45 @@
       </div>
     </section>
 
-    <footer class="article-footer">
-      <a href="{{ '/articles/' | relative_url }}">← All research articles</a>
-      <a href="{{ '/' | relative_url }}">Home</a>
+    <footer class="article-feature-footer">
+      <a href="{{ '/articles/' | relative_url }}">← Back to Research Articles</a>
+      <a href="{{ page.source_url }}" target="_blank" rel="noopener">Original publication ↗</a>
     </footer>
   </article>
 </main>
+
 <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+<script>
+(() => {
+  const prose = document.querySelector('.article-prose');
+  const toc = document.getElementById('articleToc');
+  if (!prose || !toc) return;
+
+  const headings = [...prose.querySelectorAll('h2')];
+  headings.forEach((heading, index) => {
+    if (!heading.id) {
+      heading.id = 'section-' + (index + 1);
+    }
+    const link = document.createElement('a');
+    link.href = '#' + heading.id;
+    link.textContent = heading.textContent;
+    toc.appendChild(link);
+  });
+
+  if (!headings.length) {
+    toc.closest('.article-reading-rail')?.classList.add('toc-empty');
+  }
+
+  const links = [...toc.querySelectorAll('a')];
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      links.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+    });
+  }, {rootMargin:'-18% 0px -68% 0px', threshold:0});
+
+  headings.forEach((heading) => observer.observe(heading));
+})();
+</script>
 </body>
 </html>
