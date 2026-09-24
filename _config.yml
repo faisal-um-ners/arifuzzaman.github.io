@@ -1,0 +1,30 @@
+title: Md Arifuzzaman Faisal
+description: Research in plasma physics, vacuum electronics, electron emission, THz sources, contact resistance, and scientific machine learning.
+url: "https://www.arifuzzaman.info"
+baseurl: ""
+author:
+  name: Md Arifuzzaman Faisal
+  email: faisalmd@umich.edu
+
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: article
+      author: Md Arifuzzaman Faisal
+
+exclude:
+  - README.md
+  - vendor
+  - Gemfile
+  - Gemfile.lock
