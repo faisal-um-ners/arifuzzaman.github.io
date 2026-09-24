@@ -1,0 +1,130 @@
+# Canonical 16-article metadata pack for arifuzzaman.info
+# Article pages themselves carry the same metadata in Jekyll front matter.
+
+- slug: spr-grating-geometry-starting-current
+  title: "How Grating Geometry Controls the Starting Current in Smith–Purcell Radiation"
+  category: "Vacuum Electronics"
+  source: "IEEE Transactions on Electron Devices"
+  year: 2023
+  doi: "10.1109/TED.2022.3208846"
+  cover_prompt: "Electron beam above a periodic metallic grating; visibly varied groove height and width; subtle THz surface-wave arcs; bright white scientific editorial background; navy, blue and warm-gold accents; elegant, minimal, no text, no logos."
+
+- slug: spr-spatial-growth-starting-current
+  title: "Spatial Growth Rate and Starting Current in THz Smith–Purcell Radiation"
+  category: "Vacuum Electronics"
+  source: "IEEE Transactions on Electron Devices"
+  year: 2023
+  doi: "10.1109/TED.2022.3208846"
+  cover_prompt: "Periodic grating with electron beam, one amplified surface wave growing along the structure and a subtle threshold-current curve motif; light high-end science-magazine aesthetic; no text."
+
+- slug: spr-hot-tube-dispersion-optimization
+  title: "Using Hot-Tube Dispersion to Optimize Smith–Purcell Gratings"
+  category: "Vacuum Electronics"
+  source: "IEEE Transactions on Electron Devices"
+  year: 2023
+  doi: "10.1109/TED.2022.3208846"
+  cover_prompt: "Clean dispersion curves crossing a beam line above a metallic grating, with one highlighted complex-wavenumber operating point; white space, navy, electric blue and gold."
+
+- slug: spr-frequency-tuning-grating-geometry
+  title: "Tuning Smith–Purcell Operating Frequency with Groove Height and Width"
+  category: "Vacuum Electronics"
+  source: "IEEE Transactions on Electron Devices"
+  year: 2023
+  doi: "10.1109/TED.2022.3208846"
+  cover_prompt: "Several elegant grating geometries morphing from shallow to deep grooves, paired with smoothly shifting wave frequencies; bright minimal technical illustration."
+
+- slug: two-layer-spr-enhancement
+  title: "Why Two-Layer Gratings Can Enhance THz Smith–Purcell Radiation"
+  category: "Vacuum Electronics"
+  source: "IEEE Transactions on Plasma Science"
+  year: 2025
+  doi: "10.1109/TPS.2025.3567163"
+  cover_prompt: "Electron beam traveling between two aligned periodic metallic grating layers, stronger THz wave emerging, clean white editorial background, navy/blue/gold, no text."
+
+- slug: two-layer-cold-hot-dispersion
+  title: "Cold-Tube and Hot-Tube Dispersion in Two-Layer Smith–Purcell Structures"
+  category: "Vacuum Electronics"
+  source: "IEEE Transactions on Plasma Science"
+  year: 2025
+  doi: "10.1109/TPS.2025.3567163"
+  cover_prompt: "Two-layer grating beside two refined families of dispersion curves, one cold and one beam-coupled, with a highlighted growth root; elegant technical magazine art."
+
+- slug: two-layer-low-energy-growth-band
+  title: "How a Second Grating Layer Shifts the Growth Band Toward Lower Beam Energy"
+  category: "Vacuum Electronics"
+  source: "IEEE Transactions on Plasma Science"
+  year: 2025
+  doi: "10.1109/TPS.2025.3567163"
+  cover_prompt: "Abstract beam-energy axis with a growth band visibly shifting left when a second grating layer appears; crisp scientific visualization, light background."
+
+- slug: single-vs-two-layer-spr
+  title: "Single-Layer or Two-Layer? Choosing a Smith–Purcell Grating from Growth Rate"
+  category: "Vacuum Electronics"
+  source: "IEEE Transactions on Plasma Science"
+  year: 2025
+  doi: "10.1109/TPS.2025.3567163"
+  cover_prompt: "Split scientific comparison: single grating on left and two-layer grating on right, each with surface-wave growth cues; sophisticated white editorial layout."
+
+- slug: anisotropy-current-crowding-2d
+  title: "Why Anisotropic Conductivity Changes Current Crowding in 2D Thin Films"
+  category: "Electronic Materials"
+  source: "ACS Applied Electronic Materials"
+  year: 2026
+  doi: "10.1021/acsaelm.5c02130"
+  cover_prompt: "Layered 2D material under a vertical metal contact, current lines spreading strongly sideways then crowding at edges; refined contour-field aesthetic on white."
+
+- slug: exact-spreading-resistance-2d
+  title: "Exact Spreading Resistance in Vertical Contacts to Anisotropic Thin Films"
+  category: "Electronic Materials"
+  source: "ACS Applied Electronic Materials"
+  year: 2026
+  doi: "10.1021/acsaelm.5c02130"
+  cover_prompt: "Vertical contact over two anisotropic layers, precise current-flow streamlines and subtle analytical geometry guides, light premium science illustration."
+
+- slug: classical-spreading-resistance-limit
+  title: "When Classical Spreading-Resistance Approximations Fail in Ultrathin Films"
+  category: "Electronic Materials"
+  source: "ACS Applied Electronic Materials"
+  year: 2026
+  doi: "10.1021/acsaelm.5c02130"
+  cover_prompt: "Side-by-side thick bulk limit versus ultrathin confined film, conventional current spreading on one side and strongly distorted crowding on the other."
+
+- slug: analytical-vs-fem-anisotropic-contacts
+  title: "Analytical Theory vs FEM for Anisotropic Vertical Contacts"
+  category: "Electronic Materials"
+  source: "ACS Applied Electronic Materials"
+  year: 2026
+  doi: "10.1021/acsaelm.5c02130"
+  cover_prompt: "Split-screen visual: elegant analytical field lines and equations on one side, smooth FEM contour map on the other, both converging visually."
+
+- slug: paschen-1d-overview
+  title: "PASCHEN-1D: A Flexible 1D Solver for Breakdown and Gas Discharges"
+  category: "Plasma & Discharge Physics"
+  source: "Computer Physics Communications"
+  year: 2026
+  doi: "10.1016/j.cpc.2026.110404"
+  cover_prompt: "One-dimensional gas gap between electrodes with a luminous plasma profile, density curves and subtle solver-grid motif; clean Python/scientific aesthetic, no code text."
+
+- slug: paschen-1d-plasma-circuit-coupling
+  title: "How PASCHEN-1D Couples Plasma Transport to External Circuits"
+  category: "Computational Physics"
+  source: "Computer Physics Communications"
+  year: 2026
+  doi: "10.1016/j.cpc.2026.110404"
+  cover_prompt: "Plasma gap seamlessly connected to a minimal RLC circuit, arrows showing bidirectional voltage-current coupling, refined white science-magazine illustration."
+
+- slug: paschen-1d-surface-emission
+  title: "Multi-Mechanism Surface Emission in PASCHEN-1D"
+  category: "Plasma & Discharge Physics"
+  source: "Computer Physics Communications"
+  year: 2026
+  doi: "10.1016/j.cpc.2026.110404"
+  cover_prompt: "Electrode surface emitting electrons through several visually distinct mechanisms: field tunneling, thermal, photon-driven and secondary emission; minimal scientific montage."
+
+- slug: paschen-1d-validation-benchmarks
+  title: "Benchmarking PASCHEN-1D Across Pulsed Discharges, Glow, and Paschen Curves"
+  category: "Computational Physics"
+  source: "Computer Physics Communications"
+  year: 2026
+  doi: "10.1016/j.cpc.2026.110404"
+  cover_prompt: "Elegant multi-panel scientific composition with a Paschen-like curve, pulsed discharge trace, glow profile and simulation validation overlays; bright clean background."
