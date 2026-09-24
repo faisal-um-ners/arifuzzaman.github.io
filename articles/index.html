@@ -1,0 +1,117 @@
+---
+layout: null
+title: Research Articles
+permalink: /articles/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Articles | Md Arifuzzaman Faisal</title>
+  <meta name="description" content="Research notes, derivations, simulations, and computational studies in plasma physics, vacuum electronics, electron emission, electronic materials, and scientific computing.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="{{ '/articles/' | absolute_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Research Articles" href="{{ '/feed.xml' | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:title" content="Research Articles | {{ site.title | escape }}">
+  <meta property="og:description" content="Research notes, derivations, simulations, tutorials, and computational studies in plasma physics, vacuum electronics, electron emission, electronic materials, and scientific computing.">
+  <meta property="og:url" content="{{ '/articles/' | absolute_url }}">
+  <meta property="og:image" content="{{ site.seo_image | absolute_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Research Articles | {{ site.title | escape }}">
+  <meta name="twitter:description" content="Research notes, derivations, simulations, tutorials, and computational studies by Md Arifuzzaman Faisal.">
+  <meta name="twitter:image" content="{{ site.seo_image | absolute_url }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Research Articles",
+    "url": "{{ '/articles/' | absolute_url }}",
+    "description": "Research notes, derivations, simulations, tutorials, and computational studies by Md Arifuzzaman Faisal.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "{{ site.title }}",
+      "url": "{{ '/' | absolute_url }}"
+    },
+    "about": [
+      "Plasma Physics",
+      "Vacuum Electronics",
+      "Electron Emission",
+      "Electronic Materials",
+      "Scientific Computing"
+    ]
+  }
+  </script>
+  <link href="{{ '/favicon.ico' | relative_url }}" rel="icon" sizes="any">
+  <link href="{{ '/assets/css/styles.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/css/articles.css' | relative_url }}" rel="stylesheet">
+</head>
+<body class="hub-page">
+<header class="site-header scrolled">
+  <div class="container header-inner">
+    <a aria-label="Md Arifuzzaman Faisal, home" class="brand" href="{{ '/' | relative_url }}">
+      <span aria-hidden="true" class="brand-mark">AF</span>
+      <span class="brand-copy"><strong>Md Arifuzzaman Faisal</strong><small>Plasma Physics · Vacuum Electronics</small></span>
+    </a>
+    <nav aria-label="Research hub navigation" class="article-nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a class="active" href="{{ '/articles/' | relative_url }}">Articles</a>
+      <a href="{{ '/#publications' | relative_url }}">Publications</a>
+      <a href="{{ '/cv/' | relative_url }}">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="hub-main">
+  <section class="hub-hero">
+    <div class="container">
+      <p class="section-kicker">Research hub</p>
+      <h1>Research Articles</h1>
+      <p>Notes, derivations, simulations, tutorials, and computational studies connected to my research.</p>
+      <div class="hub-filters" aria-label="Filter articles">
+        <button class="active" data-filter="all">All</button>
+        {% assign categories = site.articles | map: "category" | uniq | sort %}
+        {% for category in categories %}
+        <button data-filter="{{ category | slugify }}">{{ category }}</button>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      <div class="hub-grid" id="articleGrid">
+        {% assign sorted_articles = site.articles | sort: "date" | reverse %}
+        {% for article in sorted_articles %}
+        <div class="hub-filter-item" data-category="{{ article.category | slugify }}">
+          {% include article-card.html article=article %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><strong>Md Arifuzzaman Faisal</strong><span>Ph.D. Student · University of Michigan</span></div>
+    <p>© <span id="currentYear">2026</span> Md Arifuzzaman Faisal. All rights reserved.</p>
+    <a href="{{ '/' | relative_url }}">Home ↑</a>
+  </div>
+</footer>
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+<script>
+document.querySelectorAll('.hub-filters button').forEach((button) => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    document.querySelectorAll('.hub-filters button').forEach((b) => b.classList.toggle('active', b === button));
+    document.querySelectorAll('.hub-filter-item').forEach((item) => {
+      item.hidden = filter !== 'all' && item.dataset.category !== filter;
+    });
+  });
+});
+</script>
+</body>
+</html>
