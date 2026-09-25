@@ -5,7 +5,7 @@ category: "Electronic Materials"
 type: "Publication-based Research Article"
 summary: "Layered materials conduct very differently in-plane and out-of-plane, reshaping current injection beneath vertical contacts."
 tags: ["2D materials", "anisotropy", "current crowding", "contacts"]
-image: "/assets/img/articles/anisotropy-current-crowding-2d.svg"
+image: "/assets/img/articles/anisotropy-current-crowding-2d.png"
 featured: true
 featured_order: 4
 journal: "ACS Applied Electronic Materials"
