@@ -5,7 +5,7 @@ category: "Vacuum Electronics"
 type: "Publication-based Research Article"
 summary: "Why groove height and width can change the threshold current for coherent THz Smith–Purcell radiation by orders of magnitude."
 tags: ["Smith-Purcell radiation", "THz", "starting current", "grating optimization"]
-image: "/assets/img/articles/spr-grating-geometry-starting-current.svg"
+image: "/assets/img/articles/spr-grating-geometry-starting-current.png"
 featured: true
 featured_order: 1
 journal: "IEEE Transactions on Electron Devices"
