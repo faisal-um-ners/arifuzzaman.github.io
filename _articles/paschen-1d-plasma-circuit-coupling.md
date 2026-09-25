@@ -126,10 +126,3 @@ Thinking of the discharge as a nonlinear load helps connect plasma physics to pu
 Its current-voltage response is not fixed. It changes as density, space charge, emission, and ionization evolve. Conversely, the external impedance controls how much of the source voltage the plasma actually receives.
 
 PASCHEN-1D makes that feedback explicit, which is one reason the same framework can be used for DC breakdown, pulsed discharge, dielectric-barrier configurations, and more general externally driven plasma systems.
-
-## Source publication
-
-**PASCHEN-1D: A one-dimensional fluid plasma solver with multi-mechanism surface emission and flexible external circuit coupling**  
-Asif Iqbal, Yves Heri, Bingqing Wang, Lan Jin, Md Arifuzzaman Faisal, and Peng Zhang  
-*Computer Physics Communications* 329 (2026), 110404  
-DOI: [10.1016/j.cpc.2026.110404](https://doi.org/10.1016/j.cpc.2026.110404)
