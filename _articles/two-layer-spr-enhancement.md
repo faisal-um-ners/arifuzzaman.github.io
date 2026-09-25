@@ -26,9 +26,9 @@ That distinction matters because extra structure is not automatically extra perf
 
 ## A dramatic example — but not a universal rule
 
-For one representative parameter set, keeping the same beam current of (2000~\mathrm{A/m}), the two-layer configuration produced approximately four times the radiation intensity of the corresponding single-layer device.
+For one representative parameter set, keeping the same beam current of $2000~\mathrm{A/m}$, the two-layer configuration produced approximately four times the radiation intensity of the corresponding single-layer device.
 
-The comparison is equally striking when viewed from the current side. In another simulation, reducing the beam current by about a factor of four to (500~\mathrm{A/m}) in the two-layer structure still produced radiation comparable to the single-layer reference.
+The comparison is equally striking when viewed from the current side. In another simulation, reducing the beam current by about a factor of four to $500~\mathrm{A/m}$ in the two-layer structure still produced radiation comparable to the single-layer reference.
 
 It would be tempting to conclude that two layers are always better. The paper shows why that conclusion is wrong.
 
@@ -42,7 +42,7 @@ $$
 k=k_r+jk_i,
 $$
 
-and the spatial amplification is governed by (-k_i) when (k_i<0).
+and the spatial amplification is governed by $-k_i$ when $k_i<0$.
 
 The strongest two-layer cases are those in which the second grating shifts the operating point closer to the upper band edge and increases the magnitude of the spatial growth rate. When that happens, less current is needed to build the same wave amplitude over the interaction length.
 
