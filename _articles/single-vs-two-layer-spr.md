@@ -33,9 +33,9 @@ $$
 R_g=\frac{|k_i|_{\mathrm{two}}}{|k_i|_{\mathrm{single}}}.
 $$
 
-If (R_g>1), the two-layer structure provides stronger spatial amplification. The expectation is therefore that it will reach coherent oscillation at a smaller beam current.
+If $R_g>1$, the two-layer structure provides stronger spatial amplification. The expectation is therefore that it will reach coherent oscillation at a smaller beam current.
 
-If (R_g<1), the single-layer device is favored.
+If $R_g<1$, the single-layer device is favored.
 
 The paper tests this prediction using PIC-derived starting currents at a set of representative points. For the cases labeled A, B, C, G, H and I, the two-layer structure has the larger growth rate and also the lower starting current. For D, E, F, J, K and L, the trend reverses.
 
