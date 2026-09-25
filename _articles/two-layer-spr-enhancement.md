@@ -1,6 +1,6 @@
 ---
 title: "Why Two-Layer Gratings Can Enhance THz Smith–Purcell Radiation"
-date: 2026-09-25
+date: 2026-09-24
 category: "Vacuum Electronics"
 type: "Publication-based Research Article"
 summary: "Two-layer gratings can strengthen beam-wave growth and lower starting current, but only within specific regions of geometry and beam energy."
