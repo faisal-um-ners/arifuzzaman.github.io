@@ -27,13 +27,13 @@ The answer comes from the dispersion of the surface mode supported by the gratin
 
 ## The cold structure sets the operating point
 
-Before adding the electron beam, the grating has its own electromagnetic dispersion relation. The operating frequency of the evanescent surface mode is obtained where the electron beam line intersects this cold-tube dispersion curve. For a beam with velocity (v_0),
+Before adding the electron beam, the grating has its own electromagnetic dispersion relation. The operating frequency of the evanescent surface mode is obtained where the electron beam line intersects this cold-tube dispersion curve. For a beam with velocity $v_0$,
 
 $$
 \omega = k v_0 .
 $$
 
-In the paper, a 50-keV beam corresponds to (\beta_0=v_0/c=0.4126). Changing groove height or width reshapes the cold-tube dispersion curve, so the intersection with the same beam line moves. That means the operating frequency changes even when the period and beam energy do not.
+In the paper, a 50-keV beam corresponds to $\beta_0=v_0/c=0.4126$. Changing groove height or width reshapes the cold-tube dispersion curve, so the intersection with the same beam line moves. That means the operating frequency changes even when the period and beam energy do not.
 
 This is already an important design insight. The basic Smith–Purcell wavelength relation emphasizes grating period, beam velocity and observation angle, but the slow-wave mode contains more information about the actual device. Groove geometry changes the electromagnetic environment seen by the beam.
 
@@ -45,13 +45,13 @@ $$
 k = k_r + j k_i .
 $$
 
-With the field convention used in the paper, a negative (k_i) represents spatial amplification. The growth rate is therefore measured by (-k_i). For one representative case, (w=60~\mu\mathrm{m}), (h=40~\mu\mathrm{m}), the calculated normalized root had an imaginary part of about (-0.041).
+With the field convention used in the paper, a negative $k_i$ represents spatial amplification. The growth rate is therefore measured by $-k_i$. For one representative case, $w=60~\mu\mathrm{m}$, $h=40~\mu\mathrm{m}$, the calculated normalized root had an imaginary part of about (-0.041).
 
-More important than one value is the trend across geometry. The largest spatial growth appeared around groove heights of roughly (100)–(120~\mu\mathrm{m}) for the fixed-width sweep, and around a groove width of approximately (80~\mu\mathrm{m}) for the fixed-height sweep. These high-growth operating points lie close to the upper band edge of the cold-tube dispersion relation, where oscillation is particularly easy to trigger.
+More important than one value is the trend across geometry. The largest spatial growth appeared around groove heights of roughly (100)–$120~\mu\mathrm{m}$ for the fixed-width sweep, and around a groove width of approximately $80~\mu\mathrm{m}$ for the fixed-height sweep. These high-growth operating points lie close to the upper band edge of the cold-tube dispersion relation, where oscillation is particularly easy to trigger.
 
 ## Growth rate predicts the starting-current trend
 
-The decisive comparison was between this calculated spatial growth rate and starting currents obtained independently from particle-in-cell simulations using 35 grating periods. The two curves followed one another remarkably closely: geometries with larger (-k_i) required lower starting current.
+The decisive comparison was between this calculated spatial growth rate and starting currents obtained independently from particle-in-cell simulations using 35 grating periods. The two curves followed one another remarkably closely: geometries with larger $-k_i$ required lower starting current.
 
 There is a simple physical reason. In a coherent beam–wave interaction, radiation field grows approximately as
 
@@ -59,7 +59,7 @@ $$
 E \propto e^{|k_i|L_G},
 $$
 
-where (L_G) is the interaction length. At the same time, coherent radiation power scales approximately as (I^2), so the field amplitude scales with beam current. Combining these ideas gives the useful scaling
+where $L_G$ is the interaction length. At the same time, coherent radiation power scales approximately as $I^2$, so the field amplitude scales with beam current. Combining these ideas gives the useful scaling
 
 $$
 e^{|k_i|L_G} \propto I .
