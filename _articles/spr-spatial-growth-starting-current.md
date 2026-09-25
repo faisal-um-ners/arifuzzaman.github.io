@@ -33,27 +33,27 @@ $$
 k=k_r+jk_i.
 $$
 
-For the convention (e^{-j\omega t+jkx}), the field contains a factor
+For the convention $e^{-j\omega t+jkx}$, the field contains a factor
 
 $$
 e^{-k_i x}.
 $$
 
-A negative (k_i) therefore describes a wave that grows as it moves along the interaction region. We use (-k_i) as the spatial growth rate.
+A negative $k_i$ therefore describes a wave that grows as it moves along the interaction region. We use $-k_i$ as the spatial growth rate.
 
 This is different from a temporal-growth analysis, where frequency is complex and the instability is interpreted as growth in time. The spatial formulation is especially natural for a finite interaction structure: the beam enters, exchanges energy with the mode, and the wave amplitude evolves along the grating.
 
 ## The geometric sweep reveals the correlation
 
-In the published calculation, we varied groove height while fixing (w=60~\mu\mathrm{m}), and separately varied groove width while fixing (h=100~\mu\mathrm{m}). For each geometry, the cold-tube dispersion relation first identified the evanescent-wave operating frequency. The hot-tube relation was then solved at that frequency.
+In the published calculation, we varied groove height while fixing $w=60~\mu\mathrm{m}$, and separately varied groove width while fixing $h=100~\mu\mathrm{m}$. For each geometry, the cold-tube dispersion relation first identified the evanescent-wave operating frequency. The hot-tube relation was then solved at that frequency.
 
-The spatial growth rate was far from constant. It reached pronounced maxima for groove heights around (100)–(120~\mu\mathrm{m}), and around a groove width near (80~\mu\mathrm{m}). These maxima occurred when the beam-wave operating point moved close to the upper band edge of the cold dispersion curve.
+The spatial growth rate was far from constant. It reached pronounced maxima for groove heights around (100)–$120~\mu\mathrm{m}$, and around a groove width near $80~\mu\mathrm{m}$. These maxima occurred when the beam-wave operating point moved close to the upper band edge of the cold dispersion curve.
 
 The decisive test was comparison with starting-current values from PIC simulations. Those simulations used a 35-period grating, with the other beam and device parameters kept consistent. The starting-current curve and the spatial-growth curve displayed essentially the same geometry dependence, even though one was obtained from nonlinear time-domain simulation and the other from a linear dispersion calculation.
 
 ## Why exponential gain maps onto current threshold
 
-The connection can be understood by thinking about how coherent radiation builds. If an electromagnetic field grows over an interaction length (L_G),
+The connection can be understood by thinking about how coherent radiation builds. If an electromagnetic field grows over an interaction length $L_G$,
 
 $$
 E_{\mathrm{out}} \sim E_{\mathrm{in}} e^{|k_i|L_G}.
