@@ -7,7 +7,7 @@ summary: "Why the imaginary part of the hot-tube wavenumber provides a physical 
 tags: ["spatial growth rate", "hot-tube dispersion", "starting current", "SPR"]
 image: "/assets/img/articles/spr-spatial-growth-starting-current.svg"
 featured: true
-featured_order: 2
+featured_order: 5
 journal: "IEEE Transactions on Electron Devices"
 source_year: 2023
 doi: "10.1109/TED.2022.3208846"
