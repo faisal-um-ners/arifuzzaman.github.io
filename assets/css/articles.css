@@ -2359,3 +2359,8 @@
   .article-v4-sourcebar.article-v4-sourcebar-unified{border-radius:6px !important;}
   .cv-embed{min-height:560px;height:75vh;}
 }
+
+
+.article-v4-sourcebar.article-v4-sourcebar-unified > *{
+  border:0 !important;
+}
