@@ -7,7 +7,7 @@ summary: "Why groove height and width can change the threshold current for coher
 tags: ["Smith-Purcell radiation", "THz", "starting current", "grating optimization"]
 image: "/assets/img/articles/spr-grating-geometry-starting-current.png"
 featured: true
-featured_order: 1
+featured_order: 3
 journal: "IEEE Transactions on Electron Devices"
 source_year: 2023
 doi: "10.1109/TED.2022.3208846"
