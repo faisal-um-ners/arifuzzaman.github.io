@@ -2378,3 +2378,9 @@
   display:inline-block !important;
   vertical-align:-0.08em;
 }
+
+
+/* Requested publication-strip correction only: preserve previous four-part layout, with subtle corners. */
+.article-v4-sourcebar{
+  border-radius:8px !important;
+}
