@@ -7,7 +7,7 @@ summary: "Two-layer gratings can strengthen beam-wave growth and lower starting 
 tags: ["two-layer grating", "Smith-Purcell radiation", "THz", "beam-wave coupling"]
 image: "/assets/img/articles/two-layer-spr-enhancement.png"
 featured: true
-featured_order: 3
+featured_order: 2
 journal: "IEEE Transactions on Plasma Science"
 source_year: 2025
 doi: "10.1109/TPS.2025.3567163"
