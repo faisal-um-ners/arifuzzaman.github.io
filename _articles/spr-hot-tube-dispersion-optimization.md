@@ -5,7 +5,7 @@ category: "Vacuum Electronics"
 type: "Publication-based Research Article"
 summary: "A compact guide to the dispersion-based optimization method that links beam-wave growth to practical grating design."
 tags: ["hot-tube dispersion", "beam-wave interaction", "grating", "optimization"]
-image: "/assets/img/articles/spr-hot-tube-dispersion-optimization.svg"
+image: "/assets/img/articles/spr-hot-tube-dispersion-optimization.png"
 featured: false
 journal: "IEEE Transactions on Electron Devices"
 source_year: 2023
