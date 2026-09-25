@@ -28,7 +28,7 @@ Our published framework was developed to keep all of those ingredients in the sa
 In each material region, the potential satisfies
 
 $$
-\nabla\cdot(\boldsymbol{\sigma}\nabla\Phi)=0.
+\nabla\cdot$\boldsymbol{\sigma}\nabla\Phi$=0.
 $$
 
 The conductivity tensor is diagonal in the principal material directions, so the in-plane and out-of-plane conductivities can be specified independently.
@@ -37,15 +37,15 @@ For two stacked layers,
 
 $$
 \boldsymbol{\rho}_1=
-\operatorname{diag}(\rho_{1,t},\rho_{1,z}),
+\operatorname{diag}$\rho_{1,t},\rho_{1,z}$,
 \qquad
 \boldsymbol{\rho}_2=
-\operatorname{diag}(\rho_{2,t},\rho_{2,z}),
+\operatorname{diag}$\rho_{2,t},\rho_{2,z}$,
 $$
 
 where (t) denotes the lateral coordinate and (z) the vertical direction.
 
-The two regions are joined through a finite specific interfacial resistivity (\rho_i), which permits a potential discontinuity proportional to the normal current density.
+The two regions are joined through a finite specific interfacial resistivity $\rho_i$, which permits a potential discontinuity proportional to the normal current density.
 
 This boundary condition is important because the interface is not simply added after the field solution. A finite interface resistance can alter the way current spreads in the adjoining materials.
 
@@ -53,7 +53,7 @@ This boundary condition is important because the interface is not simply added a
 
 The theory is derived for both planar and disk-shaped contacts.
 
-In Cartesian geometry, a contact of half-width (a) injects current into a lower region extending to a half-width (b>a). In cylindrical geometry, the same variables become the contact radius and surrounding device radius.
+In Cartesian geometry, a contact of half-width $a$ injects current into a lower region extending to a half-width (b>a). In cylindrical geometry, the same variables become the contact radius and surrounding device radius.
 
 The total contact resistance can be decomposed conceptually as
 
@@ -61,7 +61,7 @@ $$
 R_c = R_s + R_{\mathrm{interface}} + R_1,
 $$
 
-where (R_s) is the spreading resistance, (R_{\mathrm{interface}}) is the interface contribution, and (R_1) is the vertical resistance of the upper contact material.
+where $R_s$ is the spreading resistance, $R_{\mathrm{interface}}$ is the interface contribution, and $R_1$ is the vertical resistance of the upper contact material.
 
 This decomposition makes it possible to see which physical contribution dominates for a given geometry and material set.
 
@@ -97,7 +97,7 @@ These limits are valuable checks because they show that the exact anisotropic fo
 
 The field solution is not only intended for forward prediction.
 
-Because the model explicitly includes (a), (b), (h_1), (h_2), (\rho_i), and the anisotropic resistivities, it can be used to interpret experimental resistance data without folding geometry into an uncontrolled effective parameter.
+Because the model explicitly includes $a$, $b$, $h_1$, $h_2$, $\rho_i$, and the anisotropic resistivities, it can be used to interpret experimental resistance data without folding geometry into an uncontrolled effective parameter.
 
 That matters when extracting intrinsic transport properties. If an experiment lies outside the wide, thick, semi-infinite regime, fitting it with a simple (1/a) law can return a misleading in-plane or out-of-plane resistivity.
 
