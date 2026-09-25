@@ -61,7 +61,7 @@ which is extremely anisotropic. Yet the classical scaling still emerges because 
 
 The agreement does not survive arbitrary scaling.
 
-When the surrounding lateral dimension (b) approaches the contact dimension (a), current can no longer spread as if the material were infinite. The device boundary begins to reshape the field.
+When the surrounding lateral dimension $b$ approaches the contact dimension $a$, current can no longer spread as if the material were infinite. The device boundary begins to reshape the field.
 
 The paper shows that deviations become pronounced as (b/a) is reduced, with strong finite-boundary effects appearing below the wide-device regime. The conclusion section emphasizes that once (b/a) falls below roughly 20, or the film becomes only a few nanometers thick, the simple diffusive approximation can no longer be trusted.
 
@@ -73,9 +73,9 @@ Thickness matters for the same reason.
 
 In a very thin lower layer, the current cannot penetrate deeply before encountering the bottom boundary. The spreading pattern becomes more two-dimensional and remains sensitive to the lateral geometry.
 
-The MoS$_2$ benchmark illustrates this clearly. For a moderately anisotropic multilayer device with (b/a\approx20) and (h_2=120~\mathrm{nm}), the data can still display an apparent (1/a) dependence.
+The MoS$_2$ benchmark illustrates this clearly. For a moderately anisotropic multilayer device with $b/a\approx20$ and $h_2=120~\mathrm{nm}$, the data can still display an apparent (1/a) dependence.
 
-But if the lateral extent is reduced to about (b=5a), or the thickness is reduced to only a few layers, such as (h_2=7~\mathrm{nm}) in the model comparison, the exact solution departs substantially from the classical line.
+But if the lateral extent is reduced to about $b=5a$, or the thickness is reduced to only a few layers, such as $h_2=7~\mathrm{nm}$ in the model comparison, the exact solution departs substantially from the classical line.
 
 ## Why an effective isotropic resistivity is not enough
 
@@ -97,7 +97,7 @@ $$
 R_s=\frac{\rho_{\mathrm{eff}}}{4a},
 $$
 
-the fitted (\rho_{\mathrm{eff}}) can absorb geometry effects that do not belong to the material itself. Back-calculating in-plane or out-of-plane resistivity from that fit can therefore give a serious error.
+the fitted $\rho_{\mathrm{eff}}$ can absorb geometry effects that do not belong to the material itself. Back-calculating in-plane or out-of-plane resistivity from that fit can therefore give a serious error.
 
 The safer approach is to fit the resistance using the actual device dimensions and the full anisotropic field solution.
 
