@@ -42,7 +42,24 @@ title: Home
 <link as="image" href="assets/img/profile.png" rel="preload"/>
 <link href="assets/css/styles.css" rel="stylesheet"/>
 <link href="assets/css/articles.css" rel="stylesheet"/>
-<script>window.__preloaderStartedAt = performance.now();</script>
+<script>
+  window.__preloaderStartedAt = performance.now();
+  window.__skipHomePreloader = false;
+  try {
+    if (document.referrer) {
+      const ref = new URL(document.referrer);
+      const current = new URL(window.location.href);
+      const cameFromSubpage =
+        ref.origin === current.origin &&
+        ref.pathname !== '/' &&
+        current.pathname === '/';
+      if (cameFromSubpage) {
+        window.__skipHomePreloader = true;
+        document.documentElement.classList.add('skip-home-preloader');
+      }
+    }
+  } catch (error) {}
+</script>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
