@@ -148,13 +148,19 @@
     {% endif %}
 
     {% if page.publication_based %}
-    <section class="article-v4-sourcebar article-v4-sourcebar-unified" aria-label="Source publication">
-      <div class="article-v4-sourcebar-content">
-        <small>Based on the peer-reviewed publication</small>
+    <section class="article-v4-sourcebar" aria-label="Source publication">
+      <div class="article-v4-sourcebar-label">Based on a peer-reviewed paper</div>
+      <div class="article-v4-sourcebar-main">
         <strong>{{ page.source_paper }}</strong>
-        <p>{{ page.source_authors }} · <em>{{ page.journal }}</em> · {{ page.source_year }}</p>
-        <a href="{{ page.source_url }}" target="_blank" rel="noopener">DOI {{ page.doi }} <span aria-hidden="true">↗</span></a>
+        <span>{{ page.source_authors }}</span>
       </div>
+      <div class="article-v4-sourcebar-journal">
+        <small>{{ page.journal }}</small>
+        <span>{{ page.source_year }}</span>
+      </div>
+      <a class="article-v4-sourcebar-link" href="{{ page.source_url }}" target="_blank" rel="noopener">
+        DOI {{ page.doi }} <span aria-hidden="true">↗</span>
+      </a>
     </section>
     {% endif %}
 
