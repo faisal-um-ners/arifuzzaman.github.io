@@ -2111,3 +2111,8 @@ body.is-loading{
     opacity:.24;
   }
 }
+
+
+/* Skip the homepage preloader when navigating back from an internal subpage. */
+html.skip-home-preloader .site-preloader{display:none!important;}
+html.skip-home-preloader body.is-loading{overflow:auto!important;}
