@@ -30,9 +30,9 @@ That redistribution is the origin of strong **current crowding** near contact ed
 
 The electrostatic problem is governed by the conductivity tensor,
 
-$$
-\nabla\cdot$\boldsymbol{\sigma}\nabla\Phi$=0.
-$$
+$
+\nabla\cdot\left(\boldsymbol{\sigma}\nabla\Phi\right)=0.
+$
 
 For a layered medium, the in-plane and out-of-plane conductivities are different. Equivalently, the resistivity tensor contains distinct lateral and vertical components.
 
