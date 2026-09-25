@@ -19,9 +19,9 @@ publication_based: true
 
 The familiar Smith–Purcell relation connects radiation wavelength to the grating period, beam velocity and observation angle,
 
-$$
-\lambda=\frac{L}{n}\left$\frac{1}{\beta}-\cos\theta\right$.
-$$
+$
+\lambda=\frac{L}{n}\left(\frac{1}{\beta}-\cos\theta\right).
+$
 
 It is an elegant and useful kinematic result. But a real Smith–Purcell oscillator is also a slow-wave electromagnetic structure, and the geometry of its grooves determines the dispersion of the surface mode that interacts with the electron beam.
 
