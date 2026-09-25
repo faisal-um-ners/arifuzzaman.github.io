@@ -1,7 +1,7 @@
 ---
 title: "PASCHEN-1D: A Flexible 1D Solver for Breakdown and Gas Discharges"
 date: 2026-09-12
-category: "Plasma & Discharge Physics"
+category: "Plasma Physics"
 type: "Publication-based Research Article"
 summary: "An introduction to the PASCHEN-1D framework for fluid plasma transport, electrode emission, and external-circuit coupling."
 tags: ["PASCHEN-1D", "gas discharge", "plasma breakdown", "fluid model"]
