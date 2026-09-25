@@ -31,7 +31,7 @@ That redistribution is the origin of strong **current crowding** near contact ed
 The electrostatic problem is governed by the conductivity tensor,
 
 $$
-\nabla\cdot(\boldsymbol{\sigma}\nabla\Phi)=0.
+\nabla\cdot$\boldsymbol{\sigma}\nabla\Phi$=0.
 $$
 
 For a layered medium, the in-plane and out-of-plane conductivities are different. Equivalently, the resistivity tensor contains distinct lateral and vertical components.
@@ -42,9 +42,9 @@ $$
 \alpha = \frac{\rho_{\parallel}}{\rho_{\perp}},
 $$
 
-so a small (\alpha) corresponds to much easier in-plane conduction.
+so a small $\alpha$ corresponds to much easier in-plane conduction.
 
-As (\alpha) decreases, the potential distribution stretches laterally. Rather than dropping rapidly through the thickness, the potential remains correlated over a longer distance along the plane. The current-density pattern follows that field structure.
+As $\alpha$ decreases, the potential distribution stretches laterally. Rather than dropping rapidly through the thickness, the potential remains correlated over a longer distance along the plane. The current-density pattern follows that field structure.
 
 The consequence is subtle: stronger in-plane conductivity can reduce the overall spreading resistance while simultaneously **increasing the localization of current near the contact perimeter**.
 
@@ -62,7 +62,7 @@ A model that captures only terminal resistance may miss the spatial physics that
 
 ## The top and bottom layers both matter
 
-The exact framework in the paper treats both members of the vertical contact as anisotropic materials. Each layer has independent in-plane and out-of-plane resistivity, and the interface can have a finite specific resistivity (\rho_i).
+The exact framework in the paper treats both members of the vertical contact as anisotropic materials. Each layer has independent in-plane and out-of-plane resistivity, and the interface can have a finite specific resistivity $\rho_i$.
 
 This is more general than treating a metal electrode as perfectly equipotential or replacing the semiconductor by a single effective resistivity.
 
