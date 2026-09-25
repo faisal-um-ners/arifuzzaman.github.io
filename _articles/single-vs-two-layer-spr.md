@@ -87,10 +87,3 @@ The main design insight is that the number of layers is not itself the performan
 That conclusion is broadly relevant to more complicated periodic free-electron devices. Adding geometric complexity is valuable only when it reshapes the mode in a useful direction.
 
 The best structure is therefore not the one with the most features. It is the one that produces the desired frequency and the strongest useful beam-wave growth under the actual operating constraints.
-
-## Source publication
-
-**Parametric Analysis on Enhancement of THz Smith–Purcell Radiation by Two-Layer Grating Structure**  
-Md Arifuzzaman Faisal and Peng Zhang  
-*IEEE Transactions on Plasma Science* 53 (2025), 1170–1179  
-DOI: [10.1109/TPS.2025.3567163](https://doi.org/10.1109/TPS.2025.3567163)
