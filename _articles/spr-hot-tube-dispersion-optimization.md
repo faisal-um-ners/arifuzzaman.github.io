@@ -59,7 +59,7 @@ The electron-beam distance from the grating also enters the hot dispersion. This
 
 Synchronism by itself is not enough. Many geometries may place the beam line on the dispersion curve, yet their growth rates can be very different.
 
-Our parameter sweeps showed that the strongest growth occurs near operating points approaching the upper band edge of the cold-tube dispersion. For the geometry set studied, high-growth regions appeared around $h=100$–$120~\mu\mathrm{m}$ in one sweep and around $w=80~\mu\mathrm{m}$ in another.
+Our parameter sweeps showed that the strongest growth occurs near operating points approaching the upper band edge of the cold-tube dispersion. For the geometry set studied, high-growth regions appeared around $h=100\text{–}120~\mu\mathrm{m}$ in one sweep and around $w=80~\mu\mathrm{m}$ in another.
 
 The hot-tube real wavenumber is slightly shifted from the cold-tube intersection because the beam detunes the mode. That shift is small compared with the much stronger geometry dependence of the imaginary part, which is the quantity that carries the amplification information.
 
