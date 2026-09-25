@@ -30,7 +30,7 @@ Our two-layer Smith–Purcell paper uses both because neither one alone is enoug
 For the two-layer geometry, Maxwell's equations are solved in the different spatial regions and the tangential electromagnetic fields are matched across each interface. The result is a dispersion relation
 
 $$
-f(\omega,k)=0
+f$\omega,k$=0
 $$
 
 for the periodic structure.
@@ -55,7 +55,7 @@ $$
 k=k_r+jk_i.
 $$
 
-The real part controls the phase evolution; the imaginary part controls spatial amplification. For the convention used in the paper, (k_i<0) corresponds to growth, so the relevant gain measure is (-k_i).
+The real part controls the phase evolution; the imaginary part controls spatial amplification. For the convention used in the paper, $k_i<0$ corresponds to growth, so the relevant gain measure is $-k_i$.
 
 That simple quantity becomes the bridge between dispersion theory and the experimentally meaningful starting current.
 
@@ -71,7 +71,7 @@ This helps explain why adding the second layer can sometimes lower the starting 
 
 The paper also varied the distance between the beam and the upper grating. When that second layer is brought close enough to the beam, it significantly modifies the dispersion and the growth-rate band.
 
-But when the second-layer spacing becomes much larger — for example (a_2=200~\mu\mathrm{m}) compared with (a_1=10~\mu\mathrm{m}) in the reported comparison — its influence becomes weak. The two-layer cold dispersion approaches the single-layer result, and the growth-rate curves begin to overlap.
+But when the second-layer spacing becomes much larger — for example $a_2=200~\mu\mathrm{m}$ compared with $a_1=10~\mu\mathrm{m}$ in the reported comparison — its influence becomes weak. The two-layer cold dispersion approaches the single-layer result, and the growth-rate curves begin to overlap.
 
 This is exactly what one would expect from an evanescent interaction: fields associated with the beam and grating decay away from the interaction region, so a distant layer eventually becomes electromagnetically irrelevant.
 
