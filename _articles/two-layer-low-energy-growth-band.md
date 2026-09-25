@@ -55,7 +55,7 @@ Lower current can reduce beam interception and heating, ease emitter requirement
 
 The shift depends on the upper grating being electromagnetically close enough to participate in the interaction.
 
-When the upper layer is moved far away from the beam, its effect weakens. In the reported comparison, increasing the second-layer distance to (a_2=200~\mu\mathrm{m}) while the lower beam-grating distance remained (a_1=10~\mu\mathrm{m}) caused the two-layer dispersion and growth behavior to approach the single-layer curves.
+When the upper layer is moved far away from the beam, its effect weakens. In the reported comparison, increasing the second-layer distance to $a_2=200~\mu\mathrm{m}$ while the lower beam-grating distance remained $a_1=10~\mu\mathrm{m}$ caused the two-layer dispersion and growth behavior to approach the single-layer curves.
 
 That limiting behavior reinforces the physical interpretation: the shift is caused by field coupling to the second periodic surface, not merely by the fact that another piece of metal exists somewhere in the model.
 
