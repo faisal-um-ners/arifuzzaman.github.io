@@ -27,9 +27,9 @@ In our anisotropic-contact study, we used both to test whether the same physical
 
 The theory begins with the conductivity-tensor form of Laplace's equation,
 
-$$
-\nabla\cdot$\boldsymbol{\sigma}\nabla\Phi$=0.
-$$
+$
+\nabla\cdot\left(\boldsymbol{\sigma}\nabla\Phi\right)=0.
+$
 
 Both the top and bottom layers can be anisotropic, each with independent in-plane and out-of-plane resistivities. A finite specific interface resistivity $\rho_i$ is included, and finite lateral and vertical boundaries are retained.
 
