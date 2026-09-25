@@ -27,21 +27,21 @@ Our published framework was developed to keep all of those ingredients in the sa
 
 In each material region, the potential satisfies
 
-$$
-\nabla\cdot$\boldsymbol{\sigma}\nabla\Phi$=0.
-$$
+$
+\nabla\cdot\left(\boldsymbol{\sigma}\nabla\Phi\right)=0.
+$
 
 The conductivity tensor is diagonal in the principal material directions, so the in-plane and out-of-plane conductivities can be specified independently.
 
 For two stacked layers,
 
-$$
+$
 \boldsymbol{\rho}_1=
-\operatorname{diag}$\rho_{1,t},\rho_{1,z}$,
+\operatorname{diag}\left(\rho_{1,t},\rho_{1,z}\right),
 \qquad
 \boldsymbol{\rho}_2=
-\operatorname{diag}$\rho_{2,t},\rho_{2,z}$,
-$$
+\operatorname{diag}\left(\rho_{2,t},\rho_{2,z}\right).
+$
 
 where (t) denotes the lateral coordinate and (z) the vertical direction.
 
