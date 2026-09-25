@@ -20,7 +20,7 @@ publication_based: true
 The familiar Smith–Purcell relation connects radiation wavelength to the grating period, beam velocity and observation angle,
 
 $$
-\lambda=\frac{L}{n}\left(\frac{1}{\beta}-\cos\theta\right).
+\lambda=\frac{L}{n}\left$\frac{1}{\beta}-\cos\theta\right$.
 $$
 
 It is an elegant and useful kinematic result. But a real Smith–Purcell oscillator is also a slow-wave electromagnetic structure, and the geometry of its grooves determines the dispersion of the surface mode that interacts with the electron beam.
@@ -37,13 +37,13 @@ $$
 \bar\omega=\beta_0\bar k.
 $$
 
-For the 50-keV beam used in the study, (\beta_0=0.4126). Where that beam line intersects the cold-tube surface-mode curve defines the evanescent-wave frequency (f_{ev}). The radiated Smith–Purcell signal of interest occurs at the corresponding harmonic.
+For the 50-keV beam used in the study, $\beta_0=0.4126$. Where that beam line intersects the cold-tube surface-mode curve defines the evanescent-wave frequency $f_{ev}$. The radiated Smith–Purcell signal of interest occurs at the corresponding harmonic.
 
 The important point is that the dispersion curve itself changes with groove geometry.
 
 ## What happens when the grooves become deeper or wider
 
-Our parameter sweep varied groove height (h) and width (w) independently. As either dimension increased over the investigated range, the operating frequency generally decreased and the corresponding evanescent wavelength increased.
+Our parameter sweep varied groove height $h$ and width $w$ independently. As either dimension increased over the investigated range, the operating frequency generally decreased and the corresponding evanescent wavelength increased.
 
 This behavior can be understood through the movement of the upper band edge. Increasing the groove dimensions makes the band edge lower and more rounded, so the same beam line intersects the dispersion at a lower frequency.
 
@@ -57,7 +57,7 @@ $$
 v_g=\frac{d\omega}{dk}.
 $$
 
-For most of the operating points studied, the slope of the cold dispersion curve at the beam intersection is negative, which is characteristic of backward-wave operation. But for some of the deeper-groove cases, approximately (h=120)–(200~\mu\mathrm{m}) in the reported sweep, the slope becomes positive.
+For most of the operating points studied, the slope of the cold dispersion curve at the beam intersection is negative, which is characteristic of backward-wave operation. But for some of the deeper-groove cases, approximately $h=120$–$200~\mu\mathrm{m}$ in the reported sweep, the slope becomes positive.
 
 That means a purely geometric change can move the beam–grating interaction from backward-wave-like to forward-wave-like behavior without changing the beam energy or period.
 
