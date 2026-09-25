@@ -1,6 +1,6 @@
 ---
 title: "How Grating Geometry Controls the Starting Current in Smith–Purcell Radiation"
-date: 2026-09-24
+date: 2026-09-25
 category: "Vacuum Electronics"
 type: "Publication-based Research Article"
 summary: "Why groove height and width can change the threshold current for coherent THz Smith–Purcell radiation by orders of magnitude."
