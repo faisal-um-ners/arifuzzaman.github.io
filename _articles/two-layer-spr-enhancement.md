@@ -5,7 +5,7 @@ category: "Vacuum Electronics"
 type: "Publication-based Research Article"
 summary: "Two-layer gratings can strengthen beam-wave growth and lower starting current, but only within specific regions of geometry and beam energy."
 tags: ["two-layer grating", "Smith-Purcell radiation", "THz", "beam-wave coupling"]
-image: "/assets/img/articles/two-layer-spr-enhancement.svg"
+image: "/assets/img/articles/two-layer-spr-enhancement.png"
 featured: true
 featured_order: 3
 journal: "IEEE Transactions on Plasma Science"
