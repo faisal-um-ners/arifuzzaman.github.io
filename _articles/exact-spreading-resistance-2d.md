@@ -102,10 +102,3 @@ Because the model explicitly includes $a$, $b$, $h_1$, $h_2$, $\rho_i$, and the 
 That matters when extracting intrinsic transport properties. If an experiment lies outside the wide, thick, semi-infinite regime, fitting it with a simple (1/a) law can return a misleading in-plane or out-of-plane resistivity.
 
 The exact model provides a physics-based alternative in which material anisotropy and actual device dimensions remain visible throughout the calculation.
-
-## Source publication
-
-**Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films**  
-Md Arifuzzaman Faisal and Peng Zhang  
-*ACS Applied Electronic Materials* 8 (2026), 854–864  
-DOI: [10.1021/acsaelm.5c02130](https://doi.org/10.1021/acsaelm.5c02130)
