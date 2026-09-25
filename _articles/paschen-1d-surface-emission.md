@@ -1,7 +1,7 @@
 ---
 title: "Multi-Mechanism Surface Emission in PASCHEN-1D"
 date: 2026-09-10
-category: "Plasma & Discharge Physics"
+category: "Plasma Physics"
 type: "Publication-based Research Article"
 summary: "A look at secondary emission, field emission, thermionic emission, and pulsed photoemission in the solver."
 tags: ["surface emission", "field emission", "thermionic emission", "photoemission"]
