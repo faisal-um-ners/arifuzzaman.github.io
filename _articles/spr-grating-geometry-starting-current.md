@@ -45,7 +45,7 @@ $$
 k = k_r + j k_i .
 $$
 
-With the field convention used in the paper, a negative $k_i$ represents spatial amplification. The growth rate is therefore measured by $-k_i$. For one representative case, $w=60~\mu\mathrm{m}$, $h=40~\mu\mathrm{m}$, the calculated normalized root had an imaginary part of about (-0.041).
+With the field convention used in the paper, a negative $k_i$ represents spatial amplification. The growth rate is therefore measured by $-k_i$. For one representative case, $w=60~\mu\mathrm{m}$, $h=40~\mu\mathrm{m}$, the calculated normalized root had an imaginary part of about $-0.041$.
 
 More important than one value is the trend across geometry. The largest spatial growth appeared around groove heights of roughly (100)–$120~\mu\mathrm{m}$ for the fixed-width sweep, and around a groove width of approximately $80~\mu\mathrm{m}$ for the fixed-height sweep. These high-growth operating points lie close to the upper band edge of the cold-tube dispersion relation, where oscillation is particularly easy to trigger.
 
