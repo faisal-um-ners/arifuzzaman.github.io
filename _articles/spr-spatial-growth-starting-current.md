@@ -1,13 +1,13 @@
 ---
 title: "Spatial Growth Rate and Starting Current in THz Smith–Purcell Radiation"
-date: 2026-09-23
+date: 2026-09-24
 category: "Vacuum Electronics"
 type: "Publication-based Research Article"
 summary: "Why the imaginary part of the hot-tube wavenumber provides a physical guide to the beam current needed to initiate coherent radiation."
 tags: ["spatial growth rate", "hot-tube dispersion", "starting current", "SPR"]
-image: "/assets/img/articles/spr-spatial-growth-starting-current.svg"
+image: "/assets/img/articles/spr-spatial-growth-starting-current.png"
 featured: true
-featured_order: 5
+featured_order: 1
 journal: "IEEE Transactions on Electron Devices"
 source_year: 2023
 doi: "10.1109/TED.2022.3208846"
