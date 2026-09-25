@@ -1,11 +1,11 @@
 ---
 title: "When Classical Spreading-Resistance Approximations Fail in Ultrathin Films"
-date: 2026-09-14
+date: 2026-09-22
 category: "Electronic Materials"
 type: "Publication-based Research Article"
 summary: "The familiar diffusive 1/a scaling is a limiting case, not a universal rule, in thin or laterally confined devices."
 tags: ["spreading resistance", "ultrathin films", "diffusive limit", "contact resistance"]
-image: "/assets/img/articles/classical-spreading-resistance-limit.svg"
+image: "/assets/img/articles/classical-spreading-resistance-limit.png"
 featured: false
 journal: "ACS Applied Electronic Materials"
 source_year: 2026
