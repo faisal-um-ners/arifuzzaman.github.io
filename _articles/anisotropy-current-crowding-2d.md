@@ -1,6 +1,6 @@
 ---
 title: "Why Anisotropic Conductivity Changes Current Crowding in 2D Thin Films"
-date: 2026-09-16
+date: 2026-09-24
 category: "Electronic Materials"
 type: "Publication-based Research Article"
 summary: "Layered materials conduct very differently in-plane and out-of-plane, reshaping current injection beneath vertical contacts."
