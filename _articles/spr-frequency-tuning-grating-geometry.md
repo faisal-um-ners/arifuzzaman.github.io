@@ -57,7 +57,7 @@ $$
 v_g=\frac{d\omega}{dk}.
 $$
 
-For most of the operating points studied, the slope of the cold dispersion curve at the beam intersection is negative, which is characteristic of backward-wave operation. But for some of the deeper-groove cases, approximately $h=120$–$200~\mu\mathrm{m}$ in the reported sweep, the slope becomes positive.
+For most of the operating points studied, the slope of the cold dispersion curve at the beam intersection is negative, which is characteristic of backward-wave operation. But for some of the deeper-groove cases, approximately $h=120\text{–}200~\mu\mathrm{m}$ in the reported sweep, the slope becomes positive.
 
 That means a purely geometric change can move the beam–grating interaction from backward-wave-like to forward-wave-like behavior without changing the beam energy or period.
 
