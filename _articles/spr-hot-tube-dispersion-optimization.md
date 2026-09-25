@@ -33,7 +33,7 @@ $$
 \omega=kv_0.
 $$
 
-Its intersection with the cold dispersion curve determines the evanescent-wave operating frequency (f_{ev}). In the calculations reported in the paper, the beam energy was 50 keV, corresponding to (\beta_0=0.4126).
+Its intersection with the cold dispersion curve determines the evanescent-wave operating frequency $f_{ev}$. In the calculations reported in the paper, the beam energy was 50 keV, corresponding to $\beta_0=0.4126$.
 
 Changing groove height or groove width changes the dispersion curve and therefore moves this intersection. This matters because geometry can tune the operating point even while the grating period and beam energy remain fixed.
 
@@ -45,13 +45,13 @@ $$
 k=k_r+jk_i.
 $$
 
-With the adopted convention, (k_i<0) corresponds to a wave that grows along the structure. Thus the optimization quantity is
+With the adopted convention, $k_i<0$ corresponds to a wave that grows along the structure. Thus the optimization quantity is
 
 $$
 g_s=-k_i.
 $$
 
-A larger (g_s) means stronger spatial amplification per unit interaction length.
+A larger $g_s$ means stronger spatial amplification per unit interaction length.
 
 The electron-beam distance from the grating also enters the hot dispersion. This makes physical sense: the Smith–Purcell surface field is evanescent, so coupling weakens as the beam is moved farther from the periodic surface.
 
@@ -59,13 +59,13 @@ The electron-beam distance from the grating also enters the hot dispersion. This
 
 Synchronism by itself is not enough. Many geometries may place the beam line on the dispersion curve, yet their growth rates can be very different.
 
-Our parameter sweeps showed that the strongest growth occurs near operating points approaching the upper band edge of the cold-tube dispersion. For the geometry set studied, high-growth regions appeared around (h=100)–(120~\mu\mathrm{m}) in one sweep and around (w=80~\mu\mathrm{m}) in another.
+Our parameter sweeps showed that the strongest growth occurs near operating points approaching the upper band edge of the cold-tube dispersion. For the geometry set studied, high-growth regions appeared around $h=100$–$120~\mu\mathrm{m}$ in one sweep and around $w=80~\mu\mathrm{m}$ in another.
 
 The hot-tube real wavenumber is slightly shifted from the cold-tube intersection because the beam detunes the mode. That shift is small compared with the much stronger geometry dependence of the imaginary part, which is the quantity that carries the amplification information.
 
 ## Step 4: verify with PIC only where it matters
 
-The most important result is that the growth-rate optimization is consistent with the starting-current trend obtained independently from PIC simulation. Geometries with larger (-k_i) require less beam current to reach coherent oscillation.
+The most important result is that the growth-rate optimization is consistent with the starting-current trend obtained independently from PIC simulation. Geometries with larger $-k_i$ require less beam current to reach coherent oscillation.
 
 That changes the computational strategy. Instead of running a current-threshold search for every point in a two-dimensional geometry sweep, one can:
 
