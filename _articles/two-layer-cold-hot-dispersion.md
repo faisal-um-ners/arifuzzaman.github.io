@@ -1,6 +1,6 @@
 ---
 title: "Cold-Tube and Hot-Tube Dispersion in Two-Layer Smith–Purcell Structures"
-date: 2026-09-19
+date: 2026-09-24
 category: "Vacuum Electronics"
 type: "Publication-based Research Article"
 summary: "How cold-tube dispersion identifies the operating frequency while hot-tube dispersion quantifies spatial amplification."
