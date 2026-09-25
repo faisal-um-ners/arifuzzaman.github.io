@@ -27,9 +27,9 @@ In our anisotropic-contact study, we used both to test whether the same physical
 
 The theory begins with the conductivity-tensor form of Laplace's equation,
 
-$$
-\nabla\cdot$\boldsymbol{\sigma}\nabla\Phi$=0.
-$$
+$
+\nabla\cdot\left(\boldsymbol{\sigma}\nabla\Phi\right)=0.
+$
 
 Both the top and bottom layers can be anisotropic, each with independent in-plane and out-of-plane resistivities. A finite specific interface resistivity $\rho_i$ is included, and finite lateral and vertical boundaries are retained.
 
@@ -109,10 +109,3 @@ The contact problem illustrates why an analytical reference remains valuable.
 A field solution tells us **why** a trend occurs, which parameters control it, and what happens in limiting cases. FEM then provides the flexibility to move beyond the idealized geometry without losing that physical intuition.
 
 The strongest model is therefore not necessarily the most computationally elaborate one. It is the one that can be checked from multiple independent directions.
-
-## Source publication
-
-**Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films**  
-Md Arifuzzaman Faisal and Peng Zhang  
-*ACS Applied Electronic Materials* 8 (2026), 854–864  
-DOI: [10.1021/acsaelm.5c02130](https://doi.org/10.1021/acsaelm.5c02130)

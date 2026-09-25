@@ -110,10 +110,3 @@ It is the correct asymptotic result for a contact embedded in a sufficiently wid
 The mistake is treating that asymptote as a universal contact law.
 
 As devices move toward ultrathin layers, short channels and strongly anisotropic materials, the geometry stops being a small correction and becomes part of the physics that determines the measured resistance.
-
-## Source publication
-
-**Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films**  
-Md Arifuzzaman Faisal and Peng Zhang  
-*ACS Applied Electronic Materials* 8 (2026), 854–864  
-DOI: [10.1021/acsaelm.5c02130](https://doi.org/10.1021/acsaelm.5c02130)

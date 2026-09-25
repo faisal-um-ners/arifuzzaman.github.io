@@ -133,10 +133,3 @@ It does not mean that a one-dimensional fluid model is universally appropriate.
 The published code currently uses one positive-ion species and local-field or user-defined electron kinetics. Problems dominated by nonlocal velocity distributions, complex chemistry, magnetic effects, or multidimensional structure may require more advanced models.
 
 The validation therefore establishes a reliable operating envelope for the present solver while also making its limits explicit.
-
-## Source publication
-
-**PASCHEN-1D: A one-dimensional fluid plasma solver with multi-mechanism surface emission and flexible external circuit coupling**  
-Asif Iqbal, Yves Heri, Bingqing Wang, Lan Jin, Md Arifuzzaman Faisal, and Peng Zhang  
-*Computer Physics Communications* 329 (2026), 110404  
-DOI: [10.1016/j.cpc.2026.110404](https://doi.org/10.1016/j.cpc.2026.110404)

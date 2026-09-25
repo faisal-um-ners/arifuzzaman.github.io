@@ -27,21 +27,21 @@ Our published framework was developed to keep all of those ingredients in the sa
 
 In each material region, the potential satisfies
 
-$$
-\nabla\cdot$\boldsymbol{\sigma}\nabla\Phi$=0.
-$$
+$
+\nabla\cdot\left(\boldsymbol{\sigma}\nabla\Phi\right)=0.
+$
 
 The conductivity tensor is diagonal in the principal material directions, so the in-plane and out-of-plane conductivities can be specified independently.
 
 For two stacked layers,
 
-$$
+$
 \boldsymbol{\rho}_1=
-\operatorname{diag}$\rho_{1,t},\rho_{1,z}$,
+\operatorname{diag}\left(\rho_{1,t},\rho_{1,z}\right),
 \qquad
 \boldsymbol{\rho}_2=
-\operatorname{diag}$\rho_{2,t},\rho_{2,z}$,
-$$
+\operatorname{diag}\left(\rho_{2,t},\rho_{2,z}\right).
+$
 
 where (t) denotes the lateral coordinate and (z) the vertical direction.
 
@@ -102,10 +102,3 @@ Because the model explicitly includes $a$, $b$, $h_1$, $h_2$, $\rho_i$, and the 
 That matters when extracting intrinsic transport properties. If an experiment lies outside the wide, thick, semi-infinite regime, fitting it with a simple (1/a) law can return a misleading in-plane or out-of-plane resistivity.
 
 The exact model provides a physics-based alternative in which material anisotropy and actual device dimensions remain visible throughout the calculation.
-
-## Source publication
-
-**Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films**  
-Md Arifuzzaman Faisal and Peng Zhang  
-*ACS Applied Electronic Materials* 8 (2026), 854–864  
-DOI: [10.1021/acsaelm.5c02130](https://doi.org/10.1021/acsaelm.5c02130)

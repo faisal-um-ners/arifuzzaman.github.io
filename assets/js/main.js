@@ -3,6 +3,14 @@
   const preloader = document.getElementById('sitePreloader');
   if (!preloader) return;
 
+  if (window.__skipHomePreloader) {
+    preloader.remove();
+    document.body.classList.remove('is-loading');
+    document.body.setAttribute('aria-busy', 'false');
+    document.documentElement.classList.remove('skip-home-preloader');
+    return;
+  }
+
   const duration = 2500;
   const startedAt = Number(window.__preloaderStartedAt) || performance.now();
   const elapsed = Math.max(0, performance.now() - startedAt);

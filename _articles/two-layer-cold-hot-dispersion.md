@@ -29,9 +29,9 @@ Our two-layer Smith–Purcell paper uses both because neither one alone is enoug
 
 For the two-layer geometry, Maxwell's equations are solved in the different spatial regions and the tangential electromagnetic fields are matched across each interface. The result is a dispersion relation
 
-$$
-f$\omega,k$=0
-$$
+$
+f(\omega,k)=0.
+$
 
 for the periodic structure.
 

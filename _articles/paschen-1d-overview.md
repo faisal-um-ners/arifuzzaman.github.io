@@ -97,10 +97,3 @@ The solver is written in Python, with notebook-based diagnostics for temporal tr
 The current release is deliberately focused. It uses one spatial dimension, a minimal chemistry with one positive-ion species, and local-field or user-defined electron kinetics. Those choices make the model interpretable and efficient, while also defining the regimes in which higher-dimensional, multispecies, nonlocal, or kinetic models would be more appropriate.
 
 The value of PASCHEN-1D is therefore not that it replaces every plasma model. It is that transport, fields, surfaces, and circuits are evolved together inside one reproducible tool.
-
-## Source publication
-
-**PASCHEN-1D: A one-dimensional fluid plasma solver with multi-mechanism surface emission and flexible external circuit coupling**  
-Asif Iqbal, Yves Heri, Bingqing Wang, Lan Jin, Md Arifuzzaman Faisal, and Peng Zhang  
-*Computer Physics Communications* 329 (2026), 110404  
-DOI: [10.1016/j.cpc.2026.110404](https://doi.org/10.1016/j.cpc.2026.110404)

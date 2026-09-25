@@ -30,9 +30,9 @@ That redistribution is the origin of strong **current crowding** near contact ed
 
 The electrostatic problem is governed by the conductivity tensor,
 
-$$
-\nabla\cdot$\boldsymbol{\sigma}\nabla\Phi$=0.
-$$
+$
+\nabla\cdot\left(\boldsymbol{\sigma}\nabla\Phi\right)=0.
+$
 
 For a layered medium, the in-plane and out-of-plane conductivities are different. Equivalently, the resistivity tensor contains distinct lateral and vertical components.
 
@@ -87,10 +87,3 @@ A robust vertical contact should minimize the total resistance **and** avoid unn
 For highly anisotropic 2D materials, the current path is inherently nonlocal. The electrode edge, film thickness, lateral extent, and vertical resistivity all participate in the final electrical behavior.
 
 That is why current crowding in layered contacts is fundamentally a field-distribution problem, not just a lumped-resistance problem.
-
-## Source publication
-
-**Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films**  
-Md Arifuzzaman Faisal and Peng Zhang  
-*ACS Applied Electronic Materials* 8 (2026), 854–864  
-DOI: [10.1021/acsaelm.5c02130](https://doi.org/10.1021/acsaelm.5c02130)

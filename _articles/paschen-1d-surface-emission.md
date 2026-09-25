@@ -107,10 +107,3 @@ Emission is therefore not simply an external input. In many regimes it is part o
 By treating surface emission as a configurable boundary process coupled to the same evolving field and circuit as the plasma, PASCHEN-1D can examine that feedback directly.
 
 That is especially useful for comparing regimes in which the same gas discharge is triggered by very different microscopic sources of electrons.
-
-## Source publication
-
-**PASCHEN-1D: A one-dimensional fluid plasma solver with multi-mechanism surface emission and flexible external circuit coupling**  
-Asif Iqbal, Yves Heri, Bingqing Wang, Lan Jin, Md Arifuzzaman Faisal, and Peng Zhang  
-*Computer Physics Communications* 329 (2026), 110404  
-DOI: [10.1016/j.cpc.2026.110404](https://doi.org/10.1016/j.cpc.2026.110404)
