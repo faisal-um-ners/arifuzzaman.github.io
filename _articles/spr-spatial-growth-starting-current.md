@@ -32,7 +32,7 @@ This article develops that connection from the beginning: fields, boundary match
 > **Researcher roadmap:** first solve the electromagnetic fields in each region, then match those fields at the grating boundary, then add the electron-beam response, and finally solve the resulting dispersion equation for a complex wavenumber.
 
 <details markdown="1">
-<summary><strong>What should a new researcher get from this article?</strong></summary>
+<summary><strong>What you will get from this article?</strong></summary>
 
 By the end, you should be able to identify what is being solved at each stage:
 
