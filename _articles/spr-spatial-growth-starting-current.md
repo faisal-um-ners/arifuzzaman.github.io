@@ -67,37 +67,36 @@ $$
 
 Before the electron beam is introduced, $\mathbf{J}=0$ in the vacuum regions. Once the beam is added, its ac current becomes part of the second equation.
 
-The main task is now to write field solutions that satisfy Maxwell's equations **and** the geometry.
+The main task is to first solve the passive grating fields. We obtain the cold-tube dispersion from the two-region problem, then add the beam and construct the three-region hot-tube problem.
 
-## Step 2: write the fields in each region
+## Step 2: write the cold-tube fields in the two regions
 
-To derive the dispersion relation, we divide the structure into separate regions and solve Maxwell’s equations in each one. The key idea is simple: once the field expressions are known in each region, the dispersion relation is obtained by **matching these regional solutions at the interfaces and grating boundaries**. The same field-matching method is also used in our later two-layer Smith–Purcell analysis, where more regions are added but the overall procedure remains the same [5].
+For the **cold-tube** problem, the electron beam is not yet allowed to load the electromagnetic mode. The structure therefore needs only two electromagnetic regions: **Region I inside a groove** and **Region II in the vacuum above the grating**. The dispersion relation is obtained by solving Maxwell's equations in these two regions and matching the tangential fields at the grating surface [1,5,6].
 
 <figure class="article-figure">
   <img src="/assets/img/articles/spr_grating_geometry.png" alt="Geometry of a Smith–Purcell grating with groove height h, groove width w, period L, beam height a, and radiation angle theta." loading="lazy">
   <figcaption>
     <strong>Figure 1.</strong>
-    Schematic of the Smith–Purcell grating geometry used in the derivation. The groove depth is $h$, the groove width is $w$, the grating period is $L$, and the electron beam travels a height $a$ above the grating. The emitted Smith–Purcell radiation leaves at angle $\theta$.
+    Smith–Purcell grating geometry. The groove depth is $h$, groove width is $w$, and period is $L$. The beam position $a$ is shown for the later hot-tube problem; in the cold-tube calculation the beam does not load the fields.
   </figcaption>
 </figure>
 
-In the present formulation, the domain is treated in three field regions.
-
 ### Region I: inside a groove
 
-Let the groove region be
+Let the groove occupy
 
 $$
--h < y < 0.
+-h<y<0.
 $$
 
-Following the field form used in the two-layer SPR derivation [5], the groove fields can be written as
+Using the groove-mode form employed in the field-matching treatment [5], the fields can be written as
 
 $$
 H_{1,z}(x,y,t)
 =
 \bar{H}_{1z,0}
-\frac{\cosh\!\left[k_0(y+h)\right]}{\sinh(k_0 h)}
+\frac{\cosh\!\left[k_0(y+h)\right]}
+{\sinh(k_0 h)}
 e^{-i\omega t},
 $$
 
@@ -107,37 +106,32 @@ $$
 E_{1,x}(x,y,t)
 =
 \bar{E}_{1x,0}
-\frac{\sinh\!\left[k_0(y+h)\right]}{\cosh(k_0 h)}
+\frac{\sinh\!\left[k_0(y+h)\right]}
+{\cosh(k_0 h)}
 e^{-i\omega t}.
 $$
 
-Here,
+The amplitude factors absorb the normalization used in the full modal solution. The important feature here is the explicit groove-depth dependence and the fact that the tangential electric field satisfies the conducting boundary at the groove bottom.
+
+### Region II: vacuum above the grating
+
+For the cold-tube problem,
 
 $$
-k_0=\frac{\omega}{c}.
+0<y<\infty.
 $$
 
-At the perfectly conducting groove bottom, the tangential electric field must vanish. The hyperbolic form above is chosen so that the conductor boundary condition is satisfied while keeping the groove-depth dependence explicit.
-
-This is the first reason the groove height enters the dispersion relation: the field profile inside the groove changes when $h$ changes.
-
-### Region II: vacuum region between the grating and the beam
-
-In the space above the grating and below the beam, the field is expanded in Floquet spatial harmonics. For this region, the magnetic field is written as
+Because the grating is periodic along $x$, the vacuum field is expanded in Floquet harmonics. Since this region extends to $y\rightarrow\infty$, only the **decaying** solution is physically allowed:
 
 $$
 H_{2,z}(x,y,t)
 =
 \sum_{p=-\infty}^{\infty}
-\left(
-H_{2z-,p}e^{-\alpha_p y}
-+
-H_{2z+,p}e^{\alpha_p y}
-\right)
-e^{i\beta_p x}e^{-i\omega t},
+H_{2,p}
+e^{-\alpha_p y}
+e^{i\beta_p x}
+e^{-i\omega t},
 $$
-
-with the corresponding electric fields
 
 $$
 E_{2,x}(x,y,t)
@@ -146,12 +140,10 @@ E_{2,x}(x,y,t)
 \left(
 -i\frac{\alpha_p}{\omega\epsilon_0}
 \right)
-\left(
-H_{2z-,p}e^{-\alpha_p y}
--
-H_{2z+,p}e^{\alpha_p y}
-\right)
-e^{i\beta_p x}e^{-i\omega t},
+H_{2,p}
+e^{-\alpha_p y}
+e^{i\beta_p x}
+e^{-i\omega t},
 $$
 
 and
@@ -161,56 +153,37 @@ E_{2,y}(x,y,t)
 =
 \sum_{p=-\infty}^{\infty}
 \frac{\beta_p}{\epsilon_0\omega}
-\left(
-H_{2z-,p}e^{-\alpha_p y}
-+
-H_{2z+,p}e^{\alpha_p y}
-\right)
-e^{i\beta_p x}e^{-i\omega t}.
+H_{2,p}
+e^{-\alpha_p y}
+e^{i\beta_p x}
+e^{-i\omega t}.
 $$
 
-This region is important because it connects the groove field to the beam-coupling region above.
-
-### Region III: vacuum region above the beam
-
-Above the beam, the field must decay away from the interaction region. The field expansion is therefore written as
+Here,
 
 $$
-H_{3,z}(x,y,t)
+\beta_p
 =
-\sum_{p=-\infty}^{\infty}
-H_{3,p}
-e^{-\alpha_p (y-a)}
-e^{i\beta_p x}e^{-i\omega t},
-$$
-
-$$
-E_{3,x}(x,y,t)
-=
-\sum_{p=-\infty}^{\infty}
-\left(
--i\frac{\alpha_p}{\omega\epsilon_0}
-\right)
-H_{3,p}
-e^{-\alpha_p (y-a)}
-e^{i\beta_p x}e^{-i\omega t},
+k+\frac{2\pi p}{L},
 $$
 
 and
 
 $$
-E_{3,y}(x,y,t)
+\alpha_p
 =
-\sum_{p=-\infty}^{\infty}
-\frac{\beta_p}{\epsilon_0\omega}
-H_{3,p}
-e^{-\alpha_p (y-a)}
-e^{i\beta_p x}e^{-i\omega t}.
+\sqrt{\beta_p^2-\left(\frac{\omega}{c}\right)^2}.
 $$
 
-Here, the quantities $\alpha_p$ and $\beta_p$ are the vertical attenuation constant and longitudinal Floquet wavenumber of the $p$th spatial harmonic, respectively.
+For an evanescent surface harmonic we choose the branch with
 
-Once the field expressions in Regions I–III are written down, the next step is to apply the boundary and continuity conditions at the interfaces. That field matching produces the dispersion relation of the grating structure. After the beam is included, the same procedure leads to the hot-tube dispersion relation.
+$$
+\operatorname{Re}(\alpha_p)>0,
+$$
+
+so the field decays away from the grating. There is **no growing term $e^{+\alpha_p y}$ in the cold-tube Region II**, because such a term would diverge as $y\rightarrow\infty$.
+
+This two-region field picture is the one used to obtain the passive grating dispersion. The third field region appears only after the electron beam is introduced in the hot-tube problem.
 
 ## Step 3: match the fields at the grating surface
 
@@ -287,7 +260,7 @@ This equation answers the first design question:
 
 > **What electromagnetic surface mode does the grating support before beam loading is included?**
 
-Our later two-layer analysis follows the same procedure: write the fields in each region, apply the interface conditions, eliminate the regional amplitudes, and obtain the cold- and hot-tube dispersion relations for the more complicated geometry [5].
+Our later two-layer analysis follows the same logic: define the passive field regions first, apply the interface conditions, and then add the beam-loaded regions needed for the hot-tube problem [5].
 
 ## Step 4: use the beam line to select the operating frequency
 
@@ -321,7 +294,124 @@ $$
 
 At this stage, the beam is only selecting the operating point. It has not yet modified the dispersion.
 
-## Step 5: perturb the electron beam
+## Step 5: introduce the hot-tube field regions
+
+The cold-tube calculation treated the whole space above the grating as one decaying vacuum region. Once the electron beam is placed at
+
+$$
+y=a,
+$$
+
+that vacuum region must be split at the beam plane.
+
+The **hot-tube** field problem therefore uses three regions:
+
+- **Region I:** groove, $-h<y<0$;
+- **Region II:** vacuum between the grating and beam, $0<y<a$;
+- **Region III:** vacuum above the beam, $y>a$.
+
+Region I keeps the same groove field used in the cold-tube problem. The change occurs above the grating.
+
+### Hot-tube Region II: between the grating and the beam
+
+Because Region II is now bounded by the grating at $y=0$ and the beam at $y=a$, both exponential solutions are needed:
+
+$$
+H_{2,z}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+\left(
+H_{2z-,p}e^{-\alpha_p y}
++
+H_{2z+,p}e^{\alpha_p y}
+\right)
+e^{i\beta_p x}
+e^{-i\omega t},
+$$
+
+$$
+E_{2,x}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+\left(
+-i\frac{\alpha_p}{\omega\epsilon_0}
+\right)
+\left(
+H_{2z-,p}e^{-\alpha_p y}
+-
+H_{2z+,p}e^{\alpha_p y}
+\right)
+e^{i\beta_p x}
+e^{-i\omega t},
+$$
+
+and
+
+$$
+E_{2,y}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+\frac{\beta_p}{\epsilon_0\omega}
+\left(
+H_{2z-,p}e^{-\alpha_p y}
++
+H_{2z+,p}e^{\alpha_p y}
+\right)
+e^{i\beta_p x}
+e^{-i\omega t}.
+$$
+
+The $e^{+\alpha_p y}$ term is allowed here because Region II is finite: it ends at the beam plane rather than extending to infinity.
+
+### Hot-tube Region III: above the beam
+
+For
+
+$$
+y>a,
+$$
+
+the field must again decay as $y\rightarrow\infty$. Therefore,
+
+$$
+H_{3,z}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+H_{3,p}
+e^{-\alpha_p(y-a)}
+e^{i\beta_p x}
+e^{-i\omega t},
+$$
+
+$$
+E_{3,x}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+\left(
+-i\frac{\alpha_p}{\omega\epsilon_0}
+\right)
+H_{3,p}
+e^{-\alpha_p(y-a)}
+e^{i\beta_p x}
+e^{-i\omega t},
+$$
+
+and
+
+$$
+E_{3,y}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+\frac{\beta_p}{\epsilon_0\omega}
+H_{3,p}
+e^{-\alpha_p(y-a)}
+e^{i\beta_p x}
+e^{-i\omega t}.
+$$
+
+At the beam plane, the tangential electric field is matched across $y=a$, while the ac beam current supplies the corresponding magnetic-field discontinuity. The next steps derive that beam response from the continuity and momentum equations [1,2,5,8].
+
+## Step 6: perturb the electron beam
 
 Now include the beam dynamically.
 
@@ -355,7 +445,7 @@ $$
 
 The purpose of the hot-tube model is to find how the small ac quantities $n_1$ and $v_1$ respond to the electromagnetic field and then feed back into Maxwell's equations. This is the standard small-signal AC space-charge framework used in electron–circuit theory [2,8].
 
-## Step 6: linearize the beam continuity equation
+## Step 7: linearize the beam continuity equation
 
 Charge conservation gives
 
@@ -429,7 +519,7 @@ $$
 \omega\approx kv_0.
 $$
 
-## Step 7: linearize the electron equation of motion
+## Step 8: linearize the electron equation of motion
 
 For the axial ac velocity, the linearized momentum equation is
 
@@ -491,7 +581,7 @@ $$
 
 It is the mathematical signature of strong beam response near synchronism [2,8].
 
-## Step 8: convert the beam response into the hot-tube coupling factor
+## Step 9: convert the beam response into the hot-tube coupling factor
 
 The beam plasma frequency is
 
@@ -568,7 +658,7 @@ Second, the factors involving $\gamma_n\bar{A}$ show why the beam must remain cl
 
 The same region-by-region field construction and beam-loading idea is developed more generally for a two-layer grating in our 2025 *IEEE Transactions on Plasma Science* paper [5].
 
-## Step 9: obtain the final hot-tube dispersion relation
+## Step 10: obtain the final hot-tube dispersion relation
 
 After the beam response is inserted into the boundary-matching system, the final hot-tube relation becomes [1]
 
@@ -652,7 +742,7 @@ Keep $\bar{k}$, $\bar{\omega}$, $\bar{H}$, $\bar{W}$, and $\bar{A}$ consistently
 
 </details>
 
-## Step 10: interpret the complex wavenumber
+## Step 11: interpret the complex wavenumber
 
 At the selected real operating frequency, solve the hot-tube equation for
 
@@ -747,7 +837,7 @@ These operating points lie near the upper band edge of the cold-tube dispersion 
 
 Band-edge regions can be especially susceptible to beam-driven instability, which provides a useful physical interpretation for the growth maximum [7].
 
-## Step 11: compare the growth rate with PIC starting current
+## Step 12: compare the growth rate with PIC starting current
 
 Now comes the device-level test.
 
