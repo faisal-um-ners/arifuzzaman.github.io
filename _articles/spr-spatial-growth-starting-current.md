@@ -1,5 +1,5 @@
 ---
-title: "From Hot-Tube Dispersion to Starting Current in THz Smith–Purcell Radiation"
+title: "Cold-Tube to Hot-Tube Dispersion Relation Derivation: A Tutorial on Spatial Growth and Starting Current in Smith–Purcell Radiation"
 date: 2026-09-24
 category: "Vacuum Electronics"
 type: "Publication-based Research Article"
