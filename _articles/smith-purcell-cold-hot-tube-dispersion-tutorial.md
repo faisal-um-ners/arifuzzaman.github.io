@@ -3,7 +3,7 @@ title: "Cold- to Hot-Tube Dispersion Derivation: A Tutorial on Smith-Purcell Rad
 date: 2026-09-26
 category: "Vacuum Electronics"
 type: "Publication-based Research Article"
-summary: “A step-by-step tutorial on deriving cold- and hot-tube dispersion relations for Smith–Purcell radiation, calculating spatial growth rates, and relating them to the starting current from PIC simulation.”
+summary: "A step-by-step tutorial on deriving cold- and hot-tube dispersion relations for Smith–Purcell radiation, calculating spatial growth rates, and relating them to the starting current from PIC simulation."
 tags: ["hot-tube dispersion", "spatial growth rate", "starting current", "PIC"]
 image: "/assets/img/articles/spr-spatial-growth-starting-current.png"
 featured: true
@@ -15,6 +15,9 @@ source_url: "https://doi.org/10.1109/TED.2022.3208846"
 source_paper: "Grating Optimization for Smith–Purcell Radiation: Direct Correlation Between Spatial Growth Rate and Starting Current"
 source_authors: "Md Arifuzzaman Faisal and Peng Zhang"
 publication_based: true
+rogue_scholar: true
+license: "CC BY 4.0"
+license_url: "https://creativecommons.org/licenses/by/4.0/"
 ---
 
 ## Why starting current is really a growth problem
@@ -951,3 +954,8 @@ That is the practical meaning of the imaginary wavenumber. It connects electroma
 7. D. M. H. Hung *et al*., “Absolute Instability Near the Band Edge of Traveling-Wave Amplifiers,” *Physical Review Letters*, vol. 115, 124801, 2015. <a href="https://doi.org/10.1103/PhysRevLett.115.124801" target="_blank" rel="noopener">DOI: 10.1103/PhysRevLett.115.124801 ↗</a>
 
 8. P. Wong, P. Zhang, and J. Luginsland, “Recent Theory of Traveling-Wave Tubes: A Tutorial-Review,” *Plasma Research Express*, vol. 2, 023001, 2020. <a href="https://doi.org/10.1088/2516-1067/ab9730" target="_blank" rel="noopener">DOI: 10.1088/2516-1067/ab9730 ↗</a>
+
+
+---
+
+**License.** Unless otherwise noted, the text and original illustrations in this tutorial are licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 International (CC BY 4.0) ↗</a>. Third-party material and cited publications remain subject to their respective copyright and license terms.
