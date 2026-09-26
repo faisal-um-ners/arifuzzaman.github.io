@@ -301,7 +301,7 @@ At this stage, the beam is only selecting the operating point. It has not yet mo
 <figure class="article-figure">
   <img src="/assets/img/articles/SPR_hot_tube_geometry.png" alt="Geometry of a Smith–Purcell grating with groove height h, groove width w, period L, beam height a, and radiation angle theta." loading="lazy">
   <figcaption>
-    <strong>Figure 1.</strong>
+    <strong>Figure 2.</strong>
     Smith–Purcell grating hot-tube geometry. The groove depth is $h$, groove width is $w$, beam position $a$, and period is $L$. 
   </figcaption>
 </figure>
