@@ -75,58 +75,51 @@ This step is essential because the dispersion relation comes from **matching the
 
 ### Region I: inside a groove
 
-Let the metallic groove occupy
+Let the groove region be
 
-$$
+$
 -h<y<0.
-$$
+$
 
-For the fundamental groove mode, a convenient magnetic-field form is
+Following the field form used in the two-layer SPR derivation [5], the fundamental groove solution can be written with hyperbolic functions as
 
-$$
-H_{1,z}(y,t)
+$
+H_{1,z}(x,y,t)
 =
-H_{1,0}
-\cos\!\left[k_0(y+h)\right]
+\bar{H}_{1z,0}
+\frac{
+\cosh\!\left[k_0(y+h)\right]
+}{
+\sinh(k_0 h_1)
+}
 e^{-i\omega t},
-$$
+$
 
-where
+and
 
-$$
-k_0=\frac{\omega}{c}.
-$$
-
-The perfectly conducting bottom of the groove is at $y=-h$. The tangential electric field must vanish there. From Maxwell's equation,
-
-$$
-E_{1,x}
+$
+E_{1,x}(x,y,t)
 =
-\frac{i}{\omega\epsilon_0}
-\frac{\partial H_{1,z}}{\partial y},
-$$
-
-so
-
-$$
-E_{1,x}(y,t)
-=
--
-i\frac{k_0}{\omega\epsilon_0}
-H_{1,0}
-\sin\!\left[k_0(y+h)\right]
+\bar{E}_{1x,0}
+\frac{
+\sinh\!\left[k_0(y+h)\right]
+}{
+\cosh(k_0 h)
+}
 e^{-i\omega t}.
-$$
+$
 
-At $y=-h$,
+Here,
 
-$$
-E_{1,x}=0,
-$$
+$
+k_0=\frac{\omega}{c}.
+$
 
-so the PEC boundary condition is automatically satisfied.
+The exact amplitude normalization can be absorbed into $\bar{H}_{1z,0}$ and $\bar{E}_{1x,0}$; what matters for the boundary-matching derivation is the $y$-dependence of the fields.
 
-The important point is not the amplitude $H_{1,0}$. The important point is that the groove field already contains the groove depth $h$. This is one reason changing the groove geometry shifts the dispersion relation.
+At the perfectly conducting groove bottom, the tangential electric field must vanish. The hyperbolic form above is chosen so that the groove field satisfies the conductor boundary condition while retaining the groove-depth dependence explicitly.
+
+This is the first reason the groove height enters the dispersion relation: the field profile inside the groove changes when $h$ changes.
 
 ### Region II: above the periodic grating
 
