@@ -3,7 +3,7 @@ title: "From Hot-Tube Dispersion to Starting Current in THz Smith–Purcell Radi
 date: 2026-09-24
 category: "Vacuum Electronics"
 type: "Publication-based Research Article"
-summary: "A step-by-step view of how beam dynamics enter the hot-tube dispersion relation, how complex wavenumber gives spatial growth, and why that growth predicts the starting current seen in PIC simulation."
+summary: "A step-by-step view of how field matching and beam dynamics build the hot-tube dispersion relation, how complex wavenumber gives spatial growth, and why that growth predicts the starting current seen in PIC simulation."
 tags: ["hot-tube dispersion", "spatial growth rate", "starting current", "PIC"]
 image: "/assets/img/articles/spr-spatial-growth-starting-current.png"
 featured: true
@@ -19,27 +19,40 @@ publication_based: true
 
 ## Why starting current is really a growth problem
 
-A coherent Smith–Purcell oscillator does not begin at full strength as soon as electrons pass over the grating.
+A coherent Smith–Purcell oscillator does not begin at full strength as soon as electrons pass over a grating. The electron beam first interacts with the evanescent slow wave supported by the periodic metal structure. That interaction creates a small velocity modulation. After some distance, the velocity modulation becomes density modulation, or **electron bunching**. When the bunching becomes strong enough, the beam can transfer coherent energy to the electromagnetic mode and the oscillation grows [1,3,4].
 
-First, the beam experiences a small electromagnetic modulation. That modulation changes the electron velocity. After some distance, the velocity modulation becomes density modulation, or **electron bunching**. Once the bunching is strong enough, the beam gives coherent energy to the electromagnetic mode and a large oscillation can build [1,3,4].
+The minimum dc beam current required for this process to build into coherent radiation is the **starting current**.
 
-The minimum dc beam current required to reach this condition is called the **starting current**.
+A direct way to find it is to repeat particle-in-cell (PIC) simulations at many beam currents and identify the threshold at which a sustained coherent field appears. That method is powerful, but it is expensive when many grating geometries must be tested.
 
-A direct way to find it is to run particle-in-cell (PIC) simulations at many beam currents and identify the threshold at which coherent radiation grows. That works, but it is computationally expensive.
+Our published work showed that the same threshold trend can be predicted from the **spatial growth rate** calculated from the hot-tube dispersion relation [1].
 
-Our published work showed that the same threshold trend can be predicted from the **spatial growth rate** obtained from the hot-tube dispersion relation [1].
+This article develops that connection from the beginning: fields, boundary matching, beam perturbation, hot-tube dispersion, complex roots, spatial growth, and finally the comparison with PIC.
 
-To see why, it helps to derive the beam contribution step by step.
+> **Researcher roadmap:** first solve the electromagnetic fields in each region, then match those fields at the grating boundary, then add the electron-beam response, and finally solve the resulting dispersion equation for a complex wavenumber.
+
+<details markdown="1">
+<summary><strong>What should a new researcher get from this article?</strong></summary>
+
+By the end, you should be able to identify what is being solved at each stage:
+
+1. **Field problem:** write Maxwell-consistent fields in the groove and above the grating.
+2. **Boundary problem:** match tangential fields to obtain the passive, or cold-tube, dispersion.
+3. **Beam problem:** linearize the electron continuity and momentum equations.
+4. **Coupled problem:** insert the beam response into the field matching to obtain the hot-tube dispersion.
+5. **Root problem:** solve the hot-tube equation for $k=k_r+jk_i$ at a real operating frequency.
+6. **Design problem:** use $-k_i$ to estimate which geometry should have the lowest starting current.
+
+</details>
 
 ## Step 1: begin with Maxwell's equations
 
-For a beam interacting with an electromagnetic slow-wave structure, the fields satisfy Maxwell's equations,
+For the two-dimensional $x$-$y$ model, the relevant TM-like field set can be written using $H_z$, $E_x$, and $E_y$. With harmonic time dependence $e^{-i\omega t}$, Maxwell's equations are
 
 $$
 \nabla\times\mathbf{E}
 =
--\mu_0
-\frac{\partial\mathbf{H}}{\partial t},
+i\omega\mu_0\mathbf{H},
 $$
 
 and
@@ -48,80 +61,295 @@ $$
 \nabla\times\mathbf{H}
 =
 \mathbf{J}
-+
-\epsilon_0
-\frac{\partial\mathbf{E}}{\partial t}.
+-
+i\omega\epsilon_0\mathbf{E}.
 $$
 
-The current density $\mathbf{J}$ now includes the electron-beam current.
+Before the electron beam is introduced, $\mathbf{J}=0$ in the vacuum regions. Once the beam is added, its ac current becomes part of the second equation.
 
-The periodic metallic grating imposes spatial harmonics. Outside the grooves, the electromagnetic field can therefore be written as a Floquet expansion. For the $n$th harmonic,
+The main task is now to write field solutions that satisfy Maxwell's equations **and** the geometry.
 
-$$
-P_n
+## Step 2: write the fields in each region
+
+This step is essential because the dispersion relation comes from **matching these regional field solutions at the grating boundary**. The same field-matching logic is used in our later two-layer Smith–Purcell analysis, where additional regions are added but the method is unchanged [5].
+
+### Region I: inside a groove
+
+Let the groove region be
+
+$
+-h<y<0.
+$
+
+Following the field form used in the two-layer SPR derivation [5], the fundamental groove solution can be written with hyperbolic functions as
+
+$
+H_{1,z}(x,y,t)
 =
-\bar{k}+2n\pi,
+\widetilde{H}_{1z,0}
+\cosh\!\left[k_0(y+h)\right]
+e^{-i\omega t},
+$
+
+and
+
+$
+E_{1,x}(x,y,t)
+=
+\widetilde{E}_{1x,0}
+\sinh\!\left[k_0(y+h)\right]
+e^{-i\omega t}.
+$
+
+Here,
+
+$
+k_0=\frac{\omega}{c}.
+$
+
+The normalization factors used in the full field solution are absorbed here into $\widetilde{H}_{1z,0}$ and $\widetilde{E}_{1x,0}$ so the derivation stays readable. The important part for boundary matching is the hyperbolic $y$-dependence.
+
+At the perfectly conducting groove bottom, the tangential electric field must vanish. The hyperbolic form above is chosen so that the groove field satisfies the conductor boundary condition while retaining the groove-depth dependence explicitly.
+
+This is the first reason the groove height enters the dispersion relation: the field profile inside the groove changes when $h$ changes.
+
+### Region II: above the periodic grating
+
+For
+
+$$
+0<y<\infty,
+$$
+
+the grating is periodic along $x$, so the field must be expanded in Floquet spatial harmonics [1,5,6].
+
+Write
+
+$$
+H_{2,z}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+H_{2,p}
+e^{-\alpha_p y}
+e^{i\beta_p x}
+e^{-i\omega t},
 $$
 
 where
 
 $$
-\bar{k}=kL.
-$$
-
-The corresponding transverse decay factor for the evanescent field is
-
-$$
-\gamma_n
+\beta_p
 =
-\sqrt{P_n^2-\bar{\omega}^2},
-$$
-
-with
-
-$$
-\bar{\omega}
-=
-\frac{\omega L}{c}.
-$$
-
-These are the same basic normalized quantities used in the cold-tube relation [1,5].
-
-## Step 2: describe the unperturbed electron beam
-
-Consider a continuous electron beam with equilibrium density $n_0$ and axial velocity $v_0$.
-
-The unperturbed current density is
-
-$$
-J_0
-=
--e n_0 v_0.
-$$
-
-Now write the beam variables as a steady part plus a small ac perturbation,
-
-$$
-n
-=
-n_0+n_1,
+k+\frac{2\pi p}{L},
 $$
 
 and
 
 $$
-v
+\alpha_p
 =
-v_0+v_1,
+\sqrt{\beta_p^2-k_0^2}.
 $$
 
-where $|n_1|\ll n_0$ and $|v_1|\ll v_0$.
+For an evanescent surface harmonic, we choose the branch with
 
-The purpose of the linear hot-tube model is to determine how these small perturbations couple back to the electromagnetic field. This small-signal beam response is the same general AC space-charge physics used throughout electron–circuit interaction theory [2].
+$$
+\operatorname{Re}(\alpha_p)>0,
+$$
 
-## Step 3: use the beam continuity equation
+so the field decays away from the grating.
 
-Charge conservation gives the one-dimensional continuity equation,
+The corresponding electric-field components follow directly from Maxwell's equations:
+
+$$
+E_{2,x}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+\left(
+-i\frac{\alpha_p}{\omega\epsilon_0}
+\right)
+H_{2,p}
+e^{-\alpha_p y}
+e^{i\beta_p x}
+e^{-i\omega t},
+$$
+
+and
+
+$$
+E_{2,y}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+\frac{\beta_p}{\omega\epsilon_0}
+H_{2,p}
+e^{-\alpha_p y}
+e^{i\beta_p x}
+e^{-i\omega t}.
+$$
+
+These equations are useful because every spatial harmonic has a clear physical meaning: $\beta_p$ controls variation along the grating, while $\alpha_p$ controls decay away from the surface.
+
+<details markdown="1">
+<summary><strong>Why do we need infinitely many Floquet harmonics?</strong></summary>
+
+A periodic grating mixes spatial harmonics. Even if the beam is mainly synchronized with one harmonic, the boundary condition at a rectangular aperture cannot generally be satisfied by one harmonic alone.
+
+In computation, the sum is truncated:
+
+$$
+-N\le p\le N.
+$$
+
+In the 2023 calculation, a maximum harmonic index of $N=50$ was used to ensure convergence [1]. A practical calculation should always repeat the solution with larger $N$ and verify that the desired root no longer changes appreciably.
+
+</details>
+
+## Step 3: match the fields at the grating surface
+
+Now the two regional solutions are connected at $y=0$.
+
+Over the groove opening, the tangential fields are continuous:
+
+$$
+H_{1,z}=H_{2,z},
+$$
+
+and
+
+$$
+E_{1,x}=E_{2,x}.
+$$
+
+Over the metallic part of the grating surface, the tangential electric field must vanish:
+
+$$
+E_{2,x}=0.
+$$
+
+Because Region II is written as a Floquet series, these conditions are projected over one grating period. This converts the boundary-matching problem into algebraic relations among the groove amplitude and the harmonic amplitudes $H_{2,p}$ [1,5,6].
+
+After eliminating the amplitudes, the passive or **cold-tube dispersion relation** is obtained.
+
+Using the normalized quantities
+
+$$
+\bar{\omega}=\frac{\omega L}{c},
+\qquad
+\bar{k}=kL,
+\qquad
+\bar{W}=\frac{w}{L},
+\qquad
+\bar{H}=\frac{h}{L},
+$$
+
+define
+
+$$
+P_n=\bar{k}+2n\pi,
+$$
+
+$$
+\theta_n=\frac{P_n\bar{W}}{2},
+$$
+
+and
+
+$$
+\gamma_n=
+\sqrt{P_n^2-\bar{\omega}^2}.
+$$
+
+The cold-tube relation can then be written [1]
+
+$$
+\frac{\cot(\bar{\omega}\bar{H})}
+{\bar{\omega}\bar{H}}
+-
+\sum_{n=-\infty}^{\infty}
+\left(
+\frac{\sin\theta_n}{\theta_n}
+\right)^2
+\frac{\bar{W}}
+{\gamma_n\bar{H}}
+=
+0.
+$$
+
+This equation answers the first design question:
+
+> **What electromagnetic surface mode does the grating support before beam loading is included?**
+
+Our later two-layer analysis follows the same procedure: write the fields in each region, apply the interface conditions, eliminate the regional amplitudes, and obtain the cold- and hot-tube dispersion relations for the more complicated geometry [5].
+
+## Step 4: use the beam line to select the operating frequency
+
+The electron beam has axial velocity $v_0$. Its synchronism line is
+
+$$
+\omega=kv_0.
+$$
+
+In normalized form,
+
+$$
+\bar{\omega}
+=
+\beta_0\bar{k},
+$$
+
+where
+
+$$
+\beta_0=\frac{v_0}{c}.
+$$
+
+The intersection of this beam line with the cold-tube dispersion curve gives the evanescent-wave operating frequency used for the hot-tube calculation [1].
+
+For the 50-keV beam used in the published study,
+
+$$
+\beta_0=0.4126.
+$$
+
+At this stage, the beam is only selecting the operating point. It has not yet modified the dispersion.
+
+## Step 5: perturb the electron beam
+
+Now include the beam dynamically.
+
+Let the equilibrium electron density and velocity be $n_0$ and $v_0$. Write the beam variables as
+
+$$
+n=n_0+n_1,
+$$
+
+and
+
+$$
+v=v_0+v_1,
+$$
+
+with the small-signal conditions
+
+$$
+\lvert n_1\rvert\ll n_0,
+\qquad
+\lvert v_1\rvert\ll v_0.
+$$
+
+Using $\lvert\cdot\rvert$ instead of vertical-bar characters also avoids Markdown interpreting the equation as a table.
+
+The unperturbed beam current density is
+
+$$
+J_0=-e n_0v_0.
+$$
+
+The purpose of the hot-tube model is to find how the small ac quantities $n_1$ and $v_1$ respond to the electromagnetic field and then feed back into Maxwell's equations. This is the standard small-signal AC space-charge framework used in electron–circuit theory [2,8].
+
+## Step 6: linearize the beam continuity equation
+
+Charge conservation gives
 
 $$
 \frac{\partial n}{\partial t}
@@ -131,7 +359,15 @@ $$
 0.
 $$
 
-Keeping only first-order perturbations gives
+Substitute
+
+$$
+n=n_0+n_1,
+\qquad
+v=v_0+v_1,
+$$
+
+and neglect second-order terms such as $n_1v_1$. The result is
 
 $$
 \frac{\partial n_1}{\partial t}
@@ -145,48 +381,49 @@ n_0
 0.
 $$
 
-Assume harmonic dependence
+Assume the perturbations vary as
 
 $$
-e^{-j\omega t+jkx}.
+e^{-i\omega t+ikx}.
 $$
 
 Then
 
 $$
-\frac{\partial}{\partial t}
-\rightarrow
--j\omega,
+\frac{\partial}{\partial t}\rightarrow-i\omega,
 \qquad
-\frac{\partial}{\partial x}
-\rightarrow
-jk.
-$$
-
-The linearized continuity equation becomes
-
-$$
--j(\omega-kv_0)n_1
-+
-jkn_0v_1
-=
-0.
+\frac{\partial}{\partial x}\rightarrow ik.
 $$
 
 Therefore,
 
 $$
+-i(\omega-kv_0)n_1
++
+ikn_0v_1
+=
+0,
+$$
+
+which gives
+
+$$
 n_1
 =
-\frac{k n_0}{\omega-kv_0}
+\frac{k n_0}
+{\omega-kv_0}
 v_1.
 $$
 
-This equation shows the synchronism directly. When $\omega\approx kv_0$, the density response becomes strong.
+This already reveals the importance of synchronism. The beam response becomes strong when
 
-## Step 4: use the electron equation of motion
+$$
+\omega\approx kv_0.
+$$
 
-For the axial perturbation, the linearized electron equation of motion is
+## Step 7: linearize the electron equation of motion
+
+For the axial ac velocity, the linearized momentum equation is
 
 $$
 m
@@ -201,34 +438,35 @@ v_1
 -eE_1.
 $$
 
-Using the same harmonic dependence,
+Using the same harmonic dependence gives
 
 $$
--jm(\omega-kv_0)v_1
+-im(\omega-kv_0)v_1
 =
 -eE_1.
 $$
 
-Thus,
+Hence,
 
 $$
 v_1
 =
--\frac{j e}{m(\omega-kv_0)}
+-\frac{i e}
+{m(\omega-kv_0)}
 E_1.
 $$
 
-Substituting this into the continuity result gives
+Substitute this into the continuity result:
 
 $$
 n_1
 =
--\frac{j e k n_0}
+-\frac{i ekn_0}
 {m(\omega-kv_0)^2}
 E_1.
 $$
 
-The perturbation current is
+The ac current is
 
 $$
 J_1
@@ -236,15 +474,16 @@ J_1
 -e(n_0v_1+v_0n_1).
 $$
 
-The important feature is the resonant denominator
+The important part is the resonant factor
 
 $$
-(\omega-kv_0)^2.
+\frac{1}
+{(\omega-kv_0)^2}.
 $$
 
-This is the mathematical signature of strong beam–wave coupling near synchronism [6,8].
+It is the mathematical signature of strong beam response near synchronism [2,8].
 
-## Step 5: express the coupling through the beam plasma frequency
+## Step 8: convert the beam response into the hot-tube coupling factor
 
 The beam plasma frequency is
 
@@ -252,12 +491,12 @@ $$
 \omega_p
 =
 \sqrt{
-\frac{e^2 n_0}
+\frac{e^2n_0}
 {m\epsilon_0}
 }.
 $$
 
-In the thin-sheet beam model used in the published hot-tube relation, the beam thickness $\tau$ is included through an effective beam parameter,
+For the sheet-beam model used in the paper, beam thickness $\tau$ enters through
 
 $$
 \omega_a^2
@@ -265,47 +504,15 @@ $$
 \omega_p^2\tau.
 $$
 
-Using the normalized quantity
+Define
 
 $$
 \bar{\omega}_a
 =
-\frac{\omega_a L^{1/2}}{c},
+\frac{\omega_a L^{1/2}}{c}.
 $$
 
-the beam coupling for the $n$th spatial harmonic enters through the factor [1]
-
-$$
-\Psi_n
-=
-\frac{
-\bar{\omega}_a^2\gamma_n
-}{
-\left(
-\bar{\omega}-P_n\beta_0
-\right)^2
-},
-$$
-
-where
-
-$$
-\beta_0=\frac{v_0}{c}.
-$$
-
-Again, the denominator makes the physics clear. The beam response grows when a spatial harmonic approaches the beam synchronism condition
-
-$$
-\bar{\omega}
-\approx
-P_n\beta_0.
-$$
-
-## Step 6: include the beam–grating separation
-
-The electron beam does not touch the grating. It travels a distance $a$ above the metallic surface.
-
-Define
+The normalized beam–grating distance is
 
 $$
 \bar{A}
@@ -313,31 +520,49 @@ $$
 \frac{a}{L}.
 $$
 
-Because the relevant slow-wave field is evanescent, the coupling decreases as the beam is moved farther from the grating [1].
+For the $n$th spatial harmonic, the beam response enters through [1]
 
-The beam modifies each Floquet harmonic through the factor
+$$
+\Psi
+=
+\frac{
+\bar{\omega}_a^2\gamma_n
+}{
+(\bar{\omega}-P_n\beta_0)^2
+}.
+$$
+
+The beam modifies the corresponding harmonic through
 
 $$
 U_n
 =
 \frac{
 1-
-\Psi_n
-\cosh(\gamma_n\bar{A})
-e^{-\gamma_n\bar{A}}
+\Psi\cosh(\gamma_n\bar{A})/e^{\gamma_n\bar{A}}
 }{
 1-
-\Psi_n
-\sinh(\gamma_n\bar{A})
-e^{-\gamma_n\bar{A}}
+\Psi\sinh(\gamma_n\bar{A})/e^{\gamma_n\bar{A}}
 }.
 $$
 
-This factor reduces to the cold-structure behavior when the beam coupling becomes negligible.
+This form makes two pieces of physics visible.
 
-## Step 7: the final hot-tube dispersion relation
+First, the denominator
 
-After the beam response is coupled to the electromagnetic boundary matching, the hot-tube dispersion relation used in the paper is [1]
+$$
+(\bar{\omega}-P_n\beta_0)^2
+$$
+
+contains beam synchronism.
+
+Second, the factors involving $\gamma_n\bar{A}$ show why the beam must remain close to the grating: the surface field is evanescent, so coupling weakens with separation [1].
+
+The same region-by-region field construction and beam-loading idea is developed more generally for a two-layer grating in our 2025 *IEEE Transactions on Plasma Science* paper [5].
+
+## Step 9: obtain the final hot-tube dispersion relation
+
+After the beam response is inserted into the boundary-matching system, the final hot-tube relation becomes [1]
 
 $$
 f(\bar{k},\bar{\omega})
@@ -356,54 +581,92 @@ U_n
 \frac{\bar{W}}
 {\gamma_n\bar{H}}
 =
-0,
+0.
 $$
 
-where
+Compare this with the cold-tube equation. The electromagnetic structure is similar, but now each spatial harmonic carries the beam-loading factor $U_n$.
+
+That is the central mathematical step:
+
+> **Cold tube:** geometry determines the passive mode.  
+> **Hot tube:** geometry and beam dynamics determine the coupled mode.
+
+<details markdown="1">
+<summary><strong>How do I solve the hot-tube equation numerically?</strong></summary>
+
+A practical workflow is:
+
+1. Solve the cold-tube dispersion first.
+2. Use the beam-line intersection to choose a **real** operating frequency $\bar{\omega}$.
+3. Select a harmonic truncation, for example $-N\le n\le N$.
+4. For a trial complex $\bar{k}$, evaluate $P_n$, $\gamma_n$, $\theta_n$, $\Psi$, $U_n$, and then $f(\bar{k},\bar{\omega})$.
+5. Solve the two real equations
 
 $$
-\bar{W}=\frac{w}{L},
+\operatorname{Re}f=0,
 \qquad
-\bar{H}=\frac{h}{L},
+\operatorname{Im}f=0
 $$
 
-and
+for
 
 $$
-\theta_n
+\bar{k}
 =
-\frac{P_n\bar{W}}{2}.
+\bar{k}_r+i\bar{k}_i.
 $$
 
-The cold-tube relation has the same electromagnetic structure but does not contain the beam-coupling factor $U_n$ [1].
+6. Use several initial guesses because multiple roots can exist.
+7. Retain the physically relevant root and repeat with larger $N$ to verify convergence.
+8. Sweep $h$, $w$, beam current, or beam height only after the root solver is stable.
 
-This is the main mathematical difference between the passive grating and the beam-loaded grating.
-
-## Step 8: solve for a complex wavenumber
-
-For a chosen real operating frequency, the hot-tube equation is solved for a complex wavenumber,
+A useful numerical check is to plot
 
 $$
-k
-=
-k_r+jk_i.
+\log_{10}\lvert f(\bar{k},\bar{\omega})\rvert
 $$
 
-With the field dependence
+over the complex-$k$ plane. Local minima provide good initial guesses for a Newton, secant, or two-dimensional root solver.
+
+</details>
+
+<details markdown="1">
+<summary><strong>Three common mistakes in a first implementation</strong></summary>
+
+**1. Using the wrong branch of $\gamma_n$.**  
+For an evanescent harmonic above the grating, choose the branch that decays away from the surface.
+
+**2. Finding only one root.**  
+The hot-tube equation can have several roots. A single starting guess can miss the growing branch.
+
+**3. Mixing normalized and dimensional variables.**  
+Keep $\bar{k}$, $\bar{\omega}$, $\bar{H}$, $\bar{W}$, and $\bar{A}$ consistently normalized until the end.
+
+</details>
+
+## Step 10: interpret the complex wavenumber
+
+At the selected real operating frequency, solve the hot-tube equation for
 
 $$
-E
+k=k_r+ik_i.
+$$
+
+The field varies as
+
+$$
+E(x,t)
 \propto
-e^{-j\omega t+jkx},
+e^{-i\omega t+ikx}.
 $$
 
-we obtain
+Substituting the complex wavenumber,
 
 $$
-E
+E(x,t)
 \propto
-e^{-j\omega t}
-e^{jk_r x}
+e^{-i\omega t}
+e^{ik_r x}
 e^{-k_i x}.
 $$
 
@@ -426,78 +689,85 @@ w=60~\mu\mathrm{m},
 h=40~\mu\mathrm{m},
 $$
 
-and the hot-tube root gives a normalized imaginary component of approximately
+the normalized growing root is approximately
 
 $$
+\bar{k}_r=4.3289,
+\qquad
 \bar{k}_i=-0.041.
 $$
 
-The negative sign means that this root represents a growing wave [1].
+The negative imaginary part identifies the growing branch [1].
 
-## Why the hot-tube real part is slightly shifted
+## Why the hot-tube real part shifts
 
-The real part $k_r$ from the hot-tube calculation is not exactly the same as the cold-tube intersection.
+The real part of the hot-tube wavenumber is slightly different from the cold-tube beam-line intersection.
 
-The electron beam loads the structure and slightly detunes the mode [1,8].
+This is beam loading. Once the electron beam is allowed to respond dynamically, it perturbs the electromagnetic mode and slightly detunes the real propagation constant [1,8].
 
-That shift is expected in beam–wave devices. More important for starting-current optimization is the behavior of $k_i$, because it tells us how rapidly the wave amplitude grows along the interaction length.
+The shift in $k_r$ is physically meaningful, but for starting-current optimization the most important quantity is $k_i$, because it controls spatial amplification.
 
-## Where the maximum growth occurs
+## Where the strongest growth occurs
 
-The paper swept groove geometry while keeping the other parameters fixed.
+The 2023 paper swept groove geometry while keeping the other parameters fixed [1].
 
-For the fixed-width sweep,
+For
 
 $$
 w=60~\mu\mathrm{m},
 $$
 
-the largest spatial growth occurs near
+the strongest growth occurred near
 
 $$
 h\approx100\text{–}120~\mu\mathrm{m}.
 $$
 
-For the fixed-height sweep,
+For
 
 $$
 h=100~\mu\mathrm{m},
 $$
 
-the maximum appears near
+the strongest growth occurred near
 
 $$
 w\approx80~\mu\mathrm{m}.
 $$
 
-These points are close to the upper band edge of the cold-tube dispersion curve [1].
+These operating points lie near the upper band edge of the cold-tube dispersion curve [1].
 
-Band-edge operation is known to be sensitive to absolute and convective instabilities, which helps explain why strong growth appears there [7].
+Band-edge regions can be especially susceptible to beam-driven instability, which provides a useful physical interpretation for the growth maximum [7].
 
-## PIC simulation provides the independent threshold test
+## Step 11: compare the growth rate with PIC starting current
 
-The key result in the paper is the comparison with PIC starting currents.
+Now comes the device-level test.
 
-The PIC simulations used a 35-period grating and the same basic beam and grating parameters [1,3].
+The paper compared
 
-For each geometry, two independent quantities were compared:
+$$
+-\bar{k}_i
+$$
 
-- the spatial growth rate $-k_i$ from the hot-tube dispersion;
-- the starting current $I_s$ from PIC simulation.
+from the hot-tube dispersion with the starting current obtained independently from PIC simulations [1,3,4].
 
-The patterns match closely.
+The PIC model used a 35-period grating with the same basic beam and geometric parameters.
 
-When $-k_i$ becomes larger, the starting current becomes smaller.
+The result is the key finding:
 
-This is important because the two quantities come from very different calculations. The hot-tube dispersion is a linear frequency-domain model. PIC follows the nonlinear time evolution of particles and fields.
+> **When the spatial growth rate increases, the starting current decreases.**
 
-Their agreement shows that spatial growth captures the essential physics controlling the threshold.
+This agreement is valuable because the two calculations are fundamentally different.
 
-## Why the scaling is exponential
+The hot-tube model is a linear frequency-domain calculation.
 
-The correlation can be understood from two simple relations.
+PIC follows the nonlinear particle and field evolution in time.
 
-For coherent radiation,
+Yet both show nearly the same dependence on groove geometry [1].
+
+## Why the correlation is exponential
+
+For coherent radiation, the power scales approximately as
 
 $$
 P
@@ -509,66 +779,84 @@ N^2
 I^2,
 $$
 
-where $P$ is radiated power, $E$ is field amplitude, $N$ is the number of coherently bunched electrons, and $I$ is beam current [1,6,7].
+where $N$ is the number of coherently bunched electrons and $I$ is beam current [1,3].
 
-Therefore,
+Therefore, at the scaling level,
 
 $$
 E\propto I.
 $$
 
-At the same time, a spatially growing mode is amplified over the interaction length $L_G$ as
+A spatially growing mode is amplified over interaction length $L_G$ as
 
 $$
 E
 \propto
-e^{|k_i|L_G}.
+e^{\lvert k_i\rvert L_G}.
 $$
 
-Combining the two scalings gives
+Combining the two relations gives
 
 $$
-e^{|k_i|L_G}
+e^{\lvert k_i\rvert L_G}
 \propto
 I.
 $$
 
-This explains why the paper plots $-k_i$ on a linear scale but the starting current on a logarithmic scale [1].
+This explains why the spatial-growth curve and the logarithm of the starting-current curve follow one another so closely [1].
 
-The relation is not a full nonlinear oscillator model. It is a scaling argument. But it captures the observed geometry dependence very well.
+The relation is a scaling argument, not a full nonlinear saturation model. Its value is that it explains why a linear hot-tube calculation can predict a nonlinear threshold trend.
 
-## Why this method is useful
+## Why this is useful for a new design
 
-A direct PIC optimization would require many simulations over groove height, groove width, and beam current.
+Suppose you want to optimize a new Smith–Purcell structure.
 
-The hot-tube method is much cheaper:
+A brute-force approach would be:
 
-1. calculate the cold-tube operating frequency;
-2. solve the hot-tube dispersion at that frequency;
-3. extract the root with $k_i<0$;
-4. use $-k_i$ as the spatial-growth metric;
-5. select geometries with large growth;
-6. run PIC only for final confirmation.
+1. choose a geometry;
+2. build the PIC model;
+3. sweep beam current;
+4. find the starting current;
+5. repeat for every geometry.
 
-The method also avoids the need to impose the end boundary conditions required in traditional backward-wave oscillator starting-current treatments based on zero-drive instability [1,5].
+That quickly becomes expensive.
 
-That makes it especially useful as an early-stage design tool.
+A dispersion-guided approach is more efficient:
+
+1. derive or compute the cold-tube dispersion;
+2. locate the beam-synchronous operating frequency;
+3. add the beam equations;
+4. solve the hot-tube relation;
+5. extract the growing root;
+6. map $-\operatorname{Im}(k)$ over geometry;
+7. reserve PIC for the best candidates.
+
+Our 2025 two-layer work uses the same basic philosophy for a more complicated structure: the fields are written in multiple regions, matched at all interfaces, and then used to determine how the additional layer changes the cold operating point and hot spatial growth [5].
+
+This is why learning the derivation is useful beyond one grating geometry. The **field expansion → boundary matching → beam response → complex root** workflow can be reused for many linear free-electron slow-wave devices.
 
 ## The physical picture in one sentence
 
-The complete physics can be summarized simply:
+The full derivation can be summarized as
 
-> The grating sets the slow-wave mode, the beam perturbs that mode, the hot-tube dispersion gives the spatial growth, and the spatial growth tells us how much beam current is needed before coherent oscillation can build.
+> **geometry defines the fields → boundary matching defines the passive mode → the electron beam loads that mode → the complex hot-tube root gives spatial growth → spatial growth predicts the beam-current threshold.**
 
-That is why the imaginary part of the complex wavenumber is much more than a mathematical detail. It becomes a practical bridge between beam–wave theory and device-level starting current.
+That is the practical meaning of the imaginary wavenumber. It connects electromagnetic field theory directly to an experimentally relevant device quantity: the current required to start coherent radiation.
 
 ## References
 
-1. M. A. Faisal and P. Zhang, “Grating Optimization for Smith–Purcell Radiation: Direct Correlation Between Spatial Growth Rate and Starting Current,” *IEEE Transactions on Electron Devices*, vol. 70, pp. 2860–2863, 2023. DOI: [10.1109/TED.2022.3208846](https://doi.org/10.1109/TED.2022.3208846).
-2. Y. Y. Lau and D. Chernin, “A Review of the AC Space-Charge Effect in Electron–Circuit Interactions,” *Physics of Fluids B: Plasma Physics*, vol. 4, pp. 3473–3497, 1992. DOI: [10.1063/1.860356](https://doi.org/10.1063/1.860356).
-3. P. Zhang, L. K. Ang, and A. Gover, “Enhancement of Coherent Smith–Purcell Radiation at Terahertz Frequency by Optimized Grating, Prebunched Beams, and Open Cavity,” *Physical Review Special Topics – Accelerators and Beams*, vol. 18, 020702, 2015. DOI: [10.1103/PhysRevSTAB.18.020702](https://doi.org/10.1103/PhysRevSTAB.18.020702).
-4. D. Li *et al*., “Growth Rate and Start Current in Smith–Purcell Free-Electron Lasers,” *Applied Physics Letters*, vol. 100, 191101, 2012. DOI: [10.1063/1.4711803](https://doi.org/10.1063/1.4711803).
-5. H. R. Johnson, “Backward-Wave Oscillators,” *Proceedings of the IRE*, vol. 43, pp. 684–697, 1955. DOI: [10.1109/JRPROC.1955.278054](https://doi.org/10.1109/JRPROC.1955.278054).
-6. A. Gover, “Superradiant and Stimulated-Superradiant Emission in Prebunched Electron-Beam Radiators. I. Formulation,” *Physical Review Special Topics – Accelerators and Beams*, vol. 8, 030701, 2005. DOI: [10.1103/PhysRevSTAB.8.030701](https://doi.org/10.1103/PhysRevSTAB.8.030701).
-7. S. E. Korbly, A. S. Kesar, J. R. Sirigiri, and R. J. Temkin, “Observation of Frequency-Locked Coherent Terahertz Smith–Purcell Radiation,” *Physical Review Letters*, vol. 94, 054803, 2005. DOI: [10.1103/PhysRevLett.94.054803](https://doi.org/10.1103/PhysRevLett.94.054803).
-8. P. Wong, P. Zhang, and J. Luginsland, “Recent Theory of Traveling-Wave Tubes: A Tutorial-Review,” *Plasma Research Express*, vol. 2, 023001, 2020. DOI: [10.1088/2516-1067/ab9730](https://doi.org/10.1088/2516-1067/ab9730).
+1. M. A. Faisal and P. Zhang, “Grating Optimization for Smith–Purcell Radiation: Direct Correlation Between Spatial Growth Rate and Starting Current,” *IEEE Transactions on Electron Devices*, vol. 70, no. 6, pp. 2860–2863, 2023. <a href="https://doi.org/10.1109/TED.2022.3208846" target="_blank" rel="noopener">DOI: 10.1109/TED.2022.3208846 ↗</a>
+
+2. Y. Y. Lau and D. Chernin, “A Review of the AC Space-Charge Effect in Electron–Circuit Interactions,” *Physics of Fluids B: Plasma Physics*, vol. 4, no. 11, pp. 3473–3497, 1992. <a href="https://doi.org/10.1063/1.860356" target="_blank" rel="noopener">DOI: 10.1063/1.860356 ↗</a>
+
+3. P. Zhang, L. K. Ang, and A. Gover, “Enhancement of Coherent Smith–Purcell Radiation at Terahertz Frequency by Optimized Grating, Prebunched Beams, and Open Cavity,” *Physical Review Special Topics – Accelerators and Beams*, vol. 18, 020702, 2015. <a href="https://doi.org/10.1103/PhysRevSTAB.18.020702" target="_blank" rel="noopener">DOI: 10.1103/PhysRevSTAB.18.020702 ↗</a>
+
+4. D. Li *et al*., “Growth Rate and Start Current in Smith–Purcell Free-Electron Lasers,” *Applied Physics Letters*, vol. 100, 191101, 2012. <a href="https://doi.org/10.1063/1.4711803" target="_blank" rel="noopener">DOI: 10.1063/1.4711803 ↗</a>
+
+5. M. A. Faisal and P. Zhang, “Parametric Analysis on Enhancement of THz Smith–Purcell Radiation by Two-Layer Grating Structure,” *IEEE Transactions on Plasma Science*, vol. 53, no. 6, pp. 1170–1185, 2025. <a href="https://doi.org/10.1109/TPS.2025.3567163" target="_blank" rel="noopener">DOI: 10.1109/TPS.2025.3567163 ↗</a>
+
+6. H. P. Freund and T. M. Abu-Elfadl, “Linearized Field Theory of a Smith–Purcell Traveling Wave Tube,” *IEEE Transactions on Plasma Science*, vol. 32, no. 3, pp. 1015–1027, 2004. <a href="https://doi.org/10.1109/TPS.2004.827612" target="_blank" rel="noopener">DOI: 10.1109/TPS.2004.827612 ↗</a>
+
+7. D. M. H. Hung *et al*., “Absolute Instability Near the Band Edge of Traveling-Wave Amplifiers,” *Physical Review Letters*, vol. 115, 124801, 2015. <a href="https://doi.org/10.1103/PhysRevLett.115.124801" target="_blank" rel="noopener">DOI: 10.1103/PhysRevLett.115.124801 ↗</a>
+
+8. P. Wong, P. Zhang, and J. Luginsland, “Recent Theory of Traveling-Wave Tubes: A Tutorial-Review,” *Plasma Research Express*, vol. 2, 023001, 2020. <a href="https://doi.org/10.1088/2516-1067/ab9730" target="_blank" rel="noopener">DOI: 10.1088/2516-1067/ab9730 ↗</a>
