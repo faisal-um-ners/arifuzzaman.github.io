@@ -1,6 +1,6 @@
 ---
 title: "Cold- to Hot-Tube Dispersion Derivation: A Tutorial on Smith-Purcell Radiation Growth Rate"
-date: 2026-09-24
+date: 2026-09-26
 category: "Vacuum Electronics"
 type: "Publication-based Research Article"
 summary: “A step-by-step tutorial on deriving cold- and hot-tube dispersion relations for Smith–Purcell radiation, calculating spatial growth rates, and relating them to the starting current from PIC simulation.”
