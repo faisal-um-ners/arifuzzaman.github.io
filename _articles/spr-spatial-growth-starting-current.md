@@ -71,95 +71,73 @@ The main task is now to write field solutions that satisfy Maxwell's equations *
 
 ## Step 2: write the fields in each region
 
-This step is essential because the dispersion relation comes from **matching these regional field solutions at the grating boundary**. The same field-matching logic is used in our later two-layer Smith–Purcell analysis, where additional regions are added but the method is unchanged [5].
+To derive the dispersion relation, we divide the structure into separate regions and solve Maxwell’s equations in each one. The key idea is simple: once the field expressions are known in each region, the dispersion relation is obtained by **matching these regional solutions at the interfaces and grating boundaries**. The same field-matching method is also used in our later two-layer Smith–Purcell analysis, where more regions are added but the overall procedure remains the same [5].
+
+<figure class="article-figure">
+  <img src="/assets/img/articles/spr_grating_geometry.png" alt="Geometry of a Smith–Purcell grating with groove height h, groove width w, period L, beam height a, and radiation angle theta." loading="lazy">
+  <figcaption>
+    <strong>Figure 1.</strong>
+    Schematic of the Smith–Purcell grating geometry used in the derivation. The groove depth is $h$, the groove width is $w$, the grating period is $L$, and the electron beam travels a height $a$ above the grating. The emitted Smith–Purcell radiation leaves at angle $\theta$.
+  </figcaption>
+</figure>
+
+In the present formulation, the domain is treated in three field regions.
 
 ### Region I: inside a groove
 
 Let the groove region be
 
-$
--h<y<0.
-$
+$$
+-h < y < 0.
+$$
 
-Following the field form used in the two-layer SPR derivation [5], the fundamental groove solution can be written with hyperbolic functions as
+Following the field form used in the two-layer SPR derivation [5], the groove fields can be written as
 
-$
+$$
 H_{1,z}(x,y,t)
 =
-\widetilde{H}_{1z,0}
-\cosh\!\left[k_0(y+h)\right]
+\bar{H}_{1z,0}
+\frac{\cosh\!\left[k_0(y+h)\right]}{\sinh(k_0 h)}
 e^{-i\omega t},
-$
+$$
 
 and
 
-$
+$$
 E_{1,x}(x,y,t)
 =
-\widetilde{E}_{1x,0}
-\sinh\!\left[k_0(y+h)\right]
+\bar{E}_{1x,0}
+\frac{\sinh\!\left[k_0(y+h)\right]}{\cosh(k_0 h)}
 e^{-i\omega t}.
-$
+$$
 
 Here,
 
-$
+$$
 k_0=\frac{\omega}{c}.
-$
+$$
 
-The normalization factors used in the full field solution are absorbed here into $\widetilde{H}_{1z,0}$ and $\widetilde{E}_{1x,0}$ so the derivation stays readable. The important part for boundary matching is the hyperbolic $y$-dependence.
-
-At the perfectly conducting groove bottom, the tangential electric field must vanish. The hyperbolic form above is chosen so that the groove field satisfies the conductor boundary condition while retaining the groove-depth dependence explicitly.
+At the perfectly conducting groove bottom, the tangential electric field must vanish. The hyperbolic form above is chosen so that the conductor boundary condition is satisfied while keeping the groove-depth dependence explicit.
 
 This is the first reason the groove height enters the dispersion relation: the field profile inside the groove changes when $h$ changes.
 
-### Region II: above the periodic grating
+### Region II: vacuum region between the grating and the beam
 
-For
-
-$$
-0<y<\infty,
-$$
-
-the grating is periodic along $x$, so the field must be expanded in Floquet spatial harmonics [1,5,6].
-
-Write
+In the space above the grating and below the beam, the field is expanded in Floquet spatial harmonics. For this region, the magnetic field is written as
 
 $$
 H_{2,z}(x,y,t)
 =
 \sum_{p=-\infty}^{\infty}
-H_{2,p}
-e^{-\alpha_p y}
-e^{i\beta_p x}
-e^{-i\omega t},
+\left(
+H_{2z-,p}e^{-\alpha_p y}
++
+H_{2z+,p}e^{\alpha_p y}
+\right)
+e^{i\beta_p x}e^{-i\omega t},
 $$
 
-where
-
-$$
-\beta_p
-=
-k+\frac{2\pi p}{L},
-$$
-
-and
-
-$$
-\alpha_p
-=
-\sqrt{\beta_p^2-k_0^2}.
-$$
-
-For an evanescent surface harmonic, we choose the branch with
-
-$$
-\operatorname{Re}(\alpha_p)>0,
-$$
-
-so the field decays away from the grating.
-
-The corresponding electric-field components follow directly from Maxwell's equations:
+with the corresponding electric fields
 
 $$
 E_{2,x}(x,y,t)
@@ -168,10 +146,12 @@ E_{2,x}(x,y,t)
 \left(
 -i\frac{\alpha_p}{\omega\epsilon_0}
 \right)
-H_{2,p}
-e^{-\alpha_p y}
-e^{i\beta_p x}
-e^{-i\omega t},
+\left(
+H_{2z-,p}e^{-\alpha_p y}
+-
+H_{2z+,p}e^{\alpha_p y}
+\right)
+e^{i\beta_p x}e^{-i\omega t},
 $$
 
 and
@@ -180,29 +160,57 @@ $$
 E_{2,y}(x,y,t)
 =
 \sum_{p=-\infty}^{\infty}
-\frac{\beta_p}{\omega\epsilon_0}
-H_{2,p}
-e^{-\alpha_p y}
-e^{i\beta_p x}
-e^{-i\omega t}.
+\frac{\beta_p}{\epsilon_0\omega}
+\left(
+H_{2z-,p}e^{-\alpha_p y}
++
+H_{2z+,p}e^{\alpha_p y}
+\right)
+e^{i\beta_p x}e^{-i\omega t}.
 $$
 
-These equations are useful because every spatial harmonic has a clear physical meaning: $\beta_p$ controls variation along the grating, while $\alpha_p$ controls decay away from the surface.
+This region is important because it connects the groove field to the beam-coupling region above.
 
-<details markdown="1">
-<summary><strong>Why do we need infinitely many Floquet harmonics?</strong></summary>
+### Region III: vacuum region above the beam
 
-A periodic grating mixes spatial harmonics. Even if the beam is mainly synchronized with one harmonic, the boundary condition at a rectangular aperture cannot generally be satisfied by one harmonic alone.
-
-In computation, the sum is truncated:
+Above the beam, the field must decay away from the interaction region. The field expansion is therefore written as
 
 $$
--N\le p\le N.
+H_{3,z}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+H_{3,p}
+e^{-\alpha_p (y-a)}
+e^{i\beta_p x}e^{-i\omega t},
 $$
 
-In the 2023 calculation, a maximum harmonic index of $N=50$ was used to ensure convergence [1]. A practical calculation should always repeat the solution with larger $N$ and verify that the desired root no longer changes appreciably.
+$$
+E_{3,x}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+\left(
+-i\frac{\alpha_p}{\omega\epsilon_0}
+\right)
+H_{3,p}
+e^{-\alpha_p (y-a)}
+e^{i\beta_p x}e^{-i\omega t},
+$$
 
-</details>
+and
+
+$$
+E_{3,y}(x,y,t)
+=
+\sum_{p=-\infty}^{\infty}
+\frac{\beta_p}{\epsilon_0\omega}
+H_{3,p}
+e^{-\alpha_p (y-a)}
+e^{i\beta_p x}e^{-i\omega t}.
+$$
+
+Here, the quantities $\alpha_p$ and $\beta_p$ are the vertical attenuation constant and longitudinal Floquet wavenumber of the $p$th spatial harmonic, respectively.
+
+Once the field expressions in Regions I–III are written down, the next step is to apply the boundary and continuity conditions at the interfaces. That field matching produces the dispersion relation of the grating structure. After the beam is included, the same procedure leads to the hot-tube dispersion relation.
 
 ## Step 3: match the fields at the grating surface
 
