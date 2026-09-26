@@ -117,7 +117,7 @@ $$
 
 where $|n_1|\ll n_0$ and $|v_1|\ll v_0$.
 
-The purpose of the linear hot-tube model is to determine how these small perturbations couple back to the electromagnetic field.
+The purpose of the linear hot-tube model is to determine how these small perturbations couple back to the electromagnetic field. This small-signal beam response is the same general AC space-charge physics used throughout electron–circuit interaction theory [2].
 
 ## Step 3: use the beam continuity equation
 
