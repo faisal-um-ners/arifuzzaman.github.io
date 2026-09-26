@@ -1,9 +1,9 @@
 ---
-title: "Cold-Tube to Hot-Tube Dispersion Relation Derivation: A Tutorial on Spatial Growth and Starting Current in Smith–Purcell Radiation"
+title: "Cold- to Hot-Tube Dispersion Derivation: A Tutorial on Smith-Purcell Radiation Growth Rate"
 date: 2026-09-24
 category: "Vacuum Electronics"
 type: "Publication-based Research Article"
-summary: "A step-by-step view of how field matching and beam dynamics build the hot-tube dispersion relation, how complex wavenumber gives spatial growth, and why that growth predicts the starting current seen in PIC simulation."
+summary: “A step-by-step tutorial on deriving cold- and hot-tube dispersion relations for Smith–Purcell radiation, calculating spatial growth rates, and relating them to the starting current from PIC simulation.”
 tags: ["hot-tube dispersion", "spatial growth rate", "starting current", "PIC"]
 image: "/assets/img/articles/spr-spatial-growth-starting-current.png"
 featured: true
