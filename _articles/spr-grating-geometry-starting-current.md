@@ -282,7 +282,7 @@ The most important lesson is simple:
 
 The groove width and height reshape the slow-wave dispersion, move the operating frequency, change the group velocity, change the spatial growth rate, and ultimately change the starting current.
 
-For THz device design, the useful geometry is therefore not simply the one that satisfies the Smith–Purcell wavelength relation. It is the geometry that places the desired frequency at a strong beam–wave operating point with sufficiently large spatial gain.
+For THz device design, the useful geometry is therefore not simply the one that satisfies the Smith–Purcell wavelength relation. Similar slow-wave-structure considerations and three-dimensional beam requirements are also important when the design moves toward a practical device [7,8]. It is the geometry that places the desired frequency at a strong beam–wave operating point with sufficiently large spatial gain.
 
 That is why cold-tube and hot-tube dispersion should be used together [1]. The first tells us **where the device operates**. The second tells us **how strongly it can grow**.
 
