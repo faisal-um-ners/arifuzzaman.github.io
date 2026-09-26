@@ -735,20 +735,6 @@ over the complex-$k$ plane. Local minima provide good initial guesses for a Newt
 
 </details>
 
-<details markdown="1">
-<summary><strong>Three common mistakes in a first implementation</strong></summary>
-
-**1. Using the wrong branch of $\gamma_n$.**  
-For an evanescent harmonic above the grating, choose the branch that decays away from the surface.
-
-**2. Finding only one root.**  
-The hot-tube equation can have several roots. A single starting guess can miss the growing branch.
-
-**3. Mixing normalized and dimensional variables.**  
-Keep $\bar{k}$, $\bar{\omega}$, $\bar{H}$, $\bar{W}$, and $\bar{A}$ consistently normalized until the end.
-
-</details>
-
 ## Step 11: interpret the complex wavenumber
 
 At the selected real operating frequency, solve the hot-tube equation for
