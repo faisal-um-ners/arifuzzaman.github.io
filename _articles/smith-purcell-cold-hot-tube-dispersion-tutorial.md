@@ -74,10 +74,10 @@ The main task is to first solve the passive grating fields. We obtain the cold-t
 For the **cold-tube** problem, the electron beam is not yet allowed to load the electromagnetic mode. The structure therefore needs only two electromagnetic regions: **Region I inside a groove** and **Region II in the vacuum above the grating**. The dispersion relation is obtained by solving Maxwell's equations in these two regions and matching the tangential fields at the grating surface [1,5,6].
 
 <figure class="article-figure">
-  <img src="/assets/img/articles/spr_grating_geometry.png" alt="Geometry of a Smith–Purcell grating with groove height h, groove width w, period L, beam height a, and radiation angle theta." loading="lazy">
+  <img src="/assets/img/articles/SPR_cold_tube_geometry.png" alt="Geometry of a Smith–Purcell grating with groove height h, groove width w, period L" loading="lazy">
   <figcaption>
     <strong>Figure 1.</strong>
-    Smith–Purcell grating geometry. The groove depth is $h$, groove width is $w$, and period is $L$. The beam position $a$ is shown for the later hot-tube problem; in the cold-tube calculation the beam does not load the fields.
+    Smith–Purcell grating cold-tube geometry. The groove depth is $h$, groove width is $w$, and period is $L$.
   </figcaption>
 </figure>
 
@@ -295,6 +295,13 @@ $$
 At this stage, the beam is only selecting the operating point. It has not yet modified the dispersion.
 
 ## Step 5: introduce the hot-tube field regions
+<figure class="article-figure">
+  <img src="/assets/img/articles/SPR_hot_tube_geometry.png" alt="Geometry of a Smith–Purcell grating with groove height h, groove width w, period L, beam height a, and radiation angle theta." loading="lazy">
+  <figcaption>
+    <strong>Figure 1.</strong>
+    Smith–Purcell grating hot-tube geometry. The groove depth is $h$, groove width is $w$, beam position $a$, and period is $L$. 
+  </figcaption>
+</figure>
 
 The cold-tube calculation treated the whole space above the grating as one decaying vacuum region. Once the electron beam is placed at
 
