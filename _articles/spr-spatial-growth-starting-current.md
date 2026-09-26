@@ -86,12 +86,8 @@ Following the field form used in the two-layer SPR derivation [5], the fundament
 $
 H_{1,z}(x,y,t)
 =
-\bar{H}_{1z,0}
-\frac{
+\widetilde{H}_{1z,0}
 \cosh\!\left[k_0(y+h)\right]
-}{
-\sinh(k_0 h_1)
-}
 e^{-i\omega t},
 $
 
@@ -100,12 +96,8 @@ and
 $
 E_{1,x}(x,y,t)
 =
-\bar{E}_{1x,0}
-\frac{
+\widetilde{E}_{1x,0}
 \sinh\!\left[k_0(y+h)\right]
-}{
-\cosh(k_0 h)
-}
 e^{-i\omega t}.
 $
 
@@ -115,7 +107,7 @@ $
 k_0=\frac{\omega}{c}.
 $
 
-The exact amplitude normalization can be absorbed into $\bar{H}_{1z,0}$ and $\bar{E}_{1x,0}$; what matters for the boundary-matching derivation is the $y$-dependence of the fields.
+The normalization factors used in the full field solution are absorbed here into $\widetilde{H}_{1z,0}$ and $\widetilde{E}_{1x,0}$ so the derivation stays readable. The important part for boundary matching is the hyperbolic $y$-dependence.
 
 At the perfectly conducting groove bottom, the tangential electric field must vanish. The hyperbolic form above is chosen so that the groove field satisfies the conductor boundary condition while retaining the groove-depth dependence explicitly.
 
