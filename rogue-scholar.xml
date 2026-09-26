@@ -1,0 +1,39 @@
+---
+layout: null
+permalink: /rogue-scholar.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title | xml_escape }} — DOI-Eligible Research Tutorials</title>
+  <subtitle>Full-text scholarly tutorials licensed for preservation and DOI registration.</subtitle>
+  <link href="{{ '/rogue-scholar.xml' | absolute_url }}" rel="self"/>
+  <link href="{{ '/articles/' | absolute_url }}"/>
+  <id>{{ '/rogue-scholar.xml' | absolute_url }}</id>
+  {% assign doi_articles = site.articles | where: "rogue_scholar", true | sort: "date" | reverse %}
+  {% if doi_articles.size > 0 %}
+  <updated>{{ doi_articles.first.last_modified_at | default: doi_articles.first.date | date_to_xmlschema }}</updated>
+  {% endif %}
+  <author>
+    <name>{{ site.author.name | xml_escape }}</name>
+    {% if site.author.email %}<email>{{ site.author.email | xml_escape }}</email>{% endif %}
+  </author>
+  <rights>Creative Commons Attribution 4.0 International (CC BY 4.0), except third-party material where otherwise noted.</rights>
+
+  {% for article in doi_articles %}
+  <entry>
+    <title>{{ article.title | xml_escape }}</title>
+    <link href="{{ article.url | absolute_url }}" rel="alternate"/>
+    <id>{% if article.post_doi %}https://doi.org/{{ article.post_doi }}{% else %}{{ article.url | absolute_url }}{% endif %}</id>
+    <published>{{ article.date | date_to_xmlschema }}</published>
+    <updated>{{ article.last_modified_at | default: article.date | date_to_xmlschema }}</updated>
+    <author>
+      <name>{{ article.author | default: site.author.name | xml_escape }}</name>
+    </author>
+    <summary type="text">{{ article.summary | xml_escape }}</summary>
+    <content type="html">{{ article.content | markdownify | xml_escape }}</content>
+    <category term="{{ article.category | xml_escape }}"/>
+    {% if article.license_url %}<link href="{{ article.license_url }}" rel="license"/>{% endif %}
+    {% if article.post_doi %}<link href="https://doi.org/{{ article.post_doi }}" rel="related"/>{% endif %}
+  </entry>
+  {% endfor %}
+</feed>
