@@ -1,7 +1,7 @@
 ---
 title: "Single-Layer or Two-Layer? Choosing a Smith–Purcell Grating from Growth Rate"
 date: 2026-09-17
-category: "Vacuum Electronics"
+category: "Plasma Physics"
 type: "Publication-based Research Article"
 summary: "Why a two-layer structure is not universally superior, and how dispersion provides a selection criterion."
 tags: ["single-layer grating", "two-layer grating", "design selection", "starting current"]
