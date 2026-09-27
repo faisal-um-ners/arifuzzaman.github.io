@@ -238,7 +238,7 @@ The repository currently identifies the software license as **CC BY-NC 4.0**. Th
 
 The repository also includes a `CITATION.cff` file so the software citation can be imported directly from GitHub.
 
-## Please cite the PASCHEN-1D publication
+## Cite PASCHEN-1D 
 
 If you use PASCHEN-1D in research, please cite the associated paper:
 
