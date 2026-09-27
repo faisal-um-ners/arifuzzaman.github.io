@@ -1,7 +1,7 @@
 ---
 title: "PASCHEN-1D: An Open 1D Plasma Discharge Solver for Research"
-date: 2026-09-27
-category: "Plasma Physics"
+date: 2026-09-22
+category: "Plasma Physics, Computational Physics"
 type: "Publication-based Research Article"
 summary: "A simple guide to PASCHEN-1D, a one-dimensional plasma discharge solver for gas breakdown, surface emission, plasma–circuit coupling, and time-dependent discharge simulations."
 tags: ["PASCHEN-1D", "plasma simulation", "gas breakdown", "plasma software"]
