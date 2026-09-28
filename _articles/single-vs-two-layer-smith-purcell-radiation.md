@@ -1,6 +1,6 @@
 ---
 title: "When Does a Second Grating Layer Improve THz Smith–Purcell Radiation?"
-date: 2026-09-28
+date: 2026-09-24
 category: "Vacuum Electronics"
 type: "Publication-based Research Article"
 summary: "A detailed single-layer versus two-layer Smith–Purcell radiation guide showing how grating geometry changes dispersion, spatial growth rate, starting current, and the beam-energy range where a second layer is actually useful."
