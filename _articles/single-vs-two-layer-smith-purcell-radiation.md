@@ -5,7 +5,7 @@ category: "Vacuum Electronics"
 type: "Publication-based Research Article"
 summary: "A detailed single-layer versus two-layer Smith–Purcell radiation guide showing how grating geometry changes dispersion, spatial growth rate, starting current, and the beam-energy range where a second layer is actually useful."
 tags: ["Smith–Purcell radiation", "two-layer grating", "THz", "spatial growth rate", "starting current"]
-image: "/assets/img/articles/spr_single_vs_two_layer_geometry.svg"
+image: "/assets/img/articles/two-layer-spr-enhancement.png"
 image_alt: "Side-by-side single-layer and two-layer Smith–Purcell grating configurations with an electron beam and emitted radiation."
 featured: true
 featured_order: 2
