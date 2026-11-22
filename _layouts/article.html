@@ -16,6 +16,7 @@
   <meta name="citation_language" content="en">
   {% if page.scholar_abstract %}<meta name="citation_abstract" content="{{ page.scholar_abstract | escape }}">{% endif %}
   {% if page.source_url %}<meta name="citation_reference" content="{{ page.source_authors | escape }}. {{ page.source_paper | escape }}. {{ page.journal | escape }}. {{ page.source_year }}. DOI: {{ page.doi | escape }}">{% endif %}
+  {% for reference in page.scholarly_references %}<meta name="citation_reference" content="{{ reference | escape }}">{% endfor %}
   <meta name="citation_fulltext_html_url" content="{{ page.url | absolute_url }}">
   <meta name="citation_fulltext_world_readable" content="">
   {% if page.post_doi %}<meta name="citation_doi" content="{{ page.post_doi | escape }}">{% endif %}
@@ -76,7 +77,8 @@
     },
     "citation": [
       {"@type":"ScholarlyArticle","name":{{ page.source_paper | jsonify }},"url":{{ page.source_url | jsonify }}}{% if page.related_ieee_url %},
-      {"@type":"CreativeWork","url":{{ page.related_ieee_url | jsonify }}}{% endif %}
+      {"@type":"ScholarlyArticle","name":{{ page.related_ieee_title | default: 'Related IEEE publication' | jsonify }},"url":{{ page.related_ieee_url | jsonify }}{% if page.related_ieee_doi %},"identifier": "https://doi.org/{{ page.related_ieee_doi }}"{% endif %}}{% endif %}{% if page.related_prior_url %},
+      {"@type":"ScholarlyArticle","name":{{ page.related_prior_title | jsonify }},"url":{{ page.related_prior_url | jsonify }}{% if page.related_prior_doi %},"identifier": "https://doi.org/{{ page.related_prior_doi }}"{% endif %}}{% endif %}
     ],
     {% endif %}
     "author": {
