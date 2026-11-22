@@ -1,28 +1,36 @@
 ---
-title: "Anisotropic 2D Contacts: A Tutorial on Current Crowding and Spreading Resistance"
+title: "Why Current Crowds at Contacts to Anisotropic 2D Materials"
 date: 2026-09-24
 last_modified_at: 2026-11-22
 category: "Electronic Materials"
-type: "Publication-based Research Tutorial"
-summary: "A step-by-step field-theory tutorial on tensor conductivity, exact two-layer vertical contacts, edge current crowding, and when classical spreading-resistance formulas fail."
-scholar_abstract: "This open tutorial explains steady-state electrical conduction in anisotropic two-dimensional thin-film contacts. Starting from charge continuity and tensor Ohm's law, it derives the anisotropic Laplace equation, the lateral coordinate-stretching rule, and the modal structure of planar and cylindrical contacts. It then discusses continuity and finite interfacial resistivity in a two-layer stack, how current crowding differs from terminal spreading resistance, and the asymptotic regime in which classical effective-resistivity formulas become valid. The worked physical interpretations and original schematic figures are based primarily on the peer-reviewed work of Md Arifuzzaman Faisal and Peng Zhang, ACS Applied Electronic Materials 8, 854–864 (2026), DOI: 10.1021/acsaelm.5c02130. Readers seeking to cite the original analytical results should cite that journal publication."
-tags: ["anisotropic conductivity", "2D materials", "current crowding", "spreading resistance", "vertical contacts", "thin-film contacts", "Laplace equation"]
+type: "Publication-based Research Article"
+summary: "Our exact two-layer field solution reveals how anisotropic conductivity reshapes current crowding and spreading resistance in 2D thin-film contacts, with FEM and experimental benchmarks."
+scholar_abstract: "Electrical contacts to layered materials exhibit nonuniform current injection because in-plane and out-of-plane conductivities can differ significantly. In our research, we derived exact analytical field solutions for finite vertical two-layer contacts that account for anisotropic conductivity in both layers, interfacial resistivity, and planar and circular geometries. The framework predicts local current crowding and terminal spreading resistance without replacing the directional conductivities by a single scalar. We validated the solutions against finite-element simulations and benchmarked them against published experimental measurements in highly oriented pyrolytic graphite and multilayer MoS2. The results explain why strong in-plane conduction can intensify edge crowding, while improvements in out-of-plane conductivity can substantially reduce the spreading resistance. This research perspective discusses the findings and device implications of Faisal and Zhang, ACS Applied Electronic Materials 8, 854-864 (2026), DOI: 10.1021/acsaelm.5c02130, together with the related 2026 Device Research Conference paper and earlier exact-field research."
+tags: ["anisotropic conductivity", "current crowding", "spreading resistance", "2D materials", "electrical contacts", "exact field solution", "MoS2", "contact resistance", "finite element simulation"]
 image: "/assets/img/articles/anisotropy-current-crowding-2d.png"
-image_alt: "Current crowding and lateral spreading in anisotropic two-dimensional electrical contacts"
+image_alt: "Current crowding and lateral potential spreading beneath electrical contacts to layered anisotropic materials"
 featured: true
 featured_order: 4
 journal: "ACS Applied Electronic Materials"
 source_year: 2026
 doi: "10.1021/acsaelm.5c02130"
-source_url: "https://pubs.acs.org/aaembp/article/8/2/854/5081981/Impact-of-Anisotropic-Conductivity-on-Current"
+source_url: "https://doi.org/10.1021/acsaelm.5c02130"
 source_paper: "Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films"
 source_authors: "Md Arifuzzaman Faisal and Peng Zhang"
 source_volume: "8"
 source_issue: "2"
 source_pages: "854–864"
 source_publication_date: "2026-01-07"
-source_pdf_url: "https://pbi.engin.umich.edu/wp-content/uploads/sites/678/2026/02/2026-ACS-AEM-anisotropic-conductivity-contacts.pdf"
-related_ieee_url: "https://ieeexplore.ieee.org/abstract/document/11779869"
+related_ieee_url: "https://doi.org/10.1109/DRC69467.2026.11779869"
+related_ieee_title: "Exact Field Solution of Contact Resistance in Anisotropic 2D Transistors with Experimental Benchmarking"
+related_ieee_doi: "10.1109/DRC69467.2026.11779869"
+related_prior_url: "https://doi.org/10.1088/0022-3727/48/47/475501"
+related_prior_title: "Analysis of current crowding in thin film contacts from exact field solution"
+related_prior_doi: "10.1088/0022-3727/48/47/475501"
+scholarly_references:
+  - "M. A. Faisal and P. Zhang. Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films. ACS Applied Electronic Materials 8(2), 854–864 (2026). doi:10.1021/acsaelm.5c02130."
+  - "M. A. Faisal and P. Zhang. Exact Field Solution of Contact Resistance in Anisotropic 2D Transistors with Experimental Benchmarking. 2026 Device Research Conference (DRC), Ann Arbor, MI, USA, pp. 1–2 (2026). doi:10.1109/DRC69467.2026.11779869."
+  - "P. Zhang, Y. Y. Lau, and R. M. Gilgenbach. Analysis of current crowding in thin film contacts from exact field solution. Journal of Physics D: Applied Physics 48, 475501 (2015). doi:10.1088/0022-3727/48/47/475501."
 publication_based: true
 rogue_scholar: true
 license: "CC BY 4.0"
@@ -31,354 +39,151 @@ license_url: "https://creativecommons.org/licenses/by/4.0/"
 
 ## Abstract
 
-The electrical current beneath a small contact is not necessarily vertical, even when a voltage is applied across a thin-film stack. Graphite and transition-metal dichalcogenides frequently conduct much more easily parallel to their atomic layers than perpendicular to them. This anisotropy changes the entire potential field, concentrates current near contact edges, and can make an isotropic estimate of spreading resistance misleading. In this tutorial we develop the governing equation, transform the anisotropic field problem into an equivalent isotropic coordinate system, introduce the exact two-layer boundary conditions, and explain the Cartesian and cylindrical field expansions. We then connect the theory to finite-element validation, experimental HOPG and MoS$_2$ comparisons, and practical contact design. **The underlying original research is the peer-reviewed paper by Faisal and Zhang [1].**
+Electrical contacts can limit the performance of two-dimensional (2D) layered semiconductors even when the material itself has excellent in-plane transport properties. The difficulty is that current does not enter a thin-film device uniformly: it spreads laterally beneath a finite electrode and can concentrate strongly near the contact edge. This effect becomes particularly pronounced when conductivity along the atomic layers is much higher than conductivity perpendicular to them. In our research, we developed an **exact field solution for current crowding and spreading resistance in anisotropic two-layer vertical contacts**, retaining directional resistivities in both layers, a finite interface resistivity, and realistic planar and cylindrical contact geometries. We validated the analytical predictions with finite-element method (FEM) simulations and compared the model with published experimental spreading-resistance measurements on highly oriented pyrolytic graphite and multilayer MoS$_2$. The results identify when widely used isotropic or thick-substrate approximations break down and show why the lower film's out-of-plane resistivity is an important design parameter. This article explains the motivation, methodology, central findings, and device implications of our work [1,2].
 
-> **Cite the original research:** M. A. Faisal and P. Zhang, “Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films,” *ACS Applied Electronic Materials*, **8**(2), 854–864 (2026). <a href="https://doi.org/10.1021/acsaelm.5c02130" target="_blank" rel="noopener">https://doi.org/10.1021/acsaelm.5c02130</a>. This webpage is an author-written educational explanation of that paper, not a replacement publication or a new DOI.
+**Based on our peer-reviewed paper:** M. A. Faisal and P. Zhang, “Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films,” *ACS Applied Electronic Materials*, **8**(2), 854–864 (2026). <a href="https://doi.org/10.1021/acsaelm.5c02130" target="_blank" rel="noopener">DOI: 10.1021/acsaelm.5c02130</a>. **For citing the original research and its analytical results, please cite this journal paper.**
 
-## 1. Why a vertical contact produces lateral current
+## The problem: good in-plane transport does not guarantee a good vertical contact
 
-Imagine an electrode placed on top of a layered conductor. For an isotropic medium, the local current density is aligned with the local electric field, and a simple picture of predominantly vertical transport can be adequate away from edges. A layered semiconductor is different. Motion parallel to the atomic sheets can be much easier than transport across the van der Waals gaps.
+Consider a metal electrode placed on a layered conductor. It is tempting to assume that the electrical current simply travels downward, crossing the metal–semiconductor interface and entering the underlying film. In reality, a finite electrode injects current into a larger conducting region. Current lines must redistribute, causing a spatial voltage drop known as *spreading* or *constriction resistance*.
 
-The difference is especially relevant for graphite and transition-metal dichalcogenides such as MoS$_2$ and WSe$_2$. A finite electrode must inject charge into an extended sheet, but the charge can spread laterally before it travels vertically. Its current-density field therefore depends on both components of resistivity, on the contact footprint, and on the thickness and width of the film [1,3].
+In materials such as graphite, MoS$_2$, and WSe$_2$, the situation is more complicated because transport parallel to the layers can differ greatly from transport across them. The atomic structure encourages lateral conduction, while vertical current may face a much greater resistivity. As a result, the current-density distribution can become highly nonuniform even in a geometrically simple contact.
 
-**Current crowding** refers to the localization of current density, often near a contact perimeter. **Spreading resistance** refers to the additional voltage drop associated with nonuniform current paths. These are related but not interchangeable quantities: reducing the net resistance does not necessarily eliminate an intense local current-density peak [1].
+This gives rise to two different, equally important quantities. **Spreading resistance** measures the additional terminal voltage drop associated with nonuniform injection. **Current crowding** describes how strongly the local current density concentrates in limited regions, frequently near a contact perimeter. A contact can have relatively low total resistance and still carry a disproportionately large current density near its edges. The latter matters for local heating and potential reliability problems, although our DC conduction theory does not itself model degradation or thermal failure [1].
+
+## Why an exact anisotropic field model was needed
+
+Exact-field approaches to thin-film current injection were developed before our anisotropic study. In particular, the 2015 work of Peng Zhang, Y. Y. Lau, and R. M. Gilgenbach, *“Analysis of current crowding in thin film contacts from exact field solution,”* examined spatial current injection in thin-film contacts, including its relationship to conventional transfer-length concepts [3]. That paper established an important physical and mathematical foundation for understanding nonuniform contact currents.
+
+Our work addresses the additional challenge presented by **anisotropic transport in a finite two-layer contact**. Traditional expressions often assume isotropic materials or a laterally extensive, sufficiently thick substrate. Simply substituting an average resistivity can obscure the effect of directional conductivity on the field distribution. This is especially problematic for ultrathin films and devices with lateral dimensions comparable to the contact size.
+
+We therefore formulated a two-region problem in which each material has its own in-plane and out-of-plane resistivity, while the interface has a finite specific resistivity. We retained the finite lateral and vertical boundaries rather than immediately assuming a semi-infinite conductor. The result is a unified analytical treatment of planar strip and circular disk contacts [1]. We also reported related results in our 2026 Device Research Conference paper on exact contact-resistance solutions and experimental benchmarking [2].
+
+## What we modeled
 
 <figure class="article-figure">
-  <img src="/assets/img/articles/anisotropic-contact-field-geometry.svg" alt="Original vector schematic comparing planar strip and cylindrical disk anisotropic bilayer contacts, with contact half-width or radius, two film thicknesses, interfacial resistivity, and illustrative current paths." loading="lazy">
-  <figcaption><strong>Figure 1.</strong> Contact geometry underlying the analytical model. Region I is a finite top electrode and Region II is a laterally wider film; a finite specific interfacial resistivity couples the two. Solid curves are qualitative current paths, not numerical field solutions. Original schematic created for this tutorial after the geometry of Ref. [1].</figcaption>
+  <img src="/assets/img/articles/anisotropic-contact-field-geometry.svg" alt="Original schematic showing strip and disk contacts, two anisotropic layers, a finite resistive interface, and qualitative current-spreading paths." loading="lazy">
+  <figcaption><strong>Figure 1.</strong> Physical contact configurations studied in our research: planar and axisymmetric two-layer vertical contacts. The arrows indicate qualitative current redistribution. This is an original explanatory schematic, not a simulated field map or a figure reproduced from the journal paper [1].</figcaption>
 </figure>
 
-## 2. Begin with current conservation and tensor Ohm's law
-
-For steady conduction without charge accumulation,
+The two-layer structure consists of a finite upper electrode, a wider lower film, and an interface across which charge is transferred. Both layers can be anisotropic. The field satisfies current continuity,
 
 $$
-\nabla\cdot\mathbf J=0.
+\nabla\cdot\mathbf{J}=0,
 $$
 
-For a linear, locally homogeneous conductor with principal conductivity axes aligned to the material layers,
+together with the tensor form of Ohm's law,
 
 $$
-\mathbf J=-\boldsymbol{\sigma}\nabla\Phi,
-\qquad
-\boldsymbol{\sigma}=
-\begin{pmatrix}
-\sigma_t&0\\
-0&\sigma_z
-\end{pmatrix}.
+\mathbf{J}=-\boldsymbol{\sigma}\nabla\Phi.
 $$
 
-Here $t$ is the in-plane coordinate and $z$ is the out-of-plane coordinate. Substitution gives the **anisotropic Laplace equation**
-
-$$
-\nabla\cdot\left(\boldsymbol{\sigma}\nabla\Phi\right)=0.
-$$
-
-For a Cartesian film, $t=y$. If the material properties are uniform in each region, the governing equation becomes
+For planar coordinates, the potential within a homogeneous material region obeys
 
 $$
 \sigma_y\frac{\partial^2\Phi}{\partial y^2}
 +
-\sigma_z\frac{\partial^2\Phi}{\partial z^2}=0.
+\sigma_z\frac{\partial^2\Phi}{\partial z^2}=0,
 $$
 
-The two directional resistivities and the anisotropy ratio are
+where $\sigma_y$ and $\sigma_z$ describe lateral and vertical conductivity. The associated anisotropy parameter for each layer is
 
 $$
-\rho_y=\frac{1}{\sigma_y},\qquad
-\rho_z=\frac{1}{\sigma_z},\qquad
-\alpha=\frac{\rho_y}{\rho_z}
-=\frac{\sigma_z}{\sigma_y}.
+\alpha_j=\frac{\rho_{j,y}}{\rho_{j,z}}
+=\frac{\sigma_{j,z}}{\sigma_{j,y}},
+\qquad j=1,2.
 $$
 
-Consequently,
+The same principle extends to a circular contact through the radial form of the conduction equation. At the interface, normal current is conserved but the voltage may have a jump proportional to the local current density:
 
 $$
-\boxed{
-\frac{\partial^2\Phi}{\partial y^2}
-+\alpha\frac{\partial^2\Phi}{\partial z^2}=0
-}.
+J_{1,z}=J_{2,z}=J_z,\qquad
+\Phi_2-\Phi_1=\rho_i J_z.
 $$
 
-For an isotropic medium, $\alpha=1$. A layered conductor with $\rho_y\ll\rho_z$ has $\alpha\ll1$. This is the same anisotropy convention used in Ref. [1]. There are two different ratios $\alpha_1$ and $\alpha_2$ when **both** contact members are anisotropic.
+Here $\rho_i$ is the specific interface resistivity. It is essential to include this boundary condition because contact resistance can originate both from current redistribution within the materials and from voltage loss across the interface.
 
-## 3. Understand anisotropy by stretching the coordinates
+We solved these equations using field expansions that satisfy the outer boundary conditions. The planar case uses Fourier modes, while the cylindrical case uses Bessel-function modes. The coupled interface conditions determine the expansion coefficients, the potential field, the injection-current distribution, and the total resistance. This makes it possible to study local current crowding and macroscopic resistance consistently within the same model [1].
 
-The equation above has a useful mathematical interpretation. Define a transformed vertical coordinate,
+## The main physical finding: anisotropy changes where current flows
 
-$$
-z'=\frac{z}{\sqrt{\alpha}}.
-$$
+One of the clearest outcomes of the study is that a material with very high in-plane conductivity can exhibit **stronger current concentration near a contact edge**, even though lateral transport itself becomes easier. This is not contradictory. The total voltage required to move charge and the local peak density of that charge flow are different measures.
 
-The chain rule gives
+In the exact field solutions, anisotropy changes the way potential extends beneath and beyond the electrode footprint. The current-density distribution responds to this altered potential field and can become concentrated near the boundary of the contact. The degree of crowding also depends on the resistivity and thickness of both layers, the interface, and the available lateral dimensions [1].
 
-$$
-\frac{\partial^2\Phi}{\partial z^2}
-=\frac{1}{\alpha}
-\frac{\partial^2\Phi}{\partial z'^2},
-$$
-
-so that
+A useful way to understand the field geometry is to recognize that the planar conduction equation can be mapped to an isotropic Laplace equation by stretching the vertical coordinate. For constant $\alpha=\rho_y/\rho_z$, the transformation
 
 $$
-\frac{\partial^2\Phi}{\partial y^2}
-+\frac{\partial^2\Phi}{\partial z'^2}=0.
+z'=\frac{z}{\sqrt{\alpha}}
 $$
 
-In the transformed coordinates, the bulk differential equation is isotropic. The physical contact is not isotropic, however: a vertical distance $h$ becomes $h/\sqrt{\alpha}$ in the transformed system. Equivalently, a typical lateral distance associated with a vertical scale $h$ scales as
+reveals a characteristic geometric scaling,
 
 $$
-\boxed{\ell_t\sim\frac{h}{\sqrt{\alpha}}}.
+\ell_{\parallel}\sim\frac{h}{\sqrt{\alpha}}.
 $$
 
-This is a **coordinate-stretching scale**, not a universal fitted transfer length or an exact current-crowding formula. The full contact profile still depends on electrode geometry, other layers, the interface, and boundary conditions. It explains why the lateral spatial extent of the potential can be far larger than the physical layer thickness when $\alpha$ is small.
+This is an analytical scaling of the transformed field geometry, **not a universal contact transfer-length formula**. It illustrates why anisotropy can produce lateral potential variation over distances much larger than the physical film thickness. The actual contact current and resistance still require the complete boundary-value solution.
 
 <figure class="article-figure">
-  <img src="/assets/img/articles/anisotropy-coordinate-stretching.svg" alt="Original analytical scaling plot showing lateral-to-vertical coordinate-stretching ratio h over square root of alpha from alpha equals one to one ten-thousandth, with isotropic and strongly anisotropic equipotential sketches." loading="lazy">
-  <figcaption><strong>Figure 2.</strong> Exact coordinate-stretching factor $1/\sqrt{\alpha}$ for a homogeneous anisotropic conductivity tensor, together with illustrative potential-contour geometry. This is an analytical scaling identity, **not** a reproduction of the contact-resistance measurements or numerical results in Ref. [1].</figcaption>
+  <img src="/assets/img/articles/anisotropy-coordinate-stretching.svg" alt="Analytical plot of the coordinate-stretching factor 1 over square root alpha as the resistivity anisotropy changes." loading="lazy">
+  <figcaption><strong>Figure 2.</strong> Coordinate-stretching factor associated with anisotropic conduction. The curve is an analytical illustration of the governing field equation; it is not a fit to experimental data or a reproduction of any calculated resistance curve in Ref. [1].</figcaption>
 </figure>
 
-A numerical example makes the implication clear. If $\alpha=10^{-2}$, then $1/\sqrt{\alpha}=10$. If $\alpha=10^{-4}$, it becomes $100$. Thus strongly anisotropic material can redistribute electrical potential over a lateral distance much greater than a single film thickness. The finite contact boundaries ultimately limit the spatial response.
+## Analytical results and numerical verification
 
-## 4. Set up the actual two-layer vertical-contact problem
+A major strength of our study is that the field solution can be checked independently. We compared the analytical potential and current-density distributions against finite-element simulations for representative layered-material contacts. The agreement supports the treatment of the two anisotropic conducting regions and their finite-resistivity interface [1].
 
-The original research treats two conducting regions, **both allowed to be anisotropic**, rather than a perfectly conducting electrode deposited on a single anisotropic half-space [1].
+The work examined contacts involving isotropic and anisotropic materials, including configurations based on Au, graphite, MoS$_2$, and WSe$_2$. These comparisons isolate how changing the directional material resistivities reshapes the current distribution. The potential maps and current-density maps are complementary: the first identifies where the voltage changes, while the second identifies where current is actually concentrated.
 
-For the planar strip configuration, let the upper electrode (Region I) occupy
+The calculation also exposes the limitations of using a scalar effective resistivity to represent an anisotropic film. An effective parameter can reproduce certain limiting resistance expressions, but that does not mean it reproduces the spatially resolved current field of a finite contact.
 
-$$
--a\le y\le a,\qquad 0\le z\le h_1,
-$$
+## Experimental benchmarking: HOPG and multilayer MoS₂
 
-and the lower semiconductor (Region II) occupy
+We further assessed the cylindrical-contact theory by comparing with published electrical spreading-resistance measurements on **highly oriented pyrolytic graphite (HOPG)** and **multilayer MoS$_2$** [1]. These two materials provide valuable benchmarks because their layered structures make directional transport particularly relevant.
 
-$$
--b\le y\le b,\qquad -h_2\le z\le0,
-\qquad b>a.
-$$
+The exact model reproduces the benchmark trends without requiring adjustable fitting parameters in the comparisons reported in the paper. This connection between analytical field theory and experimental measurements is important: it shows that the same formulation can interpret current distribution in idealized model contacts and resistance measurements in real layered materials.
 
-The physical parameters are $\rho_{1,y}$, $\rho_{1,z}$, $\rho_{2,y}$, $\rho_{2,z}$, film thicknesses $h_1,h_2$, the two half-widths $a,b$, and the specific interface resistivity $\rho_i$ (units $\Omega\,\mathrm{m}^2$).
-
-A convenient statement of the boundary conditions in the paper is:
-
-1. The top contact face is held at $\Phi_{\mathrm I}(y,h_1)=0$.
-2. The lower face is held at $\Phi_{\mathrm {II}}(y,-h_2)=V_0$.
-3. The outer lateral walls are electrically insulating, so $\mathbf J\cdot\mathbf n=0$.
-4. The exposed upper face of Region II outside the footprint is insulating: $J_{\mathrm {II},z}(y,0)=0$ for $a<|y|\le b$.
-5. Through the interface, normal current is continuous, while the voltage drop is proportional to local normal current density.
-
-With the orientation convention of Ref. [1], the interface relation is
+For a sufficiently wide and thick diffusive material beneath a circular contact of radius $a$, a useful asymptotic expression is
 
 $$
-J_{\mathrm I,z}(y,0^+)
-=J_{\mathrm {II},z}(y,0^-),
+R_s\simeq\frac{\sqrt{\rho_r\rho_z}}{4a}.
 $$
 
-$$
-\boxed{
-\Phi_{\mathrm {II}}(y,0^-)
--\Phi_{\mathrm I}(y,0^+)
-=\rho_i J_z(y,0)
-},\qquad |y|\le a.
-$$
+The inverse-radius dependence is familiar from classical spreading-resistance theory. However, our results show that this approximation need not remain reliable when the film is extremely thin, the lower conductor has finite lateral width, or the contact and device dimensions become comparable [1]. The full solution is needed to account for boundary effects and the independent material properties of both layers.
 
-The last equation is crucial. A finite interface resistivity permits a **potential jump** across an infinitesimally thin interface, while conserving current. Taking $\rho_i\to0$ recovers potential continuity, not zero current.
+## What this means for contact engineering
 
-## 5. Separate variables to obtain the planar field solution
+The findings offer a different perspective on how to optimize contacts to layered materials. Increasing in-plane conductivity alone does not necessarily solve the resistance problem or reduce current crowding. For the configurations studied, **lowering the out-of-plane resistivity of the lower film is often more effective in reducing spreading resistance**. Reducing the specific interface resistivity remains important, but these changes address different physical contributions [1].
 
-In Region I, solve
+A reliable device assessment should therefore consider at least three quantities together: the resistance seen at the terminals, the distribution of normal injection current across the interface, and the peak current density near contact edges. These are all accessible through the exact field framework.
 
-$$
-\frac{\partial^2\Phi_{\mathrm I}}{\partial y^2}
-+\alpha_1
-\frac{\partial^2\Phi_{\mathrm I}}{\partial z^2}=0,
-\qquad
-\alpha_1=\frac{\rho_{1,y}}{\rho_{1,z}}.
-$$
+The model is also relevant when interpreting contact measurements. If a short-channel or ultrathin structure is analyzed with a thick-substrate isotropic formula, part of the measured resistance may be misattributed to the material or the interface. Incorporating anisotropy and finite geometry can provide a more physically meaningful interpretation of the data.
 
-Take $\Phi(y,z)=Y(y)Z(z)$. Division by $YZ$ produces two ordinary differential equations,
+## Broader significance and limitations
 
-$$
-Y''+k^2Y=0,\qquad
-Z''-\frac{k^2}{\alpha_1}Z=0.
-$$
+Our study connects **continuum field theory, finite-element simulation, and experimental contact-resistance measurements** in a single framework for anisotropic layered contacts. Its key advance is not simply an adjusted resistance formula. It is a spatially resolved solution that explains how geometry, tensor conductivity, and interface resistivity act together to govern current injection [1].
 
-The insulating lateral boundaries select cosine modes (for the symmetric problem),
+The analytical theory describes steady-state, linear electrical conduction using prescribed material resistivities and interface properties. It does not, by itself, include quantum tunneling at an atomically sharp junction, nonlinear Schottky transport, microscopic defects, or coupled self-heating. Those effects would require additional physical models. The exact field solution nevertheless establishes a useful baseline for evaluating when a simpler resistance model is adequate and when its assumptions are no longer justified.
 
-$$
-Y_n(y)=\cos\left(\frac{n\pi y}{a}\right),
-\qquad
-k_{1,n}=\frac{n\pi}{a},
-$$
+## Conclusion
 
-and the vertical decay factor is
+**Current crowding in layered 2D contacts is fundamentally a spatial transport problem, not just a lumped contact-resistance problem.** Our exact analytical model shows that anisotropic conductivity can enhance edge localization, modify spreading resistance, and make conventional isotropic approximations inaccurate in finite thin-film devices. By handling anisotropy in both layers, finite interfacial resistance, and both strip and disk geometries, the method bridges idealized theory and practical device structures. Independent FEM comparisons and experimental benchmarks with HOPG and MoS$_2$ support the model's usefulness.
 
-$$
-\gamma_{1,n}=\frac{k_{1,n}}{\sqrt{\alpha_1}}.
-$$
+The central design lesson is that highly conductive in-plane layers do not automatically produce efficient vertical contacts. **Directional transport, especially the lower film's out-of-plane resistivity, must be considered alongside contact geometry and interface properties.** These insights, established in the underlying peer-reviewed work [1], offer a way to understand and improve electrical contacts in layered electronic materials.
 
-The corresponding Region II modes use the larger half-width and its own anisotropy,
+## Publications and references
 
-$$
-k_{2,n}=\frac{n\pi}{b},\qquad
-\gamma_{2,n}=\frac{k_{2,n}}{\sqrt{\alpha_2}}.
-$$
+**How to cite this research:** This article is an explanatory research perspective based on our original ACS publication. For the analytical solutions, validated results, and conclusions reported here, please cite **Reference [1]**.
 
-One illustrative representation satisfying the fixed-potential upper and lower faces is
+1. **M. A. Faisal and P. Zhang**, “Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films,” *ACS Applied Electronic Materials*, vol. 8, no. 2, pp. 854–864, 2026. <a href="https://doi.org/10.1021/acsaelm.5c02130" target="_blank" rel="noopener">DOI: 10.1021/acsaelm.5c02130</a>. **Primary peer-reviewed publication on which this article is based.**
 
-$$
-\Phi_{\mathrm I}(y,z)
-=A_0(h_1-z)+
-\sum_{n=1}^{\infty}
-A_n\sinh\!\left[\gamma_{1,n}(h_1-z)\right]
-\cos\left(\frac{n\pi y}{a}\right),
-$$
+2. **M. A. Faisal and P. Zhang**, “Exact Field Solution of Contact Resistance in Anisotropic 2D Transistors with Experimental Benchmarking,” *2026 Device Research Conference (DRC)*, Ann Arbor, MI, USA, 2026, pp. 1–2. <a href="https://doi.org/10.1109/DRC69467.2026.11779869" target="_blank" rel="noopener">DOI: 10.1109/DRC69467.2026.11779869</a>. **Related conference contribution.**
 
-$$
-\Phi_{\mathrm {II}}(y,z)
-=V_0+B_0(z+h_2)+
-\sum_{n=1}^{\infty}
-B_n\sinh\!\left[\gamma_{2,n}(z+h_2)\right]
-\cos\left(\frac{n\pi y}{b}\right).
-$$
-
-The coefficients are **not independently chosen**. Projecting the interface and exposed-surface conditions onto these lateral modes produces a coupled linear system. Solving that system is what makes the two-layer result self-consistent. The exact coefficient relations and final planar resistance are provided in Eqs. (2a)–(2c) and Supporting Information Section S1 of Ref. [1].
-
-Notice the physical factor $k_n/\sqrt{\alpha}$. The same lateral Fourier variation penetrates a different vertical distance when the conductivity tensor changes. Replacing $\rho_y$ and $\rho_z$ by one average resistivity before solving loses this mode-dependent structure.
-
-## 6. Extend the derivation to cylindrical disk contacts
-
-The paper also treats a circular electrode of radius $a$ deposited on a circular lower region of radius $b$. For axisymmetric conduction, the tensor equation becomes
-
-$$
-\frac{1}{r}\frac{\partial}{\partial r}
-\left(r\sigma_r\frac{\partial\Phi}{\partial r}\right)
-+\sigma_z\frac{\partial^2\Phi}{\partial z^2}=0.
-$$
-
-For constant material properties,
-
-$$
-\frac{1}{r}\frac{\partial}{\partial r}
-\left(r\frac{\partial\Phi}{\partial r}\right)
-+\alpha\frac{\partial^2\Phi}{\partial z^2}=0.
-$$
-
-Separation of variables leads to radial Bessel modes $J_0(\lambda r)$. On a sidewall with zero radial current,
-
-$$
-\left.\frac{\partial\Phi}{\partial r}\right|_{r=a\ \mathrm{or}\ b}=0
-\quad\Longrightarrow\quad
-J_1(\lambda a)=0
-\quad\mathrm{or}\quad
-J_1(\lambda b)=0.
-$$
-
-Thus planar contacts use cosine modes, while disk contacts use Bessel modes. **The two geometries share the same tensor physics but have different mode spectra and contact-area factors.** The exact axisymmetric potential and spreading-resistance formulas appear in Eqs. (3a)–(3c) and Supporting Information Section S4 of Ref. [1].
-
-## 7. Extract current density and separate resistance contributions
-
-Once the potential is known, neither the current-density map nor the terminal current needs to be guessed:
-
-$$
-J_t=-\sigma_t\frac{\partial\Phi}{\partial t},
-\qquad
-J_z=-\sigma_z\frac{\partial\Phi}{\partial z},
-$$
-
-$$
-|\mathbf J|=\sqrt{J_t^2+J_z^2}.
-$$
-
-For a planar contact with out-of-plane width $W$,
-
-$$
-I=W\int_{-a}^{a}J_z(y,0)\,dy.
-$$
-
-For a circular contact,
-
-$$
-I=2\pi\int_0^a J_z(r,0)\,r\,dr.
-$$
-
-The total resistance of the biased stack is $R_T=V_0/I$ (using the sign convention for positive current magnitude). The original paper defines the contact resistance by subtracting the lower-layer background contribution, $R_c=R_T-R_b$, and derives the **spreading/constriction component** from the exact modal coefficients. The nominal interface-area terms are
-
-$$
-R_{i,\mathrm{planar}}=\frac{\rho_i}{2aW},
-\qquad
-R_{i,\mathrm{disk}}=\frac{\rho_i}{\pi a^2}.
-$$
-
-Those expressions are area-normalized interface contributions for a spatially uniform $\rho_i$. The coupled field solution is still required to determine nonuniform local injection and the total resistance of a finite bilayer.
-
-The distinction matters in practice: a low measured $R_T$ can coexist with a high maximum of $|\mathbf J|$, and a reduction in $\rho_y$ can increase edge localization even while making lateral spreading energetically easier [1].
-
-## 8. Understand what the published potential and current maps show
-
-The research compares five representative material combinations: isotropic Au–a-Si, Au–WSe$_2$, graphite–MoS$_2$, Au–graphite, and graphite–graphite. For example, the reported lower-layer anisotropy parameters include $\alpha_2=0.1333$ for the Au–WSe$_2$ example, $\alpha_2=9\times10^{-3}$ for graphite–MoS$_2$, and $\alpha_2=2.73\times10^{-5}$ for the graphite example [1, Figs. 3–4].
-
-The potential maps show that highly conductive in-plane directions reshape the spatial voltage profile along the interface. The corresponding current-density maps show stronger localization close to electrode edges and an extended band of current in the anisotropic lower region. The two effects should be interpreted together: **electrostatic potential spreading is not the same quantity as the local magnitude of current density**.
-
-These are results of the **published exact two-layer solution**, independently checked against finite-element calculations in the paper. Figures 1–2 on this webpage are new educational schematics and analytical illustrations; they do not reproduce those simulation maps or purport to be newly calculated FEM benchmarks.
-
-## 9. When does the familiar diffusive resistance formula work?
-
-For a disk-like contact in the wide, sufficiently thick diffusive limit, the classical expression is
-
-$$
-\boxed{
-R_s\simeq\frac{\rho_{\mathrm{eff}}}{4a},
-\qquad
-\rho_{\mathrm{eff}}=\sqrt{\rho_{2,r}\rho_{2,z}}
-}.
-$$
-
-This is the limiting expression used in the paper for its HOPG and MoS$_2$ comparisons [1,4,5]. It is useful because it predicts the familiar inverse-radius trend, $R_s\propto1/a$.
-
-It is **not** a general result for arbitrary film thickness or contact geometry. The exact theory retains $b/a$, $h_1/a$, $h_2/a$, $\alpha_1$, $\alpha_2$, $\rho_{1,z}/\rho_{2,z}$, and $\rho_i$. When $b$ is comparable to $a$, or the lower film is very thin, a semi-infinite diffusive formula discards important boundary information. A scalar effective resistivity may reproduce a limiting total resistance without recovering the actual nonuniform current field [1].
-
-### Published experimental checks
-
-The paper compares the cylindrical solution with spreading-resistance data for **highly oriented pyrolytic graphite** measured by Koren and coauthors [4] and **multilayer MoS$_2$** measured by Vijayan and coauthors [5]. The article reports agreement using independently specified material properties, without introducing fit parameters for its benchmark curves [1].
-
-The reported analyses also explore narrower finite-width channels and nanometer-scale films. These reveal departures from the simple $1/a$ scaling in geometries where finite boundaries and anisotropy cannot be neglected. The proper conclusion is conditional: the classical formula can be accurate in its asymptotic regime, but should not be extrapolated indiscriminately to ultra-thin, laterally confined device stacks.
-
-## 10. How to use the theory in your own device design
-
-A reliable workflow for modeling an electrical contact is:
-
-1. **Measure the geometry.** Record the contact half-width or radius $a$, available lateral extent $b$, and the thicknesses $h_1$ and $h_2$.
-2. **Keep directional resistivities separate.** Use $\rho_{1,t},\rho_{1,z},\rho_{2,t},\rho_{2,z}$; compute $\alpha_1$ and $\alpha_2$.
-3. **Specify the interface.** Determine whether a constant specific resistivity $\rho_i$ is a reasonable small-signal DC approximation.
-4. **Choose the geometry.** Use cosine eigenmodes for a planar strip or Bessel eigenmodes for a circular contact.
-5. **Solve the coupled boundary-value problem.** Use the exact expressions from Ref. [1], or a sufficiently resolved FEM model when the geometry or interface varies spatially.
-6. **Check both outputs.** Extract $R_s$ and $R_c$, but also inspect $J_z$ and $|\mathbf J|$ around the contact perimeter.
-7. **Check limiting cases.** The solution should recover the isotropic theory at $\alpha_1=\alpha_2=1$, the perfect-interface limit as $\rho_i\to0$, and the appropriate wide/thick diffusive limit for disks.
-
-For fixed geometry, the paper finds that reducing the **out-of-plane resistivity of the lower film**, $\rho_{2,z}$, is often a more effective resistance-reduction strategy than pushing an already small in-plane resistivity still lower. Reducing the interfacial resistivity can also help. But geometry and edge crowding must be assessed separately when reliability or Joule heating is the design concern [1].
-
-## 11. Limits of the theory
-
-The exact analytical model in Ref. [1] is a **steady-state, linear DC conduction model** with prescribed material resistivities and a laterally uniform interface parameter. It does not itself predict microscopic tunneling, Schottky barrier formation, temperature-dependent electromigration, or time-dependent thermal runaway. Those physical effects require additional constitutive laws and, where appropriate, coupled electrical–thermal or quantum transport calculations. Its value is the clean, general baseline for the current distribution and resistance of finite anisotropic contacts.
-
-## Source publication and how to cite
-
-This tutorial is an author-written explanation **based primarily on Ref. [1]**. The original exact two-layer solutions, supporting derivations, experimental benchmarks, and claims of novelty belong to that peer-reviewed article. **For a scientific statement or derivation originating in the paper, cite the journal paper rather than this webpage.**
-
-**Recommended citation (original research):** M. A. Faisal and P. Zhang, “Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films,” *ACS Applied Electronic Materials*, vol. 8, no. 2, pp. 854–864, 2026. DOI: <a href="https://doi.org/10.1021/acsaelm.5c02130" target="_blank" rel="noopener">10.1021/acsaelm.5c02130</a>.
-
-The <a href="https://pbi.engin.umich.edu/wp-content/uploads/sites/678/2026/02/2026-ACS-AEM-anisotropic-conductivity-contacts.pdf" target="_blank" rel="noopener">university-hosted publication and supporting-information PDF</a> gives the original numbered equations and experimental figures.
-
-## References
-
-1. **M. A. Faisal and P. Zhang**, “Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films,” *ACS Applied Electronic Materials*, **8**(2), 854–864 (2026). <a href="https://pubs.acs.org/aaembp/article/8/2/854/5081981/Impact-of-Anisotropic-Conductivity-on-Current" target="_blank" rel="noopener">Publisher article</a>; <a href="https://doi.org/10.1021/acsaelm.5c02130" target="_blank" rel="noopener">DOI: 10.1021/acsaelm.5c02130</a>.
-2. P. Zhang and Y. Y. Lau, “Constriction Resistance and Current Crowding in Vertical Thin Film Contact,” *IEEE Journal of the Electron Devices Society*, **1**, 83–90 (2013). This earlier work established an isotropic finite-contact field framework extended by [1].
-3. K. Seki, T. Kubo, N. Ye, and T. Shimizu, “Quantifying the Spreading Resistance of an Anisotropic Thin Film Conductor,” *Scientific Reports*, **10**, 10633 (2020).
-4. E. Koren, A. W. Knoll, E. Lörtscher, and U. Duerig, “Meso-scale Measurement of the Electrical Spreading Resistance in Highly Anisotropic Media,” *Applied Physics Letters*, **105**, 123112 (2014).
-5. G. Vijayan, M. Uzhansky, and E. Koren, “Spreading Resistance and Conductance Anisotropy in Multilayer MoS$_2$,” *Applied Physics Letters*, **124**, 133101 (2024).
-6. **Related IEEE Xplore publication**, document 11779869. <a href="https://ieeexplore.ieee.org/abstract/document/11779869" target="_blank" rel="noopener">Publisher record</a>. The publisher record should be consulted for its authoritative title, authors, and DOI; these details are not inferred here.
+3. **P. Zhang, Y. Y. Lau, and R. M. Gilgenbach**, “Analysis of current crowding in thin film contacts from exact field solution,” *Journal of Physics D: Applied Physics*, vol. 48, no. 47, 475501, 2015. Published October 22, 2015. <a href="https://doi.org/10.1088/0022-3727/48/47/475501" target="_blank" rel="noopener">DOI: 10.1088/0022-3727/48/47/475501</a>. **Foundational exact-field treatment of thin-film current crowding.**
 
 ---
 
-**License.** Unless otherwise noted, original text and vector illustrations on this page are licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 (CC BY 4.0)</a>. The journal publication and third-party material remain subject to their respective publishing terms.
+**Image note.** The two vector figures in this article are original explanatory illustrations. They are distinguished from the analytical, FEM, and experimental results published in Ref. [1].
+
+**License.** Unless otherwise noted, the original text and illustrations on this webpage are available under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 (CC BY 4.0)</a>. Copyright and reuse rights for the cited publications remain governed by their respective publishers.
