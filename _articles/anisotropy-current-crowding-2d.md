@@ -166,24 +166,22 @@ Our study connects **continuum field theory, finite-element simulation, and expe
 
 The analytical theory describes steady-state, linear electrical conduction using prescribed material resistivities and interface properties. It does not, by itself, include quantum tunneling at an atomically sharp junction, nonlinear Schottky transport, microscopic defects, or coupled self-heating. Those effects would require additional physical models. The exact field solution nevertheless establishes a useful baseline for evaluating when a simpler resistance model is adequate and when its assumptions are no longer justified.
 
+## Research context and attribution
+
+This article presents the significance and physical interpretation of our published work in *ACS Applied Electronic Materials* [1], with a related conference contribution at the 2026 Device Research Conference [2]. The earlier exact-field study of thin-film current crowding by Zhang, Lau, and Gilgenbach [3] provides relevant foundations. **For the original analytical solutions, numerical validation, and experimental benchmarks, please cite the ACS journal article [1].**
+
+The two vector figures in this article are original explanatory illustrations, not reproductions of the analytical, finite-element, or experimental figures in Ref. [1]. Unless otherwise noted, the original webpage text and illustrations are licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 (CC BY 4.0)</a>. The cited publications retain their respective publisher copyright and reuse conditions.
+
 ## Conclusion
 
 **Current crowding in layered 2D contacts is fundamentally a spatial transport problem, not just a lumped contact-resistance problem.** Our exact analytical model shows that anisotropic conductivity can enhance edge localization, modify spreading resistance, and make conventional isotropic approximations inaccurate in finite thin-film devices. By handling anisotropy in both layers, finite interfacial resistance, and both strip and disk geometries, the method bridges idealized theory and practical device structures. Independent FEM comparisons and experimental benchmarks with HOPG and MoS$_2$ support the model's usefulness.
 
 The central design lesson is that highly conductive in-plane layers do not automatically produce efficient vertical contacts. **Directional transport, especially the lower film's out-of-plane resistivity, must be considered alongside contact geometry and interface properties.** These insights, established in the underlying peer-reviewed work [1], offer a way to understand and improve electrical contacts in layered electronic materials.
 
-## Publications and references
+## References
 
-**How to cite this research:** This article is an explanatory research perspective based on our original ACS publication. For the analytical solutions, validated results, and conclusions reported here, please cite **Reference [1]**.
+1. M. A. Faisal and P. Zhang, “Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films,” *ACS Applied Electronic Materials*, vol. 8, no. 2, pp. 854–864, 2026. <a href="https://doi.org/10.1021/acsaelm.5c02130" target="_blank" rel="noopener">https://doi.org/10.1021/acsaelm.5c02130</a>.
 
-1. **M. A. Faisal and P. Zhang**, “Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films,” *ACS Applied Electronic Materials*, vol. 8, no. 2, pp. 854–864, 2026. <a href="https://doi.org/10.1021/acsaelm.5c02130" target="_blank" rel="noopener">DOI: 10.1021/acsaelm.5c02130</a>. **Primary peer-reviewed publication on which this article is based.**
+2. M. A. Faisal and P. Zhang, “Exact Field Solution of Contact Resistance in Anisotropic 2D Transistors with Experimental Benchmarking,” *2026 Device Research Conference (DRC)*, Ann Arbor, MI, USA, 2026, pp. 1–2. <a href="https://doi.org/10.1109/DRC69467.2026.11779869" target="_blank" rel="noopener">https://doi.org/10.1109/DRC69467.2026.11779869</a>.
 
-2. **M. A. Faisal and P. Zhang**, “Exact Field Solution of Contact Resistance in Anisotropic 2D Transistors with Experimental Benchmarking,” *2026 Device Research Conference (DRC)*, Ann Arbor, MI, USA, 2026, pp. 1–2. <a href="https://doi.org/10.1109/DRC69467.2026.11779869" target="_blank" rel="noopener">DOI: 10.1109/DRC69467.2026.11779869</a>. **Related conference contribution.**
-
-3. **P. Zhang, Y. Y. Lau, and R. M. Gilgenbach**, “Analysis of current crowding in thin film contacts from exact field solution,” *Journal of Physics D: Applied Physics*, vol. 48, no. 47, 475501, 2015. Published October 22, 2015. <a href="https://doi.org/10.1088/0022-3727/48/47/475501" target="_blank" rel="noopener">DOI: 10.1088/0022-3727/48/47/475501</a>. **Foundational exact-field treatment of thin-film current crowding.**
-
----
-
-**Image note.** The two vector figures in this article are original explanatory illustrations. They are distinguished from the analytical, FEM, and experimental results published in Ref. [1].
-
-**License.** Unless otherwise noted, the original text and illustrations on this webpage are available under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 (CC BY 4.0)</a>. Copyright and reuse rights for the cited publications remain governed by their respective publishers.
+3. P. Zhang, Y. Y. Lau, and R. M. Gilgenbach, “Analysis of current crowding in thin film contacts from exact field solution,” *Journal of Physics D: Applied Physics*, vol. 48, no. 47, 475501, 2015. <a href="https://doi.org/10.1088/0022-3727/48/47/475501" target="_blank" rel="noopener">https://doi.org/10.1088/0022-3727/48/47/475501</a>.
