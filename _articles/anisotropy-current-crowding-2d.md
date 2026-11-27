@@ -31,6 +31,13 @@ scholarly_references:
   - "M. A. Faisal and P. Zhang. Impact of Anisotropic Conductivity on Current Crowding and Spreading Resistance in Vertical Contacts to 2D Thin Films. ACS Applied Electronic Materials 8(2), 854–864 (2026). doi:10.1021/acsaelm.5c02130."
   - "M. A. Faisal and P. Zhang. Exact Field Solution of Contact Resistance in Anisotropic 2D Transistors with Experimental Benchmarking. 2026 Device Research Conference (DRC), Ann Arbor, MI, USA, pp. 1–2 (2026). doi:10.1109/DRC69467.2026.11779869."
   - "P. Zhang, Y. Y. Lau, and R. M. Gilgenbach. Analysis of current crowding in thin film contacts from exact field solution. Journal of Physics D: Applied Physics 48, 475501 (2015). doi:10.1088/0022-3727/48/47/475501."
+  - "P. Zhang and Y. Y. Lau, “Constriction Resistance and Current Crowding in Vertical Thin Film Contact,” *IEEE Journal of the Electron Devices Society*, vol. 1, no. 3, pp. 83–90, 2013. doi:10.1109/JEDS.2013.2261435."
+  - "P. Zhang and Y. Y. Lau, “An exact field solution of contact resistance and comparison with the transmission line model,” *Applied Physics Letters*, vol. 104, 204102, 2014. doi:10.1063/1.4878841."
+  - "P. Zhang, Y. Y. Lau, and R. S. Timsit, “On the Spreading Resistance of Thin-Film Contacts,” *IEEE Transactions on Electron Devices*, vol. 59, no. 7, pp. 1936–1940, 2012. doi:10.1109/TED.2012.2195317."
+  - "P. Zhang, D. M. H. Hung, and Y. Y. Lau, “Current flow in a 3-terminal thin film contact with dissimilar materials and general geometric aspect ratios,” *Journal of Physics D: Applied Physics*, vol. 46, 065502, 2013. doi:10.1088/0022-3727/46/6/065502."
+  - "P. Zhang, Y. Y. Lau, and R. M. Gilgenbach, “Thin film contact resistance with dissimilar materials,” *Journal of Applied Physics*, vol. 109, 124910, 2011. doi:10.1063/1.3596759."
+  - "P. Yang, S. Banerjee, W. Kuang, Y. Ding, Q. Ma, and P. Zhang, “Current crowding and spreading resistance of electrical contacts with irregular contact edges,” *Journal of Physics D: Applied Physics*, vol. 53, 485303, 2020. doi:10.1088/1361-6463/abadc3."
+  - "S. Banerjee, L. Cao, Y. S. Ang, L. K. Ang, and P. Zhang, “Reducing Contact Resistance in Two-Dimensional-Material-Based Electrical Contacts by Roughness Engineering,” *Physical Review Applied*, vol. 13, 064021, 2020. doi:10.1103/PhysRevApplied.13.064021."
 publication_based: true
 rogue_scholar: true
 license: "CC BY 4.0"
@@ -45,7 +52,7 @@ Electrical contacts can limit the performance of two-dimensional (2D) layered se
 
 ## The problem: good in-plane transport does not guarantee a good vertical contact
 
-Consider a metal electrode placed on a layered conductor. It is tempting to assume that the electrical current simply travels downward, crossing the metal–semiconductor interface and entering the underlying film. In reality, a finite electrode injects current into a larger conducting region. Current lines must redistribute, causing a spatial voltage drop known as *spreading* or *constriction resistance*.
+Consider a metal electrode placed on a layered conductor. It is tempting to assume that the electrical current simply travels downward, crossing the metal–semiconductor interface and entering the underlying film. In reality, a finite electrode injects current into a larger conducting region. Current lines must redistribute, causing a spatial voltage drop known as *spreading* or *constriction resistance* [4,6].
 
 In materials such as graphite, MoS$_2$, and WSe$_2$, the situation is more complicated because transport parallel to the layers can differ greatly from transport across them. The atomic structure encourages lateral conduction, while vertical current may face a much greater resistivity. As a result, the current-density distribution can become highly nonuniform even in a geometrically simple contact.
 
@@ -53,9 +60,9 @@ This gives rise to two different, equally important quantities. **Spreading resi
 
 ## Why an exact anisotropic field model was needed
 
-Exact-field approaches to thin-film current injection were developed before our anisotropic study. In particular, the 2015 work of Peng Zhang, Y. Y. Lau, and R. M. Gilgenbach, *“Analysis of current crowding in thin film contacts from exact field solution,”* examined spatial current injection in thin-film contacts, including its relationship to conventional transfer-length concepts [3]. That paper established an important physical and mathematical foundation for understanding nonuniform contact currents.
+Exact-field approaches to thin-film current injection were developed before our anisotropic study [5,8]. In particular, the 2015 work of Peng Zhang, Y. Y. Lau, and R. M. Gilgenbach, *“Analysis of current crowding in thin film contacts from exact field solution,”* examined spatial current injection in thin-film contacts, including its relationship to conventional transfer-length concepts [3]. That paper established an important physical and mathematical foundation for understanding nonuniform contact currents.
 
-Our work addresses the additional challenge presented by **anisotropic transport in a finite two-layer contact**. Traditional expressions often assume isotropic materials or a laterally extensive, sufficiently thick substrate. Simply substituting an average resistivity can obscure the effect of directional conductivity on the field distribution. This is especially problematic for ultrathin films and devices with lateral dimensions comparable to the contact size.
+Our work addresses the additional challenge presented by **anisotropic transport in a finite two-layer contact**. Traditional expressions often assume isotropic materials or a laterally extensive, sufficiently thick substrate [7]. Simply substituting an average resistivity can obscure the effect of directional conductivity on the field distribution. This is especially problematic for ultrathin films and devices with lateral dimensions comparable to the contact size.
 
 We therefore formulated a two-region problem in which each material has its own in-plane and out-of-plane resistivity, while the interface has a finite specific resistivity. We retained the finite lateral and vertical boundaries rather than immediately assuming a semi-infinite conductor. The result is a unified analytical treatment of planar strip and circular disk contacts [1]. We also reported related results in our 2026 Device Research Conference paper on exact contact-resistance solutions and experimental benchmarking [2].
 
@@ -109,7 +116,7 @@ We solved these equations using field expansions that satisfy the outer boundary
 
 One of the clearest outcomes of the study is that a material with very high in-plane conductivity can exhibit **stronger current concentration near a contact edge**, even though lateral transport itself becomes easier. This is not contradictory. The total voltage required to move charge and the local peak density of that charge flow are different measures.
 
-In the exact field solutions, anisotropy changes the way potential extends beneath and beyond the electrode footprint. The current-density distribution responds to this altered potential field and can become concentrated near the boundary of the contact. The degree of crowding also depends on the resistivity and thickness of both layers, the interface, and the available lateral dimensions [1].
+In the exact field solutions, anisotropy changes the way potential extends beneath and beyond the electrode footprint. The current-density distribution responds to this altered potential field and can become concentrated near the boundary of the contact. The degree of crowding also depends on the resistivity and thickness of both layers, the interface, and the available lateral dimensions [1,9].
 
 A useful way to understand the field geometry is to recognize that the planar conduction equation can be mapped to an isotropic Laplace equation by stretching the vertical coordinate. For constant $\alpha=\rho_y/\rho_z$, the transformation
 
@@ -154,7 +161,7 @@ The inverse-radius dependence is familiar from classical spreading-resistance th
 
 ## What this means for contact engineering
 
-The findings offer a different perspective on how to optimize contacts to layered materials. Increasing in-plane conductivity alone does not necessarily solve the resistance problem or reduce current crowding. For the configurations studied, **lowering the out-of-plane resistivity of the lower film is often more effective in reducing spreading resistance**. Reducing the specific interface resistivity remains important, but these changes address different physical contributions [1].
+The findings offer a different perspective on how to optimize contacts to layered materials. Increasing in-plane conductivity alone does not necessarily solve the resistance problem or reduce current crowding. For the configurations studied, **lowering the out-of-plane resistivity of the lower film is often more effective in reducing spreading resistance**. Reducing the specific interface resistivity remains important, but these changes address different physical contributions [1,10].
 
 A reliable device assessment should therefore consider at least three quantities together: the resistance seen at the terminals, the distribution of normal injection current across the interface, and the peak current density near contact edges. These are all accessible through the exact field framework.
 
@@ -185,3 +192,17 @@ The central design lesson is that highly conductive in-plane layers do not autom
 2. M. A. Faisal and P. Zhang, “Exact Field Solution of Contact Resistance in Anisotropic 2D Transistors with Experimental Benchmarking,” *2026 Device Research Conference (DRC)*, Ann Arbor, MI, USA, 2026, pp. 1–2. <a href="https://doi.org/10.1109/DRC69467.2026.11779869" target="_blank" rel="noopener">https://doi.org/10.1109/DRC69467.2026.11779869</a>.
 
 3. P. Zhang, Y. Y. Lau, and R. M. Gilgenbach, “Analysis of current crowding in thin film contacts from exact field solution,” *Journal of Physics D: Applied Physics*, vol. 48, no. 47, 475501, 2015. <a href="https://doi.org/10.1088/0022-3727/48/47/475501" target="_blank" rel="noopener">https://doi.org/10.1088/0022-3727/48/47/475501</a>.
+
+4. P. Zhang and Y. Y. Lau, “Constriction Resistance and Current Crowding in Vertical Thin Film Contact,” *IEEE Journal of the Electron Devices Society*, vol. 1, no. 3, pp. 83–90, 2013. <a href="https://doi.org/10.1109/JEDS.2013.2261435" target="_blank" rel="noopener">https://doi.org/10.1109/JEDS.2013.2261435</a>.
+
+5. P. Zhang and Y. Y. Lau, “An exact field solution of contact resistance and comparison with the transmission line model,” *Applied Physics Letters*, vol. 104, 204102, 2014. <a href="https://doi.org/10.1063/1.4878841" target="_blank" rel="noopener">https://doi.org/10.1063/1.4878841</a>.
+
+6. P. Zhang, Y. Y. Lau, and R. S. Timsit, “On the Spreading Resistance of Thin-Film Contacts,” *IEEE Transactions on Electron Devices*, vol. 59, no. 7, pp. 1936–1940, 2012. <a href="https://doi.org/10.1109/TED.2012.2195317" target="_blank" rel="noopener">https://doi.org/10.1109/TED.2012.2195317</a>.
+
+7. P. Zhang, D. M. H. Hung, and Y. Y. Lau, “Current flow in a 3-terminal thin film contact with dissimilar materials and general geometric aspect ratios,” *Journal of Physics D: Applied Physics*, vol. 46, 065502, 2013. <a href="https://doi.org/10.1088/0022-3727/46/6/065502" target="_blank" rel="noopener">https://doi.org/10.1088/0022-3727/46/6/065502</a>.
+
+8. P. Zhang, Y. Y. Lau, and R. M. Gilgenbach, “Thin film contact resistance with dissimilar materials,” *Journal of Applied Physics*, vol. 109, 124910, 2011. <a href="https://doi.org/10.1063/1.3596759" target="_blank" rel="noopener">https://doi.org/10.1063/1.3596759</a>.
+
+9. P. Yang, S. Banerjee, W. Kuang, Y. Ding, Q. Ma, and P. Zhang, “Current crowding and spreading resistance of electrical contacts with irregular contact edges,” *Journal of Physics D: Applied Physics*, vol. 53, 485303, 2020. <a href="https://doi.org/10.1088/1361-6463/abadc3" target="_blank" rel="noopener">https://doi.org/10.1088/1361-6463/abadc3</a>.
+
+10. S. Banerjee, L. Cao, Y. S. Ang, L. K. Ang, and P. Zhang, “Reducing Contact Resistance in Two-Dimensional-Material-Based Electrical Contacts by Roughness Engineering,” *Physical Review Applied*, vol. 13, 064021, 2020. <a href="https://doi.org/10.1103/PhysRevApplied.13.064021" target="_blank" rel="noopener">https://doi.org/10.1103/PhysRevApplied.13.064021</a>.
